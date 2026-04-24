@@ -66,6 +66,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── 2c. Mega Menu Open/Close + Backdrop ─────────────────────────
+  const subnav = document.querySelector('.subnav');
+  if (subnav) {
+    subnav.classList.add('js-enabled');
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'mega-menu-backdrop';
+    document.body.appendChild(backdrop);
+
+    let activeItem = null;
+    let closeTimer = null;
+
+    const openItem = (item) => {
+      clearTimeout(closeTimer);
+      if (activeItem === item) return;
+      if (activeItem) activeItem.classList.remove('is-open');
+      activeItem = item;
+      item.classList.add('is-open');
+      backdrop.classList.add('active');
+    };
+
+    const closeMenu = () => {
+      clearTimeout(closeTimer);
+      if (!activeItem) return;
+      activeItem.classList.remove('is-open');
+      activeItem = null;
+      backdrop.classList.remove('active');
+    };
+
+    const scheduleClose = () => {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(closeMenu, 120);
+    };
+
+    subnav.querySelectorAll('.subnav__item').forEach(item => {
+      if (!item.querySelector('.mega-menu')) return;
+      item.addEventListener('mouseenter', () => openItem(item));
+      item.addEventListener('mouseleave', scheduleClose);
+    });
+
+    backdrop.addEventListener('mouseenter', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
   // ── 3. Hero Carousel ────────────────────────────────────────────
   const heroSlides = document.querySelectorAll('.hero__slide');
   const heroDots   = document.querySelectorAll('.hero__dot');

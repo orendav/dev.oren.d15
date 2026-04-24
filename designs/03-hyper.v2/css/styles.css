@@ -466,22 +466,43 @@ input, select, textarea { font-family: inherit; }
   background: var(--color-background);
   border-top: 3px solid var(--color-primary);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
   display: none;
   z-index: 200;
-  max-height: calc(100vh - var(--total-header) - 20px);
+  max-height: min(calc(100vh - var(--total-header) - 20px), 460px);
   overflow-y: auto;
 }
 
-.subnav__item:hover .mega-menu,
-.subnav__item.active .mega-menu {
+.subnav:not(.js-enabled) .subnav__item:hover .mega-menu,
+.subnav.js-enabled .subnav__item.is-open .mega-menu {
   display: block;
+}
+
+/* Backdrop — dims the page below the mega menu and acts as a
+   dismissal zone so users can close by moving left/right as well as up/down. */
+.mega-menu-backdrop {
+  position: fixed;
+  top: var(--total-header);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 180;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.mega-menu-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease, visibility 0s;
 }
 
 .mega-menu__inner {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 28px 20px;
+  padding: 22px 20px;
   display: flex;
   gap: 40px;
 }
@@ -571,9 +592,9 @@ input, select, textarea { font-family: inherit; }
 }
 
 .mega-menu--style-b .mega-menu__sidebar {
-  width: 260px;
+  width: 240px;
   background: var(--color-background-alt);
-  padding: 32px 0;
+  padding: 18px 0;
   border-right: 1px solid var(--color-border);
   flex-shrink: 0;
 }
@@ -582,8 +603,8 @@ input, select, textarea { font-family: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 28px;
-  font-size: 14px;
+  padding: 10px 24px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-foreground);
   position: relative;
@@ -635,11 +656,12 @@ input, select, textarea { font-family: inherit; }
 
 .mega-menu--style-b .mega-menu__content {
   flex: 1;
-  padding: 32px;
+  padding: 22px 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 20px;
+  grid-auto-rows: 140px;
+  gap: 14px;
+  align-content: start;
 }
 
 /* Tab-switch panels (Shop By Category) */
@@ -669,7 +691,6 @@ input, select, textarea { font-family: inherit; }
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  min-height: 180px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
