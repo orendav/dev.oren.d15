@@ -1,0 +1,23 @@
+# Tool caches
+.playwright/
+.playwright-cli/
+.claude/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Env
+.env
+.env.*
+!.env.example
