@@ -469,7 +469,8 @@ input, select, textarea { font-family: inherit; }
   box-shadow: 0 12px 40px rgba(0,0,0,0.1);
   display: none;
   z-index: 200;
-  min-height: 75vh;
+  max-height: calc(100vh - var(--total-header) - 20px);
+  overflow-y: auto;
 }
 
 .subnav__item:hover .mega-menu,
@@ -480,10 +481,9 @@ input, select, textarea { font-family: inherit; }
 .mega-menu__inner {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 28px 20px;
   display: flex;
   gap: 40px;
-  min-height: 75vh;
 }
 
 .mega-menu__columns {
@@ -745,8 +745,7 @@ input, select, textarea { font-family: inherit; }
 
 .gender-tile__image {
   position: relative;
-  flex: 1;
-  min-height: 300px;
+  height: 200px;
   overflow: hidden;
   background: var(--color-background-alt);
 }
@@ -1178,15 +1177,23 @@ input, select, textarea { font-family: inherit; }
 
 .product-card__colors {
   display: flex;
-  gap: 4px;
+  gap: 5px;
   flex-wrap: wrap;
 }
 
 .product-card__color-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
   border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.product-card__color-dot:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(26, 43, 109, 0.15);
+  transform: scale(1.1);
 }
 
 .product-card__price {

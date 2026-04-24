@@ -169,20 +169,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openQuickView = (card) => {
       const d = card.dataset;
-      const images = [d.image, d.imageAlt].filter(Boolean);
-      qvName.textContent = d.name || '';
-      qvVendor.textContent = d.vendor || '';
-      qvType.textContent = d.category || '';
-      qvPrice.textContent = '$' + (d.price || '');
-      if (d.original) {
-        qvOriginal.textContent = '$' + d.original;
+      const readName  = () => card.querySelector('.product-card__name, .offer-card__name')?.textContent.trim() || '';
+      const readImg   = () => (card.querySelector('.product-card__image-wrap img, .offer-card__image img') || card.querySelector('img'))?.src || '';
+      const readPriceEl = () => card.querySelector('.product-card__price--sale, .offer-card__price--sale, .product-card__price, .offer-card__price');
+      const readPrice = () => {
+        const el = readPriceEl();
+        if (!el) return '';
+        const m = el.textContent.match(/(\d+(?:\.\d+)?)/);
+        return m ? m[1] : '';
+      };
+      const readOriginal = () => {
+        const el = card.querySelector('.product-card__price--original, .offer-card__price--original');
+        if (!el) return '';
+        const m = el.textContent.match(/(\d+(?:\.\d+)?)/);
+        return m ? m[1] : '';
+      };
+
+      const images = [d.image || readImg(), d.imageAlt].filter(Boolean);
+      qvName.textContent    = d.name     || readName();
+      qvVendor.textContent  = d.vendor   || 'WBT';
+      qvType.textContent    = d.category || '';
+      qvPrice.textContent   = '$' + (d.price || readPrice());
+      const originalVal = d.original || readOriginal();
+      if (originalVal) {
+        qvOriginal.textContent = '$' + originalVal;
         qvOriginal.style.display = '';
       } else {
         qvOriginal.style.display = 'none';
       }
-      qvDesc.textContent = d.desc || '';
+      qvDesc.textContent = d.desc || 'Premium wholesale activewear — bulk-ready, print-ready, delivered fast across Australia.';
 
-      const stock = parseInt(d.stock || '40', 10);
+      const stock = parseInt(d.stock || '42', 10);
       qvStockTxt.innerHTML = 'Hurry up, only <strong>' + stock + '</strong> items left in stock!';
       qvStockBar.style.width = Math.max(10, Math.min(95, Math.round(stock / 1.5))) + '%';
 
@@ -204,6 +221,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let colors = [];
       try { colors = JSON.parse(d.colors || '[]'); } catch (_) {}
+      if (!colors.length) {
+        colors = Array.from(card.querySelectorAll('.product-card__color-dot')).map((dot, i) => ({
+          name: dot.getAttribute('aria-label') || dot.getAttribute('title') || ('Colour ' + (i + 1)),
+          hex:  dot.style.background || '#1a1a1a'
+        }));
+      }
       qvColors.innerHTML = '';
       qvColorName.textContent = colors[0] ? colors[0].name : '';
       colors.forEach((c, i) => {
@@ -222,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let sizes = [];
       try { sizes = JSON.parse(d.sizes || '[]'); } catch (_) {}
+      if (!sizes.length) sizes = ['XS','S','M','L','XL','2XL','3XL'];
       qvSizes.innerHTML = '';
       const defaultSize = sizes.includes('M') ? 'M' : sizes[0];
       qvSizeName.textContent = defaultSize || '';
@@ -260,6 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    document.querySelectorAll('.product-card__choose-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const card = btn.closest('.product-card');
+        if (card) openQuickView(card);
+      });
+    });
+
     qv.querySelectorAll('[data-qv-close]').forEach(el => {
       el.addEventListener('click', closeQuickView);
     });
@@ -276,6 +309,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && qv.classList.contains('active')) closeQuickView();
     });
   }
+
+  // ── 7b. Product card colour swatch → hover swaps main image ─────
+  document.querySelectorAll('.product-card').forEach(card => {
+    const mainImg = card.querySelector('.product-card__image-wrap img');
+    if (!mainImg) return;
+    const originalSrc = mainImg.getAttribute('src');
+
+    card.querySelectorAll('.product-card__color-dot[data-image]').forEach(dot => {
+      dot.addEventListener('mouseenter', () => {
+        mainImg.src = dot.dataset.image;
+      });
+      dot.addEventListener('mouseleave', () => {
+        mainImg.src = originalSrc;
+      });
+    });
+  });
 
   // ── 8. Design Control Bar ──────────────────────────────────────
   const controlToggle = document.querySelector('.control-bar__toggle');
