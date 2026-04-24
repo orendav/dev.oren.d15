@@ -479,7 +479,9 @@ input, select, textarea { font-family: inherit; }
 }
 
 /* Backdrop — dims the page below the mega menu and acts as a
-   dismissal zone so users can close by moving left/right as well as up/down. */
+   dismissal zone so users can close by moving left/right as well as up/down.
+   Sits below the subnav's stacking context (z-index 90) so the mega menu,
+   which lives inside the subnav, renders above it. */
 .mega-menu-backdrop {
   position: fixed;
   top: var(--total-header);
@@ -487,7 +489,7 @@ input, select, textarea { font-family: inherit; }
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.35);
-  z-index: 180;
+  z-index: 80;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0s linear 0.2s;
