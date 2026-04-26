@@ -1,5 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── 0a. Banner rotator (New Arrivals) ───────────────────────────
+  const rotator = document.getElementById('banner-rotator');
+  if (rotator) {
+    const slides = rotator.querySelectorAll('.banner-card__slide');
+    const dots = rotator.querySelectorAll('.banner-card__dots span');
+    let idx = 0;
+    setInterval(() => {
+      slides[idx].classList.remove('active');
+      if (dots[idx]) dots[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+      if (dots[idx]) dots[idx].classList.add('active');
+    }, 4500);
+  }
+
+  // ── 0. PO bar dismiss ───────────────────────────────────────────
+  const poBar = document.getElementById('po-bar');
+  const poClose = document.getElementById('po-bar-close');
+  if (poBar && poClose) {
+    if (sessionStorage.getItem('wbt-po-dismissed') === '1') {
+      poBar.classList.add('is-hidden');
+    }
+    poClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      poBar.classList.add('is-hidden');
+      sessionStorage.setItem('wbt-po-dismissed', '1');
+    });
+  }
+
   // ── 1. Sidebar Navigation ───────────────────────────────────────
   const sidebarToggle  = document.getElementById('sidebar-toggle');
   const sidebarClose   = document.getElementById('sidebar-close');
@@ -459,5 +489,39 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('wbt-theme-03', val);
     });
   }
+
+  // Bundle/pack card hover rotation. Cards with data-hover-images="a,b,c"
+  // swap their composite image for one of the listed product photos based
+  // on mouse-X position over the image-wrap. mouseleave restores composite.
+  document.querySelectorAll('[data-hover-images]').forEach(card => {
+    const wrap = card.querySelector('.bundle-card__image-wrap, .pack-card__image-wrap');
+    const img = wrap && wrap.querySelector('img.card-img');
+    if (!wrap || !img) return;
+
+    const hoverList = card.dataset.hoverImages.split(',').map(s => s.trim()).filter(Boolean);
+    if (!hoverList.length) return;
+
+    const original = img.getAttribute('src');
+    let currentIdx = -1;
+
+    hoverList.forEach(src => { const p = new Image(); p.src = src; });
+
+    wrap.addEventListener('mousemove', e => {
+      const rect = wrap.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const idx = Math.min(hoverList.length - 1, Math.max(0, Math.floor(x * hoverList.length)));
+      if (idx !== currentIdx) {
+        currentIdx = idx;
+        img.setAttribute('src', hoverList[idx]);
+      }
+    });
+
+    wrap.addEventListener('mouseleave', () => {
+      if (currentIdx !== -1) {
+        currentIdx = -1;
+        img.setAttribute('src', original);
+      }
+    });
+  });
 
 });

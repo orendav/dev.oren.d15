@@ -11,20 +11,25 @@
   <!-- ============================================================
        0. Purchase Order announcement bar (B2B trust signal)
        ============================================================ -->
-  <a href="#" class="po-bar">
-    <span class="po-bar__inner">
+  <div class="po-bar" id="po-bar">
+    <a href="#" class="po-bar__inner">
       <span class="po-bar__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
       </span>
       <span class="po-bar__audience">Schools, councils &amp; government</span>
+      <span class="po-bar__audience po-bar__audience--mobile">Govt &amp; Schools</span>
       <span class="po-bar__divider" aria-hidden="true">·</span>
-      <span class="po-bar__msg">We accept <strong>Purchase Orders</strong>. Get your customer number and pay later.</span>
+      <span class="po-bar__msg">We accept <strong>Purchase Orders</strong> &mdash; pay later with a customer number.</span>
+      <span class="po-bar__msg po-bar__msg--mobile">Pay later with <strong>Purchase Orders</strong></span>
       <span class="po-bar__cta">
-        Apply now
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Apply
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
       </span>
-    </span>
-  </a>
+    </a>
+    <button type="button" class="po-bar__close" id="po-bar-close" aria-label="Dismiss notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
 
   <!-- ============================================================
        1. Header (Logo + Search with All Categories + Actions)
@@ -444,13 +449,39 @@
             <span class="banner-card__cta">Shop Collection <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
           </div>
         </a>
-        <a href="#" class="banner-card banner-card--secondary" style="background-image: url('images/talent/jacket-model-1.jpg')">
-          <div class="banner-card__content">
-            <span class="banner-card__label">New Arrivals</span>
-            <h3 class="banner-card__title">Winter Jackets</h3>
-            <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+        <div class="banner-card banner-card--secondary banner-card--rotator" id="banner-rotator">
+          <a href="#" class="banner-card__slide active" style="background-image: url('images/talent/jacket-model-1.jpg')">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Winter Jackets</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <a href="#" class="banner-card__slide" style="background-image: url('images/talent/quarter-zip-model-2.jpg')">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Quarter-Zips</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <a href="#" class="banner-card__slide" style="background-image: url('images/talent/track-jacket-model-1.jpg')">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Track Jackets</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <a href="#" class="banner-card__slide" style="background-image: url('images/talent/activewear-model-women-1.jpg')">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Women's Activewear</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <div class="banner-card__dots" aria-hidden="true">
+            <span class="active"></span><span></span><span></span><span></span>
           </div>
-        </a>
+        </div>
         <a href="#" class="banner-card banner-card--tertiary" style="background-image: url('images/talent/shorts-model-1.jpg')">
           <div class="banner-card__content">
             <span class="banner-card__label banner-card__label--accent">Save 15%</span>
@@ -556,6 +587,7 @@
                 <tr><td>1-9</td><td>$19.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$17.50</td><td class="product-card__bulk-savings">-12%</td></tr>
                 <tr><td>20+</td><td>$14.95</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+2 more bulk tiers &mdash; see full product &rsaquo;</a></td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
@@ -590,6 +622,7 @@
                 <tr><td>1-9</td><td>$24.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$21.70</td><td class="product-card__bulk-savings">-13%</td></tr>
                 <tr><td>20+</td><td>$18.75</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
@@ -625,6 +658,7 @@
                 <tr><td>1-9</td><td>$18.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$16.25</td><td class="product-card__bulk-savings">-14%</td></tr>
                 <tr><td>20+</td><td>$14.20</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+1 more bulk tier &mdash; see full product &rsaquo;</a></td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
@@ -663,6 +697,7 @@
                 <tr><td>1-9</td><td>$9.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$8.60</td><td class="product-card__bulk-savings">-14%</td></tr>
                 <tr><td>20+</td><td>$7.45</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
@@ -671,6 +706,199 @@
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6b. Product + Print Value Packs (essentialworkwear-inspired)
+       ============================================================ -->
+  <section class="section section--bundles">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow section-eyebrow--bundle">UNIFORM BUNDLES</span>
+          <h2 class="section-heading">Product + Print Value Packs</h2>
+          <p class="section-subtitle">Multi-piece kits with <strong>print or embroidery included</strong>. Perfect for teams, trades and corporate fit-outs &mdash; one price, branded and ready.</p>
+        </div>
+        <a href="#" class="btn-view-all">Shop All Bundles <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="bundle-grid">
+        <a href="#" class="bundle-card" data-hover-images="images/products/quarter-zip-navy-white.jpg,images/products/track-pants-navy.jpg,images/products/jacket-navy-white.jpg">
+          <div class="bundle-card__image-wrap">
+            <span class="bundle-card__badge">SAVE $89</span>
+            <span class="qty-badge" aria-label="3 pieces">&times;3</span>
+            <img src="images/bundles/ai-bundle-print-polo-fb.png" alt="Corporate Team Bundle &mdash; front and back embroidered preview" class="card-img" loading="lazy">
+          </div>
+          <div class="bundle-card__body">
+            <span class="bundle-card__kicker">Corporate Team Pack</span>
+            <h3 class="bundle-card__name">Quarter-Zip + Track Pants + Soft-Shell Jacket</h3>
+            <span class="print-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> Embroidered &mdash; Front Logo</span>
+            <ul class="bundle-card__contents">
+              <li>1&times; Quarter-Zip Pullover &mdash; embroidered chest</li>
+              <li>1&times; Branded Track Pants</li>
+              <li>1&times; Soft-Shell Jacket &mdash; embroidered logo</li>
+            </ul>
+            <div class="bundle-card__price">
+              <span class="bundle-card__price-now">$148.85</span>
+              <span class="bundle-card__price-was">$237.85</span>
+              <span class="bundle-card__price-each">per person</span>
+            </div>
+            <span class="bundle-card__cta">Build pack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a href="#" class="bundle-card" data-hover-images="images/products/track-jacket-black-white.jpg,images/products/shorts-black.jpg,images/products/track-pants-mens-black.jpg,images/products/quarter-zip-black-red.jpg">
+          <div class="bundle-card__image-wrap">
+            <span class="bundle-card__badge">SAVE $124</span>
+            <span class="qty-badge" aria-label="4 pieces">&times;4</span>
+            <img src="images/bundles/ai-bundle-print-hoodie-fb.png" alt="Club Uniform Bundle &mdash; front and back DTF print preview" class="card-img" loading="lazy">
+          </div>
+          <div class="bundle-card__body">
+            <span class="bundle-card__kicker">Club &amp; Sports Pack</span>
+            <h3 class="bundle-card__name">Full Team Kit &mdash; Top, Pants, Shorts &amp; Mid Layer</h3>
+            <span class="print-pill print-pill--dtf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> DTF Full Colour &mdash; Front + Back</span>
+            <ul class="bundle-card__contents">
+              <li>1&times; Track Jacket &mdash; printed front + back</li>
+              <li>1&times; Active Shorts &mdash; printed leg</li>
+              <li>1&times; Track Pants</li>
+              <li>1&times; Quarter-Zip &mdash; printed chest</li>
+            </ul>
+            <div class="bundle-card__price">
+              <span class="bundle-card__price-now">$165.40</span>
+              <span class="bundle-card__price-was">$289.40</span>
+              <span class="bundle-card__price-each">per person</span>
+            </div>
+            <span class="bundle-card__cta">Build pack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a href="#" class="bundle-card" data-hover-images="images/products/jacket-royal-white.jpg,images/products/shorts-navy.jpg,images/products/leggings-long-black.jpg">
+          <div class="bundle-card__image-wrap">
+            <span class="bundle-card__badge">SAVE $74</span>
+            <span class="qty-badge" aria-label="3 pieces">&times;3</span>
+            <img src="images/bundles/ai-bundle-print-tee-fb.png" alt="Hospitality Bundle &mdash; embroidered name preview" class="card-img" loading="lazy">
+          </div>
+          <div class="bundle-card__body">
+            <span class="bundle-card__kicker">Hospitality &amp; Events Pack</span>
+            <h3 class="bundle-card__name">Front-of-House Uniform &mdash; Jacket + Bottoms</h3>
+            <span class="print-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> Embroidered Name &mdash; Chest</span>
+            <ul class="bundle-card__contents">
+              <li>1&times; Light Jacket &mdash; embroidered with first name</li>
+              <li>1&times; Branded Active Shorts</li>
+              <li>1&times; Full-Length Leggings</li>
+            </ul>
+            <div class="bundle-card__price">
+              <span class="bundle-card__price-now">$118.50</span>
+              <span class="bundle-card__price-was">$192.50</span>
+              <span class="bundle-card__price-each">per person</span>
+            </div>
+            <span class="bundle-card__cta">Build pack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="bundle-strip">
+        <span class="bundle-strip__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <div class="bundle-strip__lines">
+          <strong>Print &amp; embroidery included &mdash; no setup fees, no minimums.</strong>
+          <span>Upload artwork at checkout. Our team scales and proofs it before production.</span>
+        </div>
+        <a href="#" class="bundle-strip__cta">How it works &rsaquo;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6c. Product-Only Value Packs (workwearhub-inspired)
+       ============================================================ -->
+  <section class="section section--packs">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow section-eyebrow--pack">VALUE PACKS</span>
+          <h2 class="section-heading">Multi-buy &amp; Twin Packs</h2>
+          <p class="section-subtitle">Same item, multiple sizes or colours, one bundled price &mdash; the cheapest way to stock up. <strong>No printing.</strong></p>
+        </div>
+        <a href="#" class="btn-view-all">Shop All Packs <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="pack-grid">
+        <a href="#" class="pack-card" data-hover-images="images/products/shorts-black.jpg,images/products/shorts-navy.jpg">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save">SAVE $19.35</span>
+            <img src="images/bundles/ai-pack-shorts-twin.png" alt="Cargo Shorts Twin Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="2 pack">&times;2</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Cargo Shorts Twin Value Pack &mdash; Khaki</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">128 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$15.95</span>
+              <span class="pack-card__price-was">$25.90</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
+
+        <a href="#" class="pack-card" data-hover-images="images/products/quarter-zip-navy-white.jpg,images/products/quarter-zip-black-red.jpg">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save">SAVE $32.85</span>
+            <img src="images/bundles/ai-pack-hivis-3.png" alt="Hi-Vis 3 Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="3 pack">&times;3</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Hi-Vis Long-Sleeve 3 Pack &mdash; Orange / Navy</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">87 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$45.00</span>
+              <span class="pack-card__price-was">$77.85</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
+
+        <a href="#" class="pack-card" data-hover-images="images/products/track-pants-navy.jpg,images/products/track-pants-mens-black.jpg,images/products/track-pants-womens-black.jpg">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save pack-card__save--big">SAVE $54.40</span>
+            <span class="pack-card__online-only">ONLINE ONLY</span>
+            <img src="images/bundles/pack-trackpants-4.jpg" alt="Track Pants 4 Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="4 pack">&times;4</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Unisex Track Pants 4 Value Pack &mdash; Navy / Black</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">340 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$59.40</span>
+              <span class="pack-card__price-was">$113.80</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
+
+        <a href="#" class="pack-card" data-hover-images="images/products/jacket-black-red.jpg,images/products/jacket-navy-white.jpg">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save">SAVE $24.95</span>
+            <img src="images/bundles/pack-jackets-twin.jpg" alt="Activewear Jacket Twin Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="2 pack">&times;2</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Activewear Jacket Twin Pack &mdash; Black/Red + Navy</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">52 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$24.95</span>
+              <span class="pack-card__price-was">$49.90</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -693,16 +921,17 @@
   </section>
 
   <!-- ============================================================
-       8. Shop Our Offers — Hyper-theme style (hover Choose Options → QuickView)
+       8. Clearance — limited-stock end-of-line products
        ============================================================ -->
-  <section class="section section--offers">
+  <section class="section section--offers section--clearance">
     <div class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-heading">Shop Our Offers</h2>
-          <p class="section-subtitle">Wholesale activewear at even better prices. Limited stock available.</p>
+          <span class="section-eyebrow section-eyebrow--clearance">CLEARANCE</span>
+          <h2 class="section-heading">End-of-line &amp; Run-out</h2>
+          <p class="section-subtitle">Final stock, deep discounts &mdash; <strong>limited stock still available</strong>. Once it's gone, it's gone.</p>
         </div>
-        <a href="#" class="btn-view-all">Shop All Products <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+        <a href="#" class="btn-view-all">Shop All Clearance <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
       </div>
       <div class="offers-grid">
         <div class="offer-card"
@@ -718,7 +947,8 @@
              data-sizes='["S","M","L","XL","2XL","3XL"]'
              data-desc="Breathable polyester track jacket — perfect for team uniforms, gyms and schools. Print- and embroidery-ready.">
           <div class="offer-card__image">
-            <span class="offer-card__badge offer-card__badge--sale">Sale</span>
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 42 left</span>
             <img class="offer-card__img offer-card__img--main" src="images/products/track-jacket-navy-white.jpg" alt="Track Jacket" loading="lazy">
             <img class="offer-card__img offer-card__img--alt" src="images/talent/track-jacket-model-1.jpg" alt="Track Jacket on model" loading="lazy">
             <button class="offer-card__choose" type="button">Choose Options</button>
@@ -746,8 +976,8 @@
              data-sizes='["S","M","L","XL","2XL"]'
              data-desc="Contrast panel track jacket with zip pockets and elasticated cuffs. A wholesale staple for clubs and corporates.">
           <div class="offer-card__image">
-            <span class="offer-card__badge offer-card__badge--sale">Sale</span>
-            <span class="offer-card__tag offer-card__tag--low">Selling Fast</span>
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 18 left</span>
             <img class="offer-card__img offer-card__img--main" src="images/products/track-jacket-black-white.jpg" alt="Track Jacket Black" loading="lazy">
             <img class="offer-card__img offer-card__img--alt" src="images/talent/jacket-model-2.jpg" alt="Track Jacket alternate" loading="lazy">
             <button class="offer-card__choose" type="button">Choose Options</button>
@@ -774,7 +1004,8 @@
              data-sizes='["XS","S","M","L","XL"]'
              data-desc="High-waisted compression leggings with flatlock seams. Four-way stretch, ideal for training, yoga and team fit-outs.">
           <div class="offer-card__image">
-            <span class="offer-card__badge offer-card__badge--sale">Sale</span>
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 24 left</span>
             <img class="offer-card__img offer-card__img--main" src="images/products/leggings-long-black.jpg" alt="Leggings" loading="lazy">
             <img class="offer-card__img offer-card__img--alt" src="images/talent/leggings-model-1.jpg" alt="Leggings on model" loading="lazy">
             <button class="offer-card__choose" type="button">Choose Options</button>
@@ -801,7 +1032,8 @@
              data-sizes='["S","M","L","XL","2XL","3XL"]'
              data-desc="Lightweight 5-inch active short with drawcord waist and mesh pocket lining. Great for gym, footy and run-out uniforms.">
           <div class="offer-card__image">
-            <span class="offer-card__badge offer-card__badge--sale">Sale</span>
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 36 left</span>
             <img class="offer-card__img offer-card__img--main" src="images/products/shorts-navy.jpg" alt="Shorts Navy" loading="lazy">
             <img class="offer-card__img offer-card__img--alt" src="images/talent/shorts-model-1.jpg" alt="Shorts on model" loading="lazy">
             <button class="offer-card__choose" type="button">Choose Options</button>
@@ -828,8 +1060,8 @@
              data-sizes='["S","M","L","XL","2XL"]'
              data-desc="Mid-weight poly/cotton quarter-zip with contrast panels. Decoration-ready and rated for heavy laundry cycles.">
           <div class="offer-card__image">
-            <span class="offer-card__badge offer-card__badge--sale">Sale</span>
-            <span class="offer-card__tag offer-card__tag--low">Selling Fast</span>
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 28 left</span>
             <img class="offer-card__img offer-card__img--main" src="images/products/quarter-zip-black-red.jpg" alt="Quarter-Zip" loading="lazy">
             <img class="offer-card__img offer-card__img--alt" src="images/talent/quarter-zip-model-1.jpg" alt="Quarter-Zip on model" loading="lazy">
             <button class="offer-card__choose" type="button">Choose Options</button>
@@ -1079,9 +1311,12 @@
       <div class="bulk-grid">
         <div class="bulk-grid__head">
           <div>Product</div>
-          <div class="bulk-grid__head-sizes">S / M / L / XL / 2XL</div>
-          <div>Unit</div>
-          <div>Action</div>
+          <div>Colour</div>
+          <div class="bulk-grid__head-sizes" aria-hidden="true">
+            <span>S</span><span>M</span><span>L</span><span>XL</span><span>2XL</span>
+          </div>
+          <div class="bulk-grid__head-cell--right">Unit</div>
+          <div class="bulk-grid__head-cell--right">Action</div>
         </div>
 
         <div class="bulk-row">
@@ -1089,8 +1324,16 @@
             <img src="images/products/jacket-black-red.jpg" alt="Activewear Jacket" loading="lazy">
             <div>
               <div class="bulk-row__name">Activewear Jacket</div>
-              <div class="bulk-row__meta">Black / Red &middot; SKU WBT-JK-01</div>
+              <div class="bulk-row__meta">SKU WBT-JK-01</div>
             </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black / Red</option>
+              <option>Navy / White</option>
+              <option>Royal / White</option>
+              <option>Charcoal</option>
+            </select>
           </div>
           <div class="bulk-row__sizes">
             <input type="number" min="0" value="0" aria-label="S">
@@ -1108,8 +1351,17 @@
             <img src="images/products/quarter-zip-navy-white.jpg" alt="Quarter-Zip Pullover" loading="lazy">
             <div>
               <div class="bulk-row__name">Quarter-Zip Pullover</div>
-              <div class="bulk-row__meta">Navy / White &middot; SKU WBT-QZ-07</div>
+              <div class="bulk-row__meta">SKU WBT-QZ-07</div>
             </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Navy / White</option>
+              <option>Black / Red</option>
+              <option>Charcoal</option>
+              <option>Forest</option>
+              <option>Wine</option>
+            </select>
           </div>
           <div class="bulk-row__sizes">
             <input type="number" min="0" value="0" aria-label="S">
@@ -1127,8 +1379,15 @@
             <img src="images/products/track-pants-navy.jpg" alt="Unisex Track Pants" loading="lazy">
             <div>
               <div class="bulk-row__name">Unisex Track Pants</div>
-              <div class="bulk-row__meta">Navy &middot; SKU WBT-TP-03</div>
+              <div class="bulk-row__meta">SKU WBT-TP-03</div>
             </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Navy</option>
+              <option>Black</option>
+              <option>Charcoal</option>
+            </select>
           </div>
           <div class="bulk-row__sizes">
             <input type="number" min="0" value="0" aria-label="S">
@@ -1146,8 +1405,16 @@
             <img src="images/products/shorts-black.jpg" alt="Active Shorts" loading="lazy">
             <div>
               <div class="bulk-row__name">Active Shorts</div>
-              <div class="bulk-row__meta">Black &middot; SKU WBT-SH-12</div>
+              <div class="bulk-row__meta">SKU WBT-SH-12</div>
             </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black</option>
+              <option>Navy</option>
+              <option>Charcoal</option>
+              <option>Wine</option>
+            </select>
           </div>
           <div class="bulk-row__sizes">
             <input type="number" min="0" value="0" aria-label="S">
@@ -1165,8 +1432,15 @@
             <img src="images/products/leggings-long-black.jpg" alt="Full Length Leggings" loading="lazy">
             <div>
               <div class="bulk-row__name">Full Length Leggings</div>
-              <div class="bulk-row__meta">Black &middot; SKU WBT-LG-04</div>
+              <div class="bulk-row__meta">SKU WBT-LG-04</div>
             </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black</option>
+              <option>Charcoal</option>
+              <option>Navy</option>
+            </select>
           </div>
           <div class="bulk-row__sizes">
             <input type="number" min="0" value="0" aria-label="S">
@@ -1184,8 +1458,15 @@
             <img src="images/products/track-jacket-black-white.jpg" alt="Track Jacket" loading="lazy">
             <div>
               <div class="bulk-row__name">Track Jacket</div>
-              <div class="bulk-row__meta">Black / White &middot; SKU WBT-TJ-09</div>
+              <div class="bulk-row__meta">SKU WBT-TJ-09</div>
             </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black / White</option>
+              <option>Navy / White</option>
+              <option>Royal / White</option>
+            </select>
           </div>
           <div class="bulk-row__sizes">
             <input type="number" min="0" value="0" aria-label="S">
@@ -1247,6 +1528,7 @@
                 <tr><td>1-9</td><td>$24.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$21.70</td><td class="product-card__bulk-savings">-13%</td></tr>
                 <tr><td>20+</td><td>$18.75</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
@@ -1280,6 +1562,7 @@
                 <tr><td>1-9</td><td>$19.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$17.35</td><td class="product-card__bulk-savings">-13%</td></tr>
                 <tr><td>20+</td><td>$14.95</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+2 more bulk tiers &mdash; see full product &rsaquo;</a></td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
@@ -1313,6 +1596,7 @@
                 <tr><td>1-9</td><td>$14.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$12.90</td><td class="product-card__bulk-savings">-14%</td></tr>
                 <tr><td>20+</td><td>$11.20</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+1 more bulk tier &mdash; see full product &rsaquo;</a></td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
@@ -1347,6 +1631,7 @@
                 <tr><td>1-9</td><td>$14.95</td><td></td></tr>
                 <tr><td>10-19</td><td>$12.90</td><td class="product-card__bulk-savings">-14%</td></tr>
                 <tr><td>20+</td><td>$11.20</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
               </tbody>
             </table>
             <button class="product-card__add-cart">
