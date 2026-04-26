@@ -32,6 +32,25 @@ Each design folder contains:
 - `images/` — product + talent imagery
 - `screenshots/` — Playwright captures kept alongside the design (used for diff/review)
 
+## Source asset library
+
+WBT's licensed product and lifestyle imagery from the brands they stock lives at:
+
+```
+C:\Users\Oren\Dropbox\Family Room\Products\by brand\<brand>\
+```
+
+Brand subfolders include `Biz Collection`, `ascolour`, `gildan`, `ramo`, `supertouch`, `bluewhale`, `codered`, `leo`, `merchrobot`, `RSEA`, plus a few miscellaneous ones. Each brand is organized by category, then SKU. Example: `Biz Collection/09 Activewear/09 Activewear/L513LT/`.
+
+**Naming convention inside an SKU folder:**
+- `<SKU>_Product_<colorway>_NN.jpg` — flat product photo on white seamless. Use for product cards.
+- `<SKU>_Talent_<colorway>_R.jpg` — single-model lifestyle shot (`_R` = retouched). Use for hero/feature/category banners.
+- `Talent_Group_Flex_01_R.jpg` (or similar) — shared group lifestyle shots that live alongside multiple SKUs. The same file appears in several SKU folders by design — match by hash if you need to deduplicate.
+
+When a design needs new product or talent imagery, **first check this folder for a real Biz/AsColour/etc. asset** before generating with AI. Files copied into a design folder are usually renamed (e.g. `Talent_Group_Flex_01_R.jpg` → `group-women-activewear.jpg`) so the original filename isn't a reliable provenance signal — `md5sum` against the source folder is.
+
+This also means: don't infer "AI-generated" from EXIF alone. Brand assets pass through retouching pipelines that strip camera metadata and stamp `Software: Adobe Photoshop`, which looks identical to AI-then-Photoshop output. Hash against the source library first.
+
 ## Local preview workflow
 
 These prototypes are static, so any local HTTP server works. Use the Windows `py` launcher (Python is installed but `python` isn't on PATH):
@@ -116,10 +135,11 @@ Run with `py scripts/make_bundles.py` from inside the design folder. Output land
 
 `designs/03-hyper.v3/scripts/gen_bundles_ai.py` calls `POST https://api.openai.com/v1/images/generations` and writes 1024×1024 PNGs into `images/bundles/ai-*.png`. Idempotent — skips files that already exist; pass `--force` to regenerate.
 
-API key lives in `designs/03-hyper.v3/scripts/.env` (gitignored via root `.gitignore`):
+API keys live in `designs/03-hyper.v3/scripts/.env` (gitignored via root `.gitignore`):
 
 ```
-OPENAI_API_KEY=sk-proj-...
+OPENAI_API_KEY=sk-proj-...   # for gpt-image-2 generation (this script)
+IMGIX_API_KEY=ak_...         # for Imgix CDN/source-management (not yet wired in)
 ```
 
 Run with `py scripts/gen_bundles_ai.py` from inside `designs/03-hyper.v3/`.

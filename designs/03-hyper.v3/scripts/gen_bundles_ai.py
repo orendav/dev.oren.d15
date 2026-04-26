@@ -95,6 +95,23 @@ PROMPTS = [
         "drawstring waist and side pockets, photographed flat from above, "
         "side by side with a slight overlap.",
     ),
+    # 2b. Track-pants 4-pack — navy/black mix.
+    (
+        "ai-pack-trackpants-4.png",
+        f"{STYLE} Four identical pairs of unisex slim-fit athletic track "
+        "pants laid flat from above, two in navy blue and two in black, "
+        "arranged in a 2x2 grid with slight overlap. Drawstring waist, "
+        "tapered ankle, side seam panels.",
+    ),
+    # 2c. Activewear jacket twin pack — one black/red, one navy/white.
+    (
+        "ai-pack-jackets-twin.png",
+        f"{STYLE} Two activewear softshell zip jackets laid flat side by "
+        "side from above: the LEFT jacket is black with a red side panel "
+        "running from the shoulder down the sleeve. The RIGHT jacket is "
+        "navy blue with a white side panel in the same position. Both "
+        "have full front zips, stand collars, and front pockets.",
+    ),
 
     # ---------- BUNDLE cards (safetrex-style front+back print preview) -
     # Each shows ONE garment laid flat front-view next to the same garment

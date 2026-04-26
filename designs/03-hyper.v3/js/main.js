@@ -380,13 +380,71 @@ document.addEventListener('DOMContentLoaded', () => {
       body.style.overflow = '';
     };
 
-    document.querySelectorAll('.offer-card__choose').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    // Inline clearance card form: colour + size selects, qty -/+, ATC,
+    // "Show Product Details" (which opens the quickview).
+    document.querySelectorAll('.offer-card').forEach(card => {
+      let colors = [];
+      let sizes = [];
+      try { colors = JSON.parse(card.dataset.colors || '[]'); } catch (e) {}
+      try { sizes = JSON.parse(card.dataset.sizes || '[]'); } catch (e) {}
+
+      const colorOpts = colors.map(c => `<option value="${c.name}">${c.name}</option>`).join('');
+      const sizeOpts = sizes.map(s => `<option value="${s}">${s}</option>`).join('');
+
+      const form = document.createElement('div');
+      form.className = 'offer-card__form';
+      form.innerHTML = `
+        <div class="offer-card__form-row">
+          <select class="offer-card__select" data-role="color" aria-label="Colour">${colorOpts}</select>
+          <select class="offer-card__select" data-role="size" aria-label="Size">${sizeOpts}</select>
+        </div>
+        <div class="offer-card__form-row">
+          <div class="offer-card__qty">
+            <button type="button" data-qty="-1" aria-label="Decrease quantity">&minus;</button>
+            <input type="number" min="1" value="1" aria-label="Quantity">
+            <button type="button" data-qty="1" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="offer-card__atc" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l3 12h11l2-8H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+        <button class="offer-card__details" type="button">Show Product Details &rsaquo;</button>
+      `;
+      card.appendChild(form);
+
+      // qty -/+ buttons
+      const qtyInput = form.querySelector('.offer-card__qty input');
+      form.querySelectorAll('.offer-card__qty button').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          const delta = parseInt(btn.dataset.qty, 10);
+          const next = Math.max(1, (parseInt(qtyInput.value, 10) || 1) + delta);
+          qtyInput.value = next;
+        });
+      });
+
+      // ATC — no-op for prototype, just acknowledge visually
+      form.querySelector('.offer-card__atc').addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation();
-        const card = btn.closest('.offer-card');
-        if (card) openQuickView(card);
+        const btn = form.querySelector('.offer-card__atc');
+        const original = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Added';
+        btn.classList.add('is-added');
+        setTimeout(() => { btn.innerHTML = original; btn.classList.remove('is-added'); }, 1500);
       });
+
+      // Details button — open existing quickview
+      form.querySelector('.offer-card__details').addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        openQuickView(card);
+      });
+
+      // Stop clicks on the form from bubbling up to the card-level link/handlers
+      form.addEventListener('click', e => e.stopPropagation());
     });
 
     document.querySelectorAll('.product-card__choose-btn').forEach(btn => {
@@ -490,9 +548,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Easy Bulk Order rows: colour dropdown swaps the row thumbnail. Each row
+  // has data-color-images='{"Colour":"path",...}'. Falls back silently if no
+  // mapping for the selected colour.
+  document.querySelectorAll('.bulk-row[data-color-images]').forEach(row => {
+    const thumb = row.querySelector('.bulk-row__product img');
+    const select = row.querySelector('.bulk-row__colour select');
+    if (!thumb || !select) return;
+    let map = {};
+    try { map = JSON.parse(row.dataset.colorImages || '{}'); } catch (e) { return; }
+    Object.values(map).forEach(src => { const p = new Image(); p.src = src; });
+    select.addEventListener('change', () => {
+      const src = map[select.value];
+      if (src) thumb.setAttribute('src', src);
+    });
+  });
+
   // Bundle/pack card hover rotation. Cards with data-hover-images="a,b,c"
   // swap their composite image for one of the listed product photos based
-  // on mouse-X position over the image-wrap. mouseleave restores composite.
+  // on mouse-X position over the image-wrap. We oversample by HOVER_ZONES so
+  // small mouse movements still trigger swaps (cycles/wraps through the list
+  // multiple times across the card width). mouseleave restores composite.
+  const HOVER_ZONES = 6;  // ~50px per zone on a 300px-wide card
   document.querySelectorAll('[data-hover-images]').forEach(card => {
     const wrap = card.querySelector('.bundle-card__image-wrap, .pack-card__image-wrap');
     const img = wrap && wrap.querySelector('img.card-img');
@@ -508,11 +585,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     wrap.addEventListener('mousemove', e => {
       const rect = wrap.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const idx = Math.min(hoverList.length - 1, Math.max(0, Math.floor(x * hoverList.length)));
+      const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const zone = Math.min(HOVER_ZONES - 1, Math.floor(x * HOVER_ZONES));
+      const idx = zone % hoverList.length;
       if (idx !== currentIdx) {
         currentIdx = idx;
         img.setAttribute('src', hoverList[idx]);
+        wrap.classList.add('is-hover');
       }
     });
 
@@ -520,6 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentIdx !== -1) {
         currentIdx = -1;
         img.setAttribute('src', original);
+        wrap.classList.remove('is-hover');
       }
     });
   });
