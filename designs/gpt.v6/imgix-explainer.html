@@ -103,6 +103,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
     <li><a href="#section-featured">Section: Featured banner</a></li>
     <li><a href="#section-shopcat">Section: Shop-by-Gender tiles</a></li>
     <li><a href="#section-megamenu">Section: Mega-menu</a></li>
+    <li><a href="#section-mobile-menu">Section: Mobile menu</a></li>
     <li><a href="#section-products">Section: Product cards</a></li>
     <li><a href="#section-bundles">Section: Bundle / pack cards</a></li>
     <li><a href="#section-hover">Section: Hover-rotation (data-hover-images)</a></li>
@@ -252,7 +253,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   <thead><tr><th>Section</th><th>Container aspect (rendered)</th><th><code>ar=</code></th></tr></thead>
   <tbody>
     <tr><td>Hero video poster</td><td>~525×560 desktop (square-ish)</td><td><code>1:1</code></td></tr>
-    <tr><td>Banner rotator slides</td><td>~723×272 desktop (very wide)</td><td><code>8:3</code></td></tr>
+    <tr><td>Banner rotator slides</td><td>Desktop wide card, stacked mobile card</td><td><code>2:1</code> in gpt.v6 to preserve faces on mobile</td></tr>
     <tr><td>Tertiary / Quaternary cards</td><td>~361×272 desktop</td><td><code>4:3</code></td></tr>
     <tr><td>Featured banner image</td><td>50% × min-height 400</td><td><code>3:2</code></td></tr>
     <tr><td>Mega-menu Gender tiles</td><td>~397×200 (about 2:1)</td><td><code>2:1</code></td></tr>
@@ -310,15 +311,15 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   <div>Pattern</div><div>Width-described srcset</div>
   <div>Width ladder</div><div><code>360 / 540 / 720 / 960 / 1280</code></div>
   <div>sizes</div><div><code>(min-width: 992px) 60vw, 100vw</code></div>
-  <div>Crop</div><div><span class="tag faces">faces</span> + <span class="tag ar">ar=8:3</span></div>
+  <div>Crop</div><div><span class="tag faces">faces</span> + <span class="tag ar">ar=2:1</span></div>
 </div>
 <div class="thumb-strip">
-  <img src="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
-  <img src="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
-  <img src="https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
-  <img src="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
+  <img src="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=2:1&w=160" alt="" style="width:160px">
+  <img src="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=2:1&w=160" alt="" style="width:160px">
+  <img src="https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=2:1&w=160" alt="" style="width:160px">
+  <img src="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=2:1&w=160" alt="" style="width:160px">
 </div>
-<p class="dim">Each rotator slide pulls from a different SKU's talent shot. <code>ar=8:3</code> keeps wide framing, <code>crop=faces</code> keeps the model's face on screen.</p>
+<p class="dim">Each rotator slide pulls from a different SKU's talent shot. gpt.v6 uses <code>ar=2:1</code> plus top-biased mobile object positioning because the earlier <code>8:3</code> crop cut heads on stacked mobile cards.</p>
 
 <h2 id="section-tert">8. Tertiary / Quaternary corner cards</h2>
 <div class="kv">
@@ -365,7 +366,31 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 </div>
 <p class="dim">Each thumb downloads in 4–10 KB.</p>
 
-<h2 id="section-products">12. Product cards</h2>
+<h2 id="section-mobile-menu">12. Mobile menu</h2>
+<p>The mobile drawer uses a compact tabbed mega-menu rather than reproducing the full desktop mega-menu as a long accordion. This keeps the same shopping paths available while reducing scroll depth on phones.</p>
+
+<div class="kv">
+  <div>Component</div><div><code>.mobile-mega</code> inside <code>#sidebar</code></div>
+  <div>Quick links</div><div><code>T-Shirts</code>, <code>Polos</code>, <code>Hoodies</code>, <code>Sale</code></div>
+  <div>Tabs</div><div><code>Category</code>, <code>Industry</code>, <code>Gender</code>, <code>Services</code></div>
+  <div>Interaction</div><div><code>js/main.js</code> toggles <code>.mobile-mega__tab.active</code>, <code>aria-selected</code>, <code>.mobile-mega__panel.active</code>, and <code>hidden</code>.</div>
+</div>
+
+<table>
+  <thead><tr><th>Tab</th><th>Expected links</th></tr></thead>
+  <tbody>
+    <tr><td>Category</td><td>Tops, Bottoms, Outerwear, Hi-Vis &amp; Workwear, Accessories, View All Products</td></tr>
+    <tr><td>Industry</td><td>Team Uniforms, Corporate Wear, Trades &amp; Construction, Hospitality, Schools &amp; Education, Healthcare</td></tr>
+    <tr><td>Gender</td><td>Men, Women, Kids</td></tr>
+    <tr><td>Services</td><td>Screen Printing, Embroidery, Bulk Orders, Request a Quote</td></tr>
+  </tbody>
+</table>
+
+<div class="callout good">
+  <strong>Mobile UX rule:</strong> the older nested <code>.sidebar__group</code> accordion markup may remain as a fallback, but it should be hidden on mobile. The visible mobile experience should be quick links plus one active tab panel.
+</div>
+
+<h2 id="section-products">13. Product cards</h2>
 <div class="kv">
   <div>Component</div><div><code>.product-card__image-wrap img</code> across "Best Sellers", "New Arrivals", "Customise", "Quickview", "Clearance" sections</div>
   <div>Pattern</div><div>Width-described srcset</div>
@@ -375,7 +400,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 </div>
 <p class="dim">Product cards render at ~25% viewport on desktop (4 per row), 33% on tablet (3 per row), 50% on mobile (2 per row). The <code>sizes</code> attribute tells the browser exactly that.</p>
 
-<h2 id="section-bundles">13. Bundle / pack cards</h2>
+<h2 id="section-bundles">14. Bundle / pack cards</h2>
 <div class="kv">
   <div>Component</div><div><code>.bundle-card</code>, <code>.pack-card</code> at <code>:716–908</code></div>
   <div>Pattern</div><div>Width-described srcset</div>
@@ -392,7 +417,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   <img src="https://wbt01.imgix.net/test01/bundles/ai-pack-shorts-twin.png?auto=format,compress&fit=crop&crop=entropy&w=200" alt="">
 </div>
 
-<h2 id="section-hover">14. Hover-rotation (data-hover-images)</h2>
+<h2 id="section-hover">15. Hover-rotation (data-hover-images)</h2>
 <p>Bundle and pack cards swap their composite image for individual product photos as the mouse moves across the card. The list of swap-target URLs lives in a <code>data-hover-images</code> attribute. <strong>Important:</strong> the separator is <code>|</code>, not <code>,</code> — because imgix URLs themselves contain <code>auto=format,compress</code>, splitting on comma would fragment URLs.</p>
 <pre>&lt;a class="bundle-card"
    data-hover-images="https://wbt01.imgix.net/.../A.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 |
@@ -401,7 +426,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <p>The split is in <code>js/main.js</code>:</p>
 <pre>const hoverList = card.dataset.hoverImages.split('|').map(s =&gt; s.trim()).filter(Boolean);</pre>
 
-<h2 id="mobile-first-v6">15. Mobile-first SEO/media rules</h2>
+<h2 id="mobile-first-v6">16. Mobile-first SEO/media rules</h2>
 <p>Google evaluates the page through a mobile-first lens, so media delivery must support the visible mobile message, not just desktop aesthetics. The gpt.v6 homepage keeps the hero image lightweight and makes the main buying proposition visible on mobile.</p>
 
 <table>
@@ -414,13 +439,13 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
     </tr>
     <tr>
       <td>Hero description</td>
-      <td>Keep the main hero description visible on mobile, even if secondary card descriptions are hidden.</td>
-      <td>The mobile above-the-fold view should explicitly mention core categories and intent: T-shirts, polos, hoodies, uniforms, activewear, bulk pricing, print-ready, Australia.</td>
+      <td>Keep one short hero description visible on mobile, even if secondary card descriptions are hidden.</td>
+      <td>The mobile above-the-fold view should communicate the core intent without crowding the first banner.</td>
     </tr>
     <tr>
       <td>Proof chips</td>
-      <td>Add compact visible proof terms below the hero description: <code>Bulk pricing</code>, <code>PO accepted</code>, <code>Print &amp; embroidery</code>, <code>Australian stock</code>.</td>
-      <td>These terms clarify commercial intent quickly and help the mobile page communicate why this is a wholesale homepage.</td>
+      <td>Keep proof terms available in markup/desktop layout, but hide the stacked proof-chip block on mobile.</td>
+      <td>The first mobile banner was too text-heavy. H1, short description, and CTA are the mobile priority.</td>
     </tr>
     <tr>
       <td>Hero link</td>
@@ -436,10 +461,10 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 </table>
 
 <div class="callout warn">
-  <strong>Implementation check:</strong> at 360px, 390px, and 768px, confirm <code>document.documentElement.scrollWidth === window.innerWidth</code>, exactly one <code>&lt;h1&gt;</code>, and visible text includes the H1, hero description, and four proof chips. Use DOM checks before screenshots.
+  <strong>Implementation check:</strong> at 360px, 390px, and 768px, confirm <code>document.documentElement.scrollWidth === window.innerWidth</code>, exactly one <code>&lt;h1&gt;</code>, visible text includes the H1 and short hero description, <code>.hero-proof</code> is hidden on mobile, the MP4 is visible/cropped, and the mobile menu tabs switch panels. Use DOM checks before screenshots.
 </div>
 
-<h2 id="bandwidth">16. Bandwidth wins (measured on Chrome desktop @ 1440×900)</h2>
+<h2 id="bandwidth">17. Bandwidth wins (measured on Chrome desktop @ 1440×900)</h2>
 <table>
   <thead><tr><th>Asset</th><th>v4 size (local JPEG/PNG)</th><th>gpt.v6 size (imgix AVIF)</th><th>Saving</th></tr></thead>
   <tbody>
@@ -452,7 +477,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   </tbody>
 </table>
 
-<h2 id="operational">17. Operational notes</h2>
+<h2 id="operational">18. Operational notes</h2>
 
 <h3>Adding a new image</h3>
 <ol>
@@ -476,8 +501,8 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <h3>gpt.v6 file inventory</h3>
 <div class="kv">
   <div>Markup</div><div><code>designs/gpt.v6/index.html</code></div>
-  <div>Styles</div><div><code>designs/gpt.v6/css/styles.css</code> — <code>.banner-card__image</code>, <code>.featured-banner__image img</code>, <code>.hero-proof</code>, mobile video poster fallback</div>
-  <div>JS</div><div><code>designs/gpt.v6/js/main.js</code> — split on <code>|</code></div>
+  <div>Styles</div><div><code>designs/gpt.v6/css/styles.css</code> — <code>.banner-card__image</code>, <code>.featured-banner__image img</code>, <code>.hero-proof</code>, mobile video crop, mobile mega-menu</div>
+  <div>JS</div><div><code>designs/gpt.v6/js/main.js</code> — split on <code>|</code>, mobile mega-menu tabs</div>
   <div>Migrator</div><div><code>designs/gpt.v6/scripts/imgix_migrate.py</code></div>
   <div>Live URL</div><div><a href="https://orendav.github.io/dev.oren.d15/designs/gpt.v6/">orendav.github.io/dev.oren.d15/designs/gpt.v6/</a></div>
 </div>

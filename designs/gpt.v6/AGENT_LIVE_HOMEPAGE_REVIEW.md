@@ -30,6 +30,7 @@ For each viewport, verify:
 - No horizontal overflow: `document.documentElement.scrollWidth <= window.innerWidth`.
 - Header, announcement bar, search, cart, quote, and mobile menu are visible or hidden as intended.
 - Hero/banner content remains readable and CTAs remain tappable.
+- Mobile hero is intentionally compact: visible H1, one short value line, primary CTA, and no stacked proof-chip block.
 - Product cards, bundle cards, bulk order rows, brand grid, newsletter, and footer do not force overflow.
 - Mobile sections are dense but still usable; no important CTA is pushed off-canvas.
 
@@ -74,6 +75,24 @@ Audit all user-facing links:
 - Cart, login/account, quote request, phone, email, footer, social, journal, product, category, bundle, and collection links are valid or intentionally stubbed by the platform with documented behavior.
 - Search fields submit to the platform search route or trigger the intended search behavior.
 
+## Mobile Menu
+
+The mobile drawer is not expected to mirror the desktop mega-menu as one long accordion. It should preserve the same shopping paths while reducing scroll and decision fatigue.
+
+Expected mobile drawer behavior:
+
+- Drawer opens from the hamburger and closes from the close button, overlay, and Escape key if supported by the platform.
+- Drawer includes a search field near the top.
+- Drawer includes quick links for `T-Shirts`, `Polos`, `Hoodies`, and `Sale`.
+- Drawer uses a tabbed mobile mega-menu with these tabs: `Category`, `Industry`, `Gender`, `Services`.
+- Only one tab panel is visible at a time.
+- `Category` panel includes: Tops, Bottoms, Outerwear, Hi-Vis & Workwear, Accessories, View All Products.
+- `Industry` panel includes: Team Uniforms, Corporate Wear, Trades & Construction, Hospitality, Schools & Education, Healthcare.
+- `Gender` panel includes: Men, Women, Kids.
+- `Services` panel includes: Screen Printing, Embroidery, Bulk Orders, Request a Quote.
+- The old long nested accordion groups from earlier prototypes should not be visible on mobile.
+- Quote request, login/register, phone, help/contact links, and GST toggle remain accessible below the shop panels.
+
 ## Accessibility
 
 Run keyboard and accessibility checks without relying on screenshots:
@@ -81,6 +100,7 @@ Run keyboard and accessibility checks without relying on screenshots:
 - All interactive elements are reachable by keyboard.
 - Focus is visible on links, buttons, inputs, category controls, sidebar controls, and modal controls.
 - Mobile menu open/close updates `aria-expanded` or equivalent accessible state.
+- Mobile menu tabs update `aria-selected` or equivalent selected state, and hidden panels are not exposed as active content.
 - Mega menu opens on keyboard focus as well as pointer hover, or the live platform provides an equivalent keyboard path.
 - Quickview/product modal traps focus while open, closes on Escape, and restores focus to the opener.
 - Icon-only buttons have accessible names.
@@ -91,8 +111,8 @@ Run keyboard and accessibility checks without relying on screenshots:
 
 Compare important performance choices:
 
-- Hero video must not block the initial mobile experience.
-- Critical hero imagery is optimized and sized for the viewport.
+- Hero video remains visible on mobile but is cropped/overscaled to avoid side bars. It must not block the initial mobile experience.
+- Critical hero poster/fallback imagery is optimized and sized for the viewport.
 - Fonts are loaded via efficient `<link>` usage, not excessive CSS `@import`.
 - Only necessary font families and weights are loaded.
 - Lazy loading is used for below-the-fold images.
@@ -133,6 +153,33 @@ JSON.stringify({
   subnavDisplay: getComputedStyle(document.querySelector('.subnav') || document.body).display,
   desktopSearchDisplay: getComputedStyle(document.querySelector('.header__search') || document.body).display,
   mobileSearchDisplay: getComputedStyle(document.querySelector('.header__mobile-search') || document.body).display,
+  mobileMenu: (() => {
+    const menu = document.querySelector('.mobile-mega');
+    if (!menu) return null;
+    return {
+      quickLinks: [...menu.querySelectorAll('.mobile-mega__quick a')].map(a => a.textContent.trim()),
+      tabs: [...menu.querySelectorAll('.mobile-mega__tab')].map(t => ({
+        text: t.textContent.trim(),
+        selected: t.getAttribute('aria-selected'),
+        active: t.classList.contains('active')
+      })),
+      activePanel: menu.querySelector('.mobile-mega__panel.active')?.dataset.mobilePanel || null,
+      visiblePanelLinks: [...menu.querySelectorAll('.mobile-mega__panel.active a')].map(a => a.textContent.trim().replace(/\s+/g, ' '))
+    };
+  })(),
+  mobileHero: (() => {
+    const hero = document.querySelector('.banner-card--main');
+    if (!hero) return null;
+    const video = hero.querySelector('.banner-card__video');
+    const proof = hero.querySelector('.hero-proof');
+    return {
+      heading: hero.querySelector('h1')?.textContent.trim() || null,
+      description: hero.querySelector('.banner-card__desc')?.textContent.trim() || null,
+      proofDisplay: proof ? getComputedStyle(proof).display : null,
+      videoDisplay: video ? getComputedStyle(video).display : null,
+      videoTransform: video ? getComputedStyle(video).transform : null
+    };
+  })(),
   firstSections: [...document.querySelectorAll('section')].slice(0, 6).map(s => ({
     label: s.getAttribute('aria-label') || s.querySelector('h1,h2,h3')?.textContent.trim() || s.className,
     top: Math.round(s.getBoundingClientRect().top),

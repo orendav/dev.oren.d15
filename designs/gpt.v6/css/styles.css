@@ -4223,10 +4223,15 @@ a.footer-contact__value:hover {
     min-height: 0;
   }
   .banner-card--main { grid-column: 1 / 2; grid-row: auto; min-height: 360px; }
-  .banner-card--secondary { grid-column: 1 / 2; grid-row: auto; min-height: 200px; }
-  .banner-card--tertiary { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
-  .banner-card--quaternary { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
+  .banner-card--secondary { grid-column: 1 / 2; grid-row: auto; min-height: 220px; }
+  .banner-card--tertiary { grid-column: 1 / 2; grid-row: auto; min-height: 190px; }
+  .banner-card--quaternary { grid-column: 1 / 2; grid-row: auto; min-height: 190px; }
   .banner-card { padding: 22px; }
+  .banner-card--secondary .banner-card__image,
+  .banner-card--tertiary .banner-card__image,
+  .banner-card--quaternary .banner-card__image {
+    object-position: center top;
+  }
   .banner-card--main .banner-card__title { font-size: 36px; }
   .banner-card--video .banner-card__video {
     transform: scale(1.18);
@@ -4299,6 +4304,9 @@ a.footer-contact__value:hover {
 
 @media (max-width: 480px) {
   .banner-card--main { min-height: 330px; }
+  .banner-card--secondary { min-height: 210px; }
+  .banner-card--tertiary,
+  .banner-card--quaternary { min-height: 180px; }
   .banner-card--main .banner-card__title { font-size: 32px; margin-bottom: 10px; }
   .banner-card--main .banner-card__desc { font-size: 12px; max-width: 16rem; }
   .banner-card__label { font-size: 10px; margin-bottom: 8px; }
