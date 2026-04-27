@@ -4080,6 +4080,19 @@ a.footer-contact__value:hover {
   .banner-card--main .banner-card__title { font-size: 48px; }
   .banner-card__desc { display: none; }
   .hero-proof { display: none; }
+  .banner-card--video {
+    background-image:
+      linear-gradient(90deg, rgba(17, 24, 39, 0.88) 0%, rgba(17, 24, 39, 0.52) 62%, rgba(17, 24, 39, 0.22) 100%),
+      url("https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=1:1&w=720");
+    background-position: center;
+    background-size: cover;
+  }
+  .banner-card--video .banner-card__video {
+    display: block;
+    object-fit: cover;
+    transform: scale(1.12);
+    transform-origin: center;
+  }
 }
 
 /* Above tablet: drop GST toggle + Login/Quote labels first to save space */
@@ -4133,14 +4146,9 @@ a.footer-contact__value:hover {
   .banner-card--quaternary { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .banner-card { padding: 22px; }
   .banner-card--main .banner-card__title { font-size: 36px; }
-  .banner-card--video {
-    background-image:
-      linear-gradient(90deg, rgba(17, 24, 39, 0.88) 0%, rgba(17, 24, 39, 0.52) 62%, rgba(17, 24, 39, 0.22) 100%),
-      url("https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=1:1&w=720");
-    background-position: center;
-    background-size: cover;
+  .banner-card--video .banner-card__video {
+    transform: scale(1.18);
   }
-  .banner-card--video .banner-card__video { display: none; }
   .banner-card--main .banner-card__desc {
     display: block;
     font-size: 13px;

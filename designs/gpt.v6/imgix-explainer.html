@@ -279,10 +279,10 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 &lt;/video&gt;</pre>
 
 <div class="callout good">
-  <strong>gpt.v6 mobile-first update:</strong> keep the desktop video, but do not make video the mobile-critical hero asset. At mobile breakpoints, hide <code>.banner-card__video</code> and use the same Imgix poster as a CSS background at <code>w=720</code>. This gives Google's mobile render and real mobile users an immediate above-the-fold visual without waiting on MP4 metadata or playback.
+  <strong>gpt.v6 mobile-first update:</strong> keep the MP4 on mobile, but overscale it slightly inside the clipped hero card to remove visible side bars/letterboxing. Keep the same Imgix poster as a CSS background at <code>w=720</code> so the hero still has a strong fallback before video playback starts.
 </div>
 
-<pre>@media (max-width: 768px) {
+<pre>@media (max-width: 1024px) {
   .banner-card--video {
     background-image:
       linear-gradient(90deg, rgba(17, 24, 39, 0.88), rgba(17, 24, 39, 0.22)),
@@ -290,7 +290,18 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
     background-position: center;
     background-size: cover;
   }
-  .banner-card--video .banner-card__video { display: none; }
+  .banner-card--video .banner-card__video {
+    display: block;
+    object-fit: cover;
+    transform: scale(1.12);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-card--video .banner-card__video {
+    transform: scale(1.18);
+  }
 }</pre>
 
 <h2 id="section-rotator">7. Banner rotator (4 slides)</h2>
@@ -418,8 +429,8 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
     </tr>
     <tr>
       <td>Mobile media</td>
-      <td>Use the Imgix poster as the mobile background at <code>w=720</code>; reserve MP4 playback for desktop/tablet where it adds polish.</td>
-      <td>Improves perceived load and reduces mobile dependency on video while preserving the same visual direction.</td>
+      <td>Keep MP4 playback on tablet/mobile, but scale the video up inside the clipped hero card. Keep the Imgix poster as the fallback background at <code>w=720</code>.</td>
+      <td>Preserves motion on mobile while cropping out side bars/letterboxing from the video frame.</td>
     </tr>
   </tbody>
 </table>
