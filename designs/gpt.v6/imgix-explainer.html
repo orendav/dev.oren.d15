@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WBT — Imgix Usage Explainer</title>
+<title>WBT — Imgix Usage Explainer for gpt.v6</title>
 <style>
 :root {
   --fg: #1a1a1a;
@@ -86,8 +86,8 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <div class="wrap">
 
 <div class="eyebrow">Internal — for the dev team</div>
-<h1>Imgix usage — wholesale-blank-tshirts.com.au</h1>
-<p class="lede">How responsive image delivery is wired up across the v5 homepage, what URL parameters do what, and which patterns to follow when adding new images.</p>
+<h1>Imgix usage — gpt.v6 homepage</h1>
+<p class="lede">How responsive image delivery is wired up across the gpt.v6 homepage, what URL parameters do what, and which mobile-first SEO/media patterns the ecommerce implementation should preserve.</p>
 
 <div class="toc">
   <h3>Contents</h3>
@@ -106,6 +106,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
     <li><a href="#section-products">Section: Product cards</a></li>
     <li><a href="#section-bundles">Section: Bundle / pack cards</a></li>
     <li><a href="#section-hover">Section: Hover-rotation (data-hover-images)</a></li>
+    <li><a href="#mobile-first-v6">Mobile-first SEO/media rules</a></li>
     <li><a href="#bandwidth">Bandwidth wins (measured)</a></li>
     <li><a href="#operational">Operational notes</a></li>
   </ol>
@@ -117,7 +118,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <div class="kv">
   <div>Imgix host</div><div><code>https://wbt01.imgix.net/</code></div>
   <div>R2 bucket</div><div><code>wbt</code> (mapped as Imgix source root)</div>
-  <div>Total imgix URLs in v5</div><div>~114 unique base URLs × 4–5 srcset variants = ~600 cached variants</div>
+  <div>Total imgix URLs in gpt.v6</div><div>~114 unique base URLs × 4–5 srcset variants = ~600 cached variants</div>
   <div>Default response format</div><div>AVIF (Chrome/Edge) → WebP (Firefox/older Safari) → JPEG (fallback)</div>
 </div>
 
@@ -277,6 +278,21 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   &lt;source src="images/activwear.mp4" type="video/mp4"&gt;
 &lt;/video&gt;</pre>
 
+<div class="callout good">
+  <strong>gpt.v6 mobile-first update:</strong> keep the desktop video, but do not make video the mobile-critical hero asset. At mobile breakpoints, hide <code>.banner-card__video</code> and use the same Imgix poster as a CSS background at <code>w=720</code>. This gives Google's mobile render and real mobile users an immediate above-the-fold visual without waiting on MP4 metadata or playback.
+</div>
+
+<pre>@media (max-width: 768px) {
+  .banner-card--video {
+    background-image:
+      linear-gradient(90deg, rgba(17, 24, 39, 0.88), rgba(17, 24, 39, 0.22)),
+      url("https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=1:1&w=720");
+    background-position: center;
+    background-size: cover;
+  }
+  .banner-card--video .banner-card__video { display: none; }
+}</pre>
+
 <h2 id="section-rotator">7. Banner rotator (4 slides)</h2>
 <div class="kv">
   <div>Component</div><div><code>.banner-card--rotator</code> &gt; <code>.banner-card__slide</code> ×4 at <code>index.html:456,464,472,480</code></div>
@@ -374,9 +390,47 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <p>The split is in <code>js/main.js</code>:</p>
 <pre>const hoverList = card.dataset.hoverImages.split('|').map(s =&gt; s.trim()).filter(Boolean);</pre>
 
-<h2 id="bandwidth">15. Bandwidth wins (measured on Chrome desktop @ 1440×900)</h2>
+<h2 id="mobile-first-v6">15. Mobile-first SEO/media rules</h2>
+<p>Google evaluates the page through a mobile-first lens, so media delivery must support the visible mobile message, not just desktop aesthetics. The gpt.v6 homepage keeps the hero image lightweight and makes the main buying proposition visible on mobile.</p>
+
 <table>
-  <thead><tr><th>Asset</th><th>v4 size (local JPEG/PNG)</th><th>v5 size (imgix AVIF)</th><th>Saving</th></tr></thead>
+  <thead><tr><th>Area</th><th>gpt.v6 rule</th><th>Reason</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Hero heading</td>
+      <td>Use one visible <code>&lt;h1&gt;</code> inside the main hero: <code>Wholesale Blank Apparel</code>. Do not rely on an <code>.sr-only</code> H1 for the primary keyword.</td>
+      <td>Google renders CSS. Visible mobile text is a stronger alignment between SEO, accessibility, and user experience.</td>
+    </tr>
+    <tr>
+      <td>Hero description</td>
+      <td>Keep the main hero description visible on mobile, even if secondary card descriptions are hidden.</td>
+      <td>The mobile above-the-fold view should explicitly mention core categories and intent: T-shirts, polos, hoodies, uniforms, activewear, bulk pricing, print-ready, Australia.</td>
+    </tr>
+    <tr>
+      <td>Proof chips</td>
+      <td>Add compact visible proof terms below the hero description: <code>Bulk pricing</code>, <code>PO accepted</code>, <code>Print &amp; embroidery</code>, <code>Australian stock</code>.</td>
+      <td>These terms clarify commercial intent quickly and help the mobile page communicate why this is a wholesale homepage.</td>
+    </tr>
+    <tr>
+      <td>Hero link</td>
+      <td>The main hero CTA should point to the broad collection entry point, not sale clearance. In gpt.v6 this is <code>/collections/all</code>.</td>
+      <td>The primary homepage action should match the hero promise: shop bulk apparel, not browse sale items.</td>
+    </tr>
+    <tr>
+      <td>Mobile media</td>
+      <td>Use the Imgix poster as the mobile background at <code>w=720</code>; reserve MP4 playback for desktop/tablet where it adds polish.</td>
+      <td>Improves perceived load and reduces mobile dependency on video while preserving the same visual direction.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout warn">
+  <strong>Implementation check:</strong> at 360px, 390px, and 768px, confirm <code>document.documentElement.scrollWidth === window.innerWidth</code>, exactly one <code>&lt;h1&gt;</code>, and visible text includes the H1, hero description, and four proof chips. Use DOM checks before screenshots.
+</div>
+
+<h2 id="bandwidth">16. Bandwidth wins (measured on Chrome desktop @ 1440×900)</h2>
+<table>
+  <thead><tr><th>Asset</th><th>v4 size (local JPEG/PNG)</th><th>gpt.v6 size (imgix AVIF)</th><th>Saving</th></tr></thead>
   <tbody>
     <tr><td>Hero video poster</td><td>~300 KB</td><td>23 KB</td><td><span class="savings">−92%</span></td></tr>
     <tr><td>Rotator slide @ 960w</td><td>~600–1200 KB</td><td>32–124 KB</td><td><span class="savings">−85 to −95%</span></td></tr>
@@ -387,7 +441,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   </tbody>
 </table>
 
-<h2 id="operational">16. Operational notes</h2>
+<h2 id="operational">17. Operational notes</h2>
 
 <h3>Adding a new image</h3>
 <ol>
@@ -400,21 +454,21 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 </ol>
 
 <h3>The migration script</h3>
-<p><code>designs/03-hyper.v5/scripts/imgix_migrate.py</code> is the re-runnable preprocessor that does the bulk of the rewriting. It detects the section by line range and applies the right pattern. Idempotent for <code>&lt;img&gt;</code> tags (skips ones with <code>srcset</code> already).</p>
+<p><code>designs/gpt.v6/scripts/imgix_migrate.py</code> is the re-runnable preprocessor that does the bulk of the rewriting. It detects the section by line range and applies the right pattern. Idempotent for <code>&lt;img&gt;</code> tags (skips ones with <code>srcset</code> already).</p>
 
 <h3>Imgix billing model</h3>
-<p>Each unique URL is one origin pull (then cached at the CDN edge indefinitely). Width-ladder + section count = ~600 unique variants for v5. After first hit each is served from edge cache. Free tier is 1000 origin images / 100GB bandwidth per month — we're nowhere near that.</p>
+<p>Each unique URL is one origin pull (then cached at the CDN edge indefinitely). Width-ladder + section count = ~600 unique variants for gpt.v6. After first hit each is served from edge cache. Free tier is 1000 origin images / 100GB bandwidth per month — we're nowhere near that.</p>
 
 <h3>When face detection misses</h3>
 <p>Imgix's face detector occasionally misses on group shots, profile shots, or low-contrast lighting. Symptom: face is off-screen even with <code>crop=faces&amp;ar=…</code>. Fix: switch that one URL to <code>crop=focalpoint&amp;fp-x=0.5&amp;fp-y=0.3</code> (upper-third). Currently no images need this, but reserve the pattern.</p>
 
-<h3>v5 file inventory</h3>
+<h3>gpt.v6 file inventory</h3>
 <div class="kv">
-  <div>Markup</div><div><code>designs/03-hyper.v5/index.html</code></div>
-  <div>Styles</div><div><code>designs/03-hyper.v5/css/styles.css</code> — <code>.banner-card__image</code>, <code>.featured-banner__image img</code></div>
-  <div>JS</div><div><code>designs/03-hyper.v5/js/main.js</code> — line 578 split on <code>|</code></div>
-  <div>Migrator</div><div><code>designs/03-hyper.v5/scripts/imgix_migrate.py</code></div>
-  <div>Live URL</div><div><a href="https://orendav.github.io/dev.oren.d15/designs/03-hyper.v5/">orendav.github.io/dev.oren.d15/designs/03-hyper.v5/</a></div>
+  <div>Markup</div><div><code>designs/gpt.v6/index.html</code></div>
+  <div>Styles</div><div><code>designs/gpt.v6/css/styles.css</code> — <code>.banner-card__image</code>, <code>.featured-banner__image img</code>, <code>.hero-proof</code>, mobile video poster fallback</div>
+  <div>JS</div><div><code>designs/gpt.v6/js/main.js</code> — split on <code>|</code></div>
+  <div>Migrator</div><div><code>designs/gpt.v6/scripts/imgix_migrate.py</code></div>
+  <div>Live URL</div><div><a href="https://orendav.github.io/dev.oren.d15/designs/gpt.v6/">orendav.github.io/dev.oren.d15/designs/gpt.v6/</a></div>
 </div>
 
 <hr>

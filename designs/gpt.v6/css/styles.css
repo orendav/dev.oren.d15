@@ -1084,6 +1084,30 @@ input, select, textarea { font-family: inherit; }
   opacity: 0.9;
 }
 
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 18px;
+  max-width: 420px;
+  padding: 0;
+}
+
+.hero-proof li {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.18);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+
 .banner-card__cta {
   display: inline-flex;
   align-items: center;
@@ -4055,6 +4079,7 @@ a.footer-contact__value:hover {
   .banner-card { padding: 24px; }
   .banner-card--main .banner-card__title { font-size: 48px; }
   .banner-card__desc { display: none; }
+  .hero-proof { display: none; }
 }
 
 /* Above tablet: drop GST toggle + Login/Quote labels first to save space */
@@ -4108,6 +4133,30 @@ a.footer-contact__value:hover {
   .banner-card--quaternary { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .banner-card { padding: 22px; }
   .banner-card--main .banner-card__title { font-size: 36px; }
+  .banner-card--video {
+    background-image:
+      linear-gradient(90deg, rgba(17, 24, 39, 0.88) 0%, rgba(17, 24, 39, 0.52) 62%, rgba(17, 24, 39, 0.22) 100%),
+      url("https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=1:1&w=720");
+    background-position: center;
+    background-size: cover;
+  }
+  .banner-card--video .banner-card__video { display: none; }
+  .banner-card--main .banner-card__desc {
+    display: block;
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    max-width: 29rem;
+  }
+  .banner-card--main .hero-proof {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .hero-proof li {
+    font-size: 10px;
+    padding: 7px 8px;
+  }
 
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .featured-banner { grid-template-columns: 1fr; }
