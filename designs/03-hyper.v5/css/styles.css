@@ -87,6 +87,7 @@ body {
   font-family: var(--font-primary);
   color: var(--color-foreground);
   background: var(--color-background);
+  overflow-x: hidden;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -1510,8 +1511,16 @@ input, select, textarea { font-family: inherit; }
 
 .product-card__bulk {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   font-size: 12px;
+}
+.product-card__bulk th,
+.product-card__bulk td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .product-card__bulk thead th {
@@ -2564,7 +2573,7 @@ input, select, textarea { font-family: inherit; }
 /* Top band: contact strip */
 .footer-contact {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
   padding: 40px 0;
   border-bottom: 1px solid var(--color-border);
@@ -4051,7 +4060,10 @@ a.footer-contact__value:hover {
 }
 
 @media (max-width: 600px) {
-  .offers-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .offers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  /* Default min-width: auto on grid items lets content force columns wider.
+     Reset so the columns honour their 1fr share. */
+  .offer-card { min-width: 0; }
   .offer-card__name { font-size: 14px; }
   .offer-card__choose { padding: 9px 16px; font-size: 13px; bottom: 12px; }
   .quickview__name { font-size: 22px; }
@@ -4113,10 +4125,11 @@ a.footer-contact__value:hover {
   .header__action--phone .header__action-text { display: inline; }
   .header__action--phone svg { width: 16px; height: 16px; }
   .header__action--quote {
-    padding: 8px 10px;
+    padding: 8px 12px;
+    font-size: 12px;
   }
-  .header__action--quote .header__action-text { display: none; }
-  .header__action--quote svg { width: 16px; height: 16px; }
+  .header__action--quote .header__action-text { display: inline; }
+  .header__action--quote svg { width: 14px; height: 14px; }
 
   .banner-grid__layout {
     grid-template-columns: 1fr;
@@ -4142,8 +4155,9 @@ a.footer-contact__value:hover {
      in frame instead of getting trimmed off. */
   .shop-cat-card img { object-position: center top; }
 
-  .brand-strip { grid-template-columns: repeat(3, 1fr); }
-  .brand-logo { font-size: 12px; min-height: 60px; padding: 12px 8px; }
+  .brand-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .brand-logo { font-size: 12px; min-height: 60px; padding: 12px 8px; min-width: 0; }
+  .brand-logo__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 
   .collection-tags { gap: 8px; }
   .collection-tag { padding: 8px 14px; font-size: 12px; }
@@ -4174,4 +4188,10 @@ a.footer-contact__value:hover {
 @media (max-width: 480px) {
   .product-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .footer__grid { grid-template-columns: 1fr; }
+
+  /* At the narrowest viewport, drop phone-number text so the full
+     "Quote Request" pill keeps its label. tel: link still works on the icon. */
+  .header__action--phone .header__action-text { display: none; }
+  .header__action--phone { padding: 6px; }
+  .header__inner { gap: 4px; padding: 0 10px; }
 }
