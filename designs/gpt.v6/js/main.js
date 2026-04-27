@@ -74,6 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Mobile mega-menu tabs keep the dense desktop mega-menu navigable in a drawer.
+  document.querySelectorAll('.mobile-mega').forEach(menu => {
+    const tabs = menu.querySelectorAll('.mobile-mega__tab');
+    const panels = menu.querySelectorAll('.mobile-mega__panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.mobilePanel;
+
+        tabs.forEach(item => {
+          const active = item === tab;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        panels.forEach(panel => {
+          const active = panel.dataset.mobilePanel === target;
+          panel.classList.toggle('active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  });
+
   // GST toggle (header + sidebar instances stay in sync)
   document.querySelectorAll('.gst-toggle').forEach(group => {
     group.querySelectorAll('.gst-toggle__btn').forEach(btn => {
