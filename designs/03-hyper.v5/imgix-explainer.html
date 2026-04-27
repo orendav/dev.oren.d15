@@ -171,6 +171,14 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <h2 id="srcset">3. srcset / sizes / DPR — three patterns</h2>
 <p>The browser picks the right variant from <code>srcset</code> based on viewport, CSS sizing, and device pixel ratio. We use one of three patterns depending on whether the image's rendered size is fluid or fixed.</p>
 
+<div class="callout">
+  <strong>Two crop modes are in play, depending on what's in the image:</strong>
+  <ul style="margin: 8px 0 0; padding-left: 22px; line-height: 1.6;">
+    <li><strong>People (talent shots)</strong> → <code>fit=crop&amp;crop=faces&amp;ar=W:H</code>. Imgix face-aware-crops to the container's aspect, then browser <code>object-fit: cover</code> is a no-op. Faces stay in frame.</li>
+    <li><strong>Products (flat studio photos)</strong> → <code>fit=fill&amp;fill=solid&amp;fill-color=fff&amp;ar=W:H</code>. Imgix returns the image at the container's aspect with white padding on whatever side wouldn't fit. Full garment stays visible — collar to hem — instead of getting top/bottom cropped through the chest.</li>
+  </ul>
+</div>
+
 <h3>Pattern A — Width-described srcset + sizes <span class="tag fluid">fluid</span></h3>
 <p>Used for any image whose CSS width changes with viewport (banners, product cards, hero, featured banner, journal cards). The browser reads <code>sizes</code> to learn how wide the image will render, then picks the smallest <code>srcset</code> variant ≥ that width × DPR.</p>
 <pre>&lt;img src="images/talent/jacket-model-1.jpg"
@@ -203,9 +211,14 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
       <td>Auto. Just pass <code>crop=faces</code>.</td>
     </tr>
     <tr>
-      <td><span class="tag entropy">entropy</span></td>
-      <td>Flat product photos (no people), bundle/pack composites, anything on a plain studio background. Picks the high-contrast region — the garment.</td>
-      <td>Auto. Pass <code>crop=entropy</code>.</td>
+      <td><span class="tag entropy">fit=fill</span></td>
+      <td><strong>Now used for all flat product photos and bundle/pack composites.</strong> Imgix pads with white instead of cropping — full garment from collar to hem stays visible. Replaced the earlier <code>crop=entropy</code> approach which still cropped through the body when the container's aspect didn't match the source's 2:3 portrait.</td>
+      <td><code>fit=fill&amp;fill=solid&amp;fill-color=fff&amp;ar=W:H</code></td>
+    </tr>
+    <tr>
+      <td><span class="tag entropy">entropy (legacy)</span></td>
+      <td>Imgix picks the high-contrast region. Used previously for product photos — replaced because cropping through the chest of a long garment looked bad.</td>
+      <td><code>crop=entropy</code> — not used in v5 anymore.</td>
     </tr>
     <tr>
       <td><span class="tag warn">focalpoint</span></td>
@@ -221,8 +234,8 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
     <figcaption><strong>crop=faces</strong> — both faces preserved when cropping a portrait to 8:3 wide.</figcaption>
   </figure>
   <figure>
-    <img src="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400" alt="">
-    <figcaption><strong>crop=entropy</strong> — flat product photo, garment stays centered.</figcaption>
+    <img src="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=fill&fill=solid&fill-color=fff&ar=2:1&w=480" alt="">
+    <figcaption><strong>fit=fill (white padding)</strong> — full quarter-zip from collar to hem, padded with white instead of cropped through the chest. Used for all product images.</figcaption>
   </figure>
 </div>
 
