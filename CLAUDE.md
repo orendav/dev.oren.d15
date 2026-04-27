@@ -255,6 +255,40 @@ Three patterns; pick by whether rendered px scales with viewport:
 - **CSS `aspect-ratio`-set containers determine the right `ar=`.** Read `css/styles.css` for the container's CSS aspect-ratio (or inferred via `grid-auto-rows`) before picking `ar=`. Don't guess from screenshots.
 - **Imgix billing is per-unique-URL origin pull**, then cached at edge indefinitely. v5 has ~600 unique variants total (URL × srcset stops). Free tier 1000 origin/month, 100 GB bandwidth — well clear.
 
+### Audit greps for imgix URL hygiene
+
+Every time you make bulk imgix changes, run these from the design folder to catch regressions before they ship. Targets are zero counts (or the few intentional exceptions noted in comments):
+
+```bash
+# Talent images must use crop=faces — entropy is wrong for people
+grep -oE 'imgix\.net/[^"|]*Talent_[^"|]*' index.html | grep 'crop=entropy' | wc -l   # expect 0
+
+# Product images must use crop=entropy or fit=fill — faces is wrong for flat photos
+grep -oE 'imgix\.net/[^"|]*Product_[^"|]*' index.html | grep 'crop=faces' | wc -l   # expect 0
+
+# Talent images should use fit=crop (face-aware), not fit=fill
+grep -oE 'imgix\.net/[^"|]*Talent_[^"|]*' index.html | grep 'fit=fill' | wc -l   # expect 0
+
+# fit=fill needs ar= or both w+h, otherwise the browser cover-crops anyway
+grep -oE 'imgix\.net/[^"|]+' index.html | grep 'fit=fill' | grep -v 'ar=' | wc -l   # expect 0
+
+# Every imgix URL must have auto=format,compress
+grep -oE 'imgix\.net/[^"|]+' index.html | grep -v 'auto=format' | wc -l   # expect 0
+
+# Local-only refs should only appear as `src=` fallbacks (browser auto-falls-back if srcset 404s)
+grep -oE 'src="images/[^"]+"' index.html | wc -l   # informational
+```
+
+Whenever a CSS `aspect-ratio:` rule changes (or you add `grid-auto-rows: Npx` to a grid that holds image cards), audit the matching imgix URLs to confirm `ar=` matches the new container shape.
+
+### Common bug patterns (recurrent in v5)
+
+1. **Container-aspect mismatch.** Whenever an `aspect-ratio:` CSS rule or a fixed `grid-auto-rows: Npx` defines a container shape that's NOT the imgix source's 2:3, you need a matching `ar=`. Audit by greping `aspect-ratio:` and `grid-auto-rows:` in CSS, then confirm every imgix URL inside that component has `ar=W:H`.
+2. **Mobile/desktop aspect divergence.** Containers that use `@media` to flip `aspect-ratio` between portrait and landscape can't be served well by a single `ar=`. Either use `<picture>` with media-query-gated `<source>` elements, or anchor with `object-position: center top` so the face stays in frame when the browser cover-crops.
+3. **DPR srcset width too small for retina.** A fixed-size tile rendering at 321 px wide needs at least `w=642` for 2x DPR — `w=400 2x` is undersized. Multiply CSS-pixel container width by 2 and confirm.
+4. **Section-policy script bugs at content-type boundaries.** When the migration script applies "this section gets `crop=entropy`", every talent image in that section silently inherits the wrong crop mode. Always grep `Talent_*` URLs after migration to catch them.
+5. **Hardcoded line ranges in regex scripts.** Rebuilding a section can shift line numbers by hundreds. Prefer marker-comment-based slicing (`re.search(r'<!-- Foo -->.*?<!-- Bar -->', re.DOTALL)`) over `range(start_line, end_line)`.
+
 ### Adding a new image
 
 1. Hash the local file with `md5sum` against the source library (`Biz Collection/...`) to find the source path. CLAUDE.md "Source asset library" note explains why hash, not filename.
