@@ -1302,17 +1302,52 @@ input, select, textarea { font-family: inherit; }
   position: absolute;
   top: 12px;
   right: 12px;
-  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
   background: white;
   border-radius: 4px;
   font-family: var(--font-heading);
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #555;
   z-index: 2;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
+.product-card__brand svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: currentColor;
+  fill: currentColor;
+  stroke: none;
+}
+.product-card__brand .product-card__brand-name { transition: opacity 0.2s ease; }
+.product-card__brand .product-card__brand-cta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 10px;
+  border-radius: 4px;
+  background: var(--color-primary);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+.product-card__brand:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+.product-card__brand:hover .product-card__brand-cta { opacity: 1; }
 
 .product-card__badge {
   position: absolute;
@@ -3623,21 +3658,23 @@ a.footer-contact__value:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 0 12px;
-  background: var(--color-foreground);
+  gap: 8px;
+  padding: 0 10px;
+  background: var(--color-primary);
   color: #fff;
+  font-family: var(--font-heading);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background var(--transition);
 }
-.offer-card__atc svg { width: 14px; height: 14px; stroke: currentColor; }
-.offer-card__atc:hover { background: var(--color-primary); }
+.offer-card__atc svg { width: 16px; height: 16px; stroke: currentColor; }
+.offer-card__atc:hover { background: var(--color-primary-dark); }
 .offer-card__atc.is-added { background: var(--color-success, #2a8c4a); }
 .offer-card__details {
   background: none;
@@ -4049,11 +4086,10 @@ a.footer-contact__value:hover {
 
   .subnav { display: none; }
 
-  /* Mobile header: hamburger + logo + full phone + cart only.
-     Drop Quote Request and Login (both available in the drawer). */
-  .header__inner { gap: 8px; padding: 0 12px; }
-  .header__action--quote,
-  .header__actions > .header__action:not(.header__action--phone):not(.header__cart) { display: none; }
+  /* Mobile header: hamburger + logo + phone + Quote (icon) + cart.
+     Login still hidden (lives in the drawer). */
+  .header__inner { gap: 6px; padding: 0 12px; }
+  .header__actions > .header__action:not(.header__action--phone):not(.header__action--quote):not(.header__cart) { display: none; }
   .header__action--phone {
     margin-left: auto;
     padding: 6px 8px;
@@ -4062,6 +4098,11 @@ a.footer-contact__value:hover {
   }
   .header__action--phone .header__action-text { display: inline; }
   .header__action--phone svg { width: 16px; height: 16px; }
+  .header__action--quote {
+    padding: 8px 10px;
+  }
+  .header__action--quote .header__action-text { display: none; }
+  .header__action--quote svg { width: 16px; height: 16px; }
 
   .banner-grid__layout {
     grid-template-columns: 1fr;
