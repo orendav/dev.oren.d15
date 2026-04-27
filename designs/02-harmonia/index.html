@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WBT | Wholesale Blank T-Shirts Australia</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       1. Header (Minimal — hamburger, logo, account, cart)
+       ============================================================ -->
+  <header class="header">
+    <div class="header__left">
+      <button class="header__hamburger" id="sidebar-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <a href="#" class="header__logo">
+      WBT
+      <span>wholesale-blank-tshirts.com.au</span>
+    </a>
+
+    <div class="header__right">
+      <a href="#" class="header__icon" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </a>
+      <a href="#" class="header__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="header__cart-badge">3</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       Sidebar Navigation Drawer
+       ============================================================ -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar__header">
+      <span class="sidebar__logo">WBT</span>
+      <button class="sidebar__close" id="sidebar-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="sidebar__nav">
+      <a href="#" class="sidebar__link">
+        New Arrivals
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="#" class="sidebar__link sidebar__link--sale">
+        Sale
+      </a>
+      <a href="#" class="sidebar__link">
+        Best Sellers
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <div class="sidebar__divider"></div>
+
+      <a href="#" class="sidebar__category-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2 12 3.5 8 2 3.62 3.46a2 2 0 0 0-1.34 1.89v14.3a1 1 0 0 0 1.22.97L8 19.5l4 1.5 4-1.5 4.38 1.12a1 1 0 0 0 1.22-.97V5.35a2 2 0 0 0-1.22-1.89z"/></svg>
+        T-Shirts
+        <span class="sidebar__chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+      <a href="#" class="sidebar__category-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 4v16"/></svg>
+        Polo Shirts
+        <span class="sidebar__chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+      <a href="#" class="sidebar__category-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Hoodies
+        <span class="sidebar__chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+      <a href="#" class="sidebar__category-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+        Activewear
+        <span class="sidebar__chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+      <a href="#" class="sidebar__category-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+        Jackets
+        <span class="sidebar__chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+      <a href="#" class="sidebar__category-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+        Printing &amp; Embroidery
+        <span class="sidebar__chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <div class="sidebar__divider"></div>
+
+      <a href="#" class="sidebar__link">About Us</a>
+      <a href="#" class="sidebar__link">Journal</a>
+      <a href="#" class="sidebar__link">Contact</a>
+    </div>
+
+    <div class="sidebar__footer">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Account
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       2. Hero Section
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero__image" style="background-image: url('images/talent/group-women-activewear.jpg')"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">Wholesale Activewear</h1>
+      <p class="hero__subtitle">Premium blank activewear at wholesale prices. T-shirts, hoodies, jackets &amp; more &mdash; ready for your brand.</p>
+      <div class="hero__search">
+        <input type="text" placeholder="Search 500+ wholesale products...">
+        <button class="hero__search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </div>
+      <div class="hero__categories">
+        <a href="#" class="hero__category-pill">T-Shirts</a>
+        <a href="#" class="hero__category-pill">Hoodies</a>
+        <a href="#" class="hero__category-pill">Polo Shirts</a>
+        <a href="#" class="hero__category-pill">Jackets</a>
+        <a href="#" class="hero__category-pill">Activewear</a>
+        <a href="#" class="hero__category-pill">Printing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. Marquee Ticker
+       ============================================================ -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Free Shipping Over $299
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Same Day Dispatch
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        15+ Years Experience
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Trusted by Australian Businesses
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Australia-Wide Delivery
+      </span>
+      <!-- Duplicate for seamless scroll -->
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Free Shipping Over $299
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Same Day Dispatch
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        15+ Years Experience
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Trusted by Australian Businesses
+      </span>
+      <span class="marquee__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Australia-Wide Delivery
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       4. Category Carousel
+       ============================================================ -->
+  <section class="categories-carousel">
+    <div class="container">
+      <div class="categories-carousel__track">
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/jacket-model-1.jpg" alt="Jackets"></div>
+          <span class="category-card__name">Jackets</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/quarter-zip-model-1.jpg" alt="Quarter-Zips"></div>
+          <span class="category-card__name">Quarter-Zips</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/track-pants-model-1.jpg" alt="Track Pants"></div>
+          <span class="category-card__name">Track Pants</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/shorts-model-1.jpg" alt="Shorts"></div>
+          <span class="category-card__name">Shorts</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/leggings-model-1.jpg" alt="Leggings"></div>
+          <span class="category-card__name">Leggings</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/track-jacket-model-1.jpg" alt="Track Jackets"></div>
+          <span class="category-card__name">Track Jackets</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/activewear-model-women-1.jpg" alt="Women's Activewear"></div>
+          <span class="category-card__name">Women's</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/shorts-model-kids.jpg" alt="Kids Activewear"></div>
+          <span class="category-card__name">Kids</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-card__image"><img src="images/talent/track-pants-model-women.jpg" alt="Track Pants Women"></div>
+          <span class="category-card__name">Track Pants</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. Best Sellers Product Carousel
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Best Sellers</h2>
+          <p class="section-subtitle">Browse our most popular wholesale activewear, trusted by businesses across Australia.</p>
+        </div>
+        <a href="#" class="btn-shop-all">
+          Shop All
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="product-carousel">
+        <div class="product-carousel__tabs">
+          <button class="product-carousel__tab active">Jackets</button>
+          <button class="product-carousel__tab">Shorts</button>
+          <button class="product-carousel__tab">Track Pants</button>
+          <button class="product-carousel__tab">Quarter-Zips</button>
+        </div>
+        <div class="product-carousel__track">
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/jacket-black-red.jpg" alt="Activewear Jacket Black/Red">
+              <span class="product-card__badge product-card__badge--new">New</span>
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Activewear Jacket</div>
+            <div class="product-card__price">$24.95</div>
+            <div class="product-card__colors">+ 3 Colours</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/jacket-royal-white.jpg" alt="Activewear Jacket Royal/White">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Activewear Jacket</div>
+            <div class="product-card__price">$24.95</div>
+            <div class="product-card__colors">+ 3 Colours</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/jacket-navy-white.jpg" alt="Activewear Jacket Navy/White">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Activewear Jacket</div>
+            <div class="product-card__price">$24.95</div>
+            <div class="product-card__colors">+ 3 Colours</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/track-jacket-navy-white.jpg" alt="Track Jacket Navy/White">
+              <span class="product-card__badge product-card__badge--sale">Sale</span>
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Track Jacket</div>
+            <div class="product-card__price"><span class="product-card__price--sale">$18.95</span><span class="product-card__price--original">$22.95</span></div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/track-jacket-black-white.jpg" alt="Track Jacket Black/White">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Track Jacket</div>
+            <div class="product-card__price">$22.95</div>
+            <div class="product-card__colors">+ 2 Colours</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. Promo Split Banner — "Where Quality Meets Value"
+       ============================================================ -->
+  <section class="promo-split">
+    <div class="promo-split__content">
+      <span class="promo-split__label">Limited Time Offer</span>
+      <h2 class="promo-split__title">Where quality meets value &amp; every piece is ready for your brand</h2>
+      <div class="promo-split__discount">50% Off</div>
+      <div class="promo-split__discount-sub">On Selected Activewear Lines</div>
+      <a href="#" class="promo-split__cta">Shop Now</a>
+    </div>
+    <div class="promo-split__image" style="background-image: url('images/talent/jacket-model-3.jpg')"></div>
+  </section>
+
+  <!-- ============================================================
+       7. Customer Favorites Product Carousel
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Customer Favorites</h2>
+          <p class="section-subtitle">Explore top-rated products that businesses love for their quality and value.</p>
+        </div>
+        <a href="#" class="btn-shop-all">
+          Shop All
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="product-carousel">
+        <div class="product-carousel__track">
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/quarter-zip-navy-white.jpg" alt="Quarter-Zip Navy/White">
+              <span class="product-card__badge product-card__badge--new">New</span>
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Quarter-Zip Pullover</div>
+            <div class="product-card__price">$18.95</div>
+            <div class="product-card__colors">+ 2 Colours</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/shorts-black.jpg" alt="Active Shorts Black">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Active Shorts</div>
+            <div class="product-card__price">$12.95</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/track-pants-mens-black.jpg" alt="Track Pants Mens Black">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Men's Track Pants</div>
+            <div class="product-card__price">$19.95</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/leggings-long-black.jpg" alt="Full Length Leggings">
+              <span class="product-card__badge product-card__badge--new">New</span>
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Full Length Leggings</div>
+            <div class="product-card__price">$16.95</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/track-pants-navy.jpg" alt="Track Pants Navy">
+              <span class="product-card__badge product-card__badge--sale">Sale</span>
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Unisex Track Pants</div>
+            <div class="product-card__price"><span class="product-card__price--sale">$14.95</span><span class="product-card__price--original">$19.95</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. Countdown Sale Banner
+       ============================================================ -->
+  <section class="countdown-banner">
+    <h2 class="countdown-banner__heading">Winter Sale &mdash; Exclusive Savings</h2>
+    <p class="countdown-banner__sub">Final hours to save big on wholesale activewear</p>
+    <div class="countdown-banner__timer" id="countdown-timer">
+      <div class="countdown-banner__unit">
+        <div class="countdown-banner__number" id="cd-days">02</div>
+        <div class="countdown-banner__label">Days</div>
+      </div>
+      <div class="countdown-banner__unit">
+        <div class="countdown-banner__number" id="cd-hours">18</div>
+        <div class="countdown-banner__label">Hours</div>
+      </div>
+      <div class="countdown-banner__unit">
+        <div class="countdown-banner__number" id="cd-mins">45</div>
+        <div class="countdown-banner__label">Minutes</div>
+      </div>
+      <div class="countdown-banner__unit">
+        <div class="countdown-banner__number" id="cd-secs">30</div>
+        <div class="countdown-banner__label">Seconds</div>
+      </div>
+    </div>
+    <a href="#" class="countdown-banner__cta">Shop Sale</a>
+  </section>
+
+  <!-- ============================================================
+       9. Split Promo + Category Grid
+       ============================================================ -->
+  <section>
+    <div class="split-promo">
+      <div class="split-promo__text">
+        <h2 class="split-promo__title">Your Business, Your Savings</h2>
+        <p class="split-promo__desc">Wholesale activewear up to 50% off today. Premium quality blanks ready for printing, embroidery, or resale.</p>
+        <a href="#" class="promo-split__cta">Shop Sale</a>
+      </div>
+      <div class="split-promo__image-block" style="background-image: url('images/talent/quarter-zip-model-2.jpg')">
+        <span class="split-promo__big-text">Save 50% Today</span>
+      </div>
+    </div>
+    <div class="category-grid">
+      <div class="category-grid__item">
+        <img src="images/talent/jacket-model-2.jpg" alt="Jackets">
+        <span class="category-grid__label">Jackets</span>
+      </div>
+      <div class="category-grid__item">
+        <img src="images/talent/track-pants-model-2.jpg" alt="Track Pants">
+        <span class="category-grid__label">Track Pants</span>
+      </div>
+      <div class="category-grid__item">
+        <img src="images/talent/shorts-model-1.jpg" alt="Shorts">
+        <span class="category-grid__label">Shorts</span>
+      </div>
+      <div class="category-grid__item">
+        <img src="images/talent/leggings-model-1.jpg" alt="Leggings">
+        <span class="category-grid__label">Leggings</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. Lifestyle Banner
+       ============================================================ -->
+  <section class="lifestyle-banner">
+    <div class="lifestyle-banner__image" style="background-image: url('images/talent/track-jacket-model-1.jpg')"></div>
+    <div class="lifestyle-banner__overlay"></div>
+    <div class="lifestyle-banner__content">
+      <h2 class="lifestyle-banner__title">Premium Quality, Wholesale Prices</h2>
+      <p class="lifestyle-banner__text">The perfect combination of contemporary style and long-lasting durability. Our activewear range is built to perform and designed to impress.</p>
+      <a href="#" class="lifestyle-banner__cta">Shop Collection</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. Must-Have Piece — Featured Product + Text & Art Wizard
+       ============================================================ -->
+  <section class="featured-product">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Must-Have Piece</h2>
+          <p class="section-subtitle">Explore the featured item &mdash; carefully selected for its design, quality, and style.</p>
+        </div>
+      </div>
+
+      <div class="featured-product__layout">
+        <!-- Gallery -->
+        <div class="featured-product__gallery">
+          <img src="images/talent/jacket-model-1.jpg" alt="Activewear Jacket - Front">
+          <img src="images/products/jacket-black-red.jpg" alt="Activewear Jacket - Product">
+          <img src="images/talent/jacket-model-2.jpg" alt="Activewear Jacket - Side">
+        </div>
+
+        <!-- Info + Customizer -->
+        <div class="featured-product__info">
+          <div class="featured-product__name">Activewear Jacket &mdash; Black/Red</div>
+          <p class="featured-product__desc">Reliable quality, contemporary design. Perfect for teams, uniforms, and branded apparel.</p>
+          <div class="featured-product__price">$24.95 <span class="product-card__badge product-card__badge--new" style="font-size:11px; padding:3px 10px; vertical-align:middle; display:inline-block;">New</span></div>
+
+          <!-- Customizer Tabs -->
+          <div class="customizer">
+            <div class="customizer__tabs">
+              <div class="customizer__tab active" data-tab="product">
+                <span class="customizer__tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                <span class="customizer__tab-title">Product</span>
+                <span class="customizer__tab-desc">Choose colours, sizes &amp; quantities</span>
+              </div>
+              <div class="customizer__tab" data-tab="textart">
+                <span class="customizer__tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg></span>
+                <span class="customizer__tab-title">Text &amp; Art</span>
+                <span class="customizer__tab-desc">Upload ready-to-print design</span>
+              </div>
+              <div class="customizer__tab" data-tab="easywizard">
+                <span class="customizer__tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+                <span class="customizer__tab-title">Easy Design</span>
+                <span class="customizer__tab-desc">We create a mockup for you</span>
+              </div>
+            </div>
+
+            <!-- Panel: Product -->
+            <div class="customizer__panel active" id="panel-product">
+              <div class="customizer__options">
+                <div class="customizer__option">
+                  <div class="customizer__option-left">
+                    <span class="customizer__option-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+                    <div>
+                      <div class="customizer__option-label">Colour</div>
+                      <div class="customizer__option-value">Black/Red</div>
+                    </div>
+                  </div>
+                  <span class="customizer__option-right">+3 &rsaquo;</span>
+                </div>
+                <div class="customizer__option">
+                  <div class="customizer__option-left">
+                    <span class="customizer__option-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></span>
+                    <div>
+                      <div class="customizer__option-label">Size</div>
+                      <div class="customizer__option-value">S &ndash; 5XL</div>
+                    </div>
+                  </div>
+                  <span class="customizer__option-right">&rsaquo;</span>
+                </div>
+              </div>
+              <div class="customizer__stock">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                500+ in Stock
+              </div>
+              <div class="customizer__cart-row">
+                <div class="customizer__qty">
+                  <button id="qty-minus">&minus;</button>
+                  <span id="qty-value">1</span>
+                  <button id="qty-plus">+</button>
+                </div>
+                <button class="customizer__add-to-cart">
+                  Add to Cart
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <a href="#" class="customizer__view-details">View Full Details</a>
+            </div>
+
+            <!-- Panel: Text & Art -->
+            <div class="customizer__panel" id="panel-textart">
+              <div class="wizard">
+                <div class="wizard__workspace">
+                  <img src="images/products/jacket-black-red.jpg" alt="Design workspace">
+                  <div class="wizard__workspace-overlays">
+                    <button class="wizard__workspace-btn">Text</button>
+                    <button class="wizard__workspace-btn">Art</button>
+                  </div>
+                </div>
+                <div class="wizard__sidebar">
+                  <div class="wizard__tools">
+                    <div class="wizard__tool" id="tool-add-text">
+                      <span class="wizard__tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 7V4h16v3"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/></svg></span>
+                      <div class="wizard__tool-text">
+                        <div class="wizard__tool-title">Add text</div>
+                        <div class="wizard__tool-desc">Create a text-based design</div>
+                      </div>
+                    </div>
+                    <div class="wizard__tool" id="tool-add-art">
+                      <span class="wizard__tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
+                      <div class="wizard__tool-text">
+                        <div class="wizard__tool-title">Add art</div>
+                        <div class="wizard__tool-desc">Create an image-based design</div>
+                      </div>
+                    </div>
+                    <div class="wizard__tool wizard__tool--disabled">
+                      <span class="wizard__tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                      <div class="wizard__tool-text">
+                        <div class="wizard__tool-title">Stock Artwork</div>
+                        <div class="wizard__tool-desc">Stars, effects &amp; more</div>
+                      </div>
+                      <span class="wizard__tool-badge">Coming Soon</span>
+                    </div>
+                  </div>
+                  <div class="wizard__layers">
+                    <div class="wizard__layers-title">Layers</div>
+                    <div class="wizard__layers-empty">
+                      <p>No layers yet</p>
+                      <p>Start building your design by adding text or artwork. Your layers will appear here.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel: Easy Design Wizard -->
+            <div class="customizer__panel" id="panel-easywizard">
+              <div class="easy-wizard">
+                <div class="easy-wizard__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                </div>
+                <h3 class="easy-wizard__title">Upload Your Design Idea</h3>
+                <p class="easy-wizard__desc">Upload a rough file or idea and we'll send you a professional mockup before printing. Best for low resolution or non print-ready artwork.</p>
+                <button class="easy-wizard__upload">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  Upload File
+                </button>
+                <p class="easy-wizard__note">We'll provide a PDF mockup for your approval before printing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. Now Trending (Numbered Cards)
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Now Trending</h2>
+          <p class="section-subtitle">Discover the newest arrivals, fresh and ready for your business.</p>
+        </div>
+        <a href="#" class="btn-shop-all">
+          Shop All
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="trending__grid">
+        <div class="trending-card">
+          <div class="trending-card__image">
+            <img src="images/products/quarter-zip-black-red.jpg" alt="Quarter-Zip Black/Red">
+            <span class="trending-card__number">01</span>
+          </div>
+          <div class="trending-card__name">Quarter-Zip Pullover</div>
+          <div class="trending-card__price">$18.95</div>
+          <p class="trending-card__desc">Designed for active teams. Clean lines and all-day comfort combined.</p>
+        </div>
+        <div class="trending-card">
+          <div class="trending-card__image">
+            <img src="images/products/shorts-navy.jpg" alt="Active Shorts Navy">
+            <span class="trending-card__number">02</span>
+          </div>
+          <div class="trending-card__name">Active Shorts</div>
+          <div class="trending-card__price">$12.95</div>
+          <p class="trending-card__desc">Lightweight performance shorts. Built to move with you.</p>
+        </div>
+        <div class="trending-card">
+          <div class="trending-card__image">
+            <img src="images/products/track-pants-womens-black.jpg" alt="Women's Track Pants">
+            <span class="trending-card__number">03</span>
+          </div>
+          <div class="trending-card__name">Women's Track Pants</div>
+          <div class="trending-card__price">$19.95</div>
+          <p class="trending-card__desc">A blend of classic form and everyday performance. Built for your team.</p>
+        </div>
+        <div class="trending-card">
+          <div class="trending-card__image">
+            <img src="images/products/leggings-short-black.jpg" alt="Short Leggings">
+            <span class="trending-card__number">04</span>
+          </div>
+          <div class="trending-card__name">Short Leggings</div>
+          <div class="trending-card__price">$14.95</div>
+          <p class="trending-card__desc">Minimalist design with lasting comfort. Crafted for versatile wear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13. Brand Story
+       ============================================================ -->
+  <section class="brand-story">
+    <div class="brand-story__image" style="background-image: url('images/talent/group-women-activewear.jpg')"></div>
+    <div class="brand-story__overlay"></div>
+    <div class="brand-story__content">
+      <p class="brand-story__text">Born from a passion for quality, our story weaves 15 years of expertise into every garment, creating premium wholesale activewear that empowers Australian businesses to build their brand with confidence</p>
+      <a href="#" class="brand-story__cta">Our Story</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       14. Built for Your Brand — Product Carousel with Tabs
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Built for Your Brand</h2>
+          <p class="section-subtitle">From team uniforms to branded apparel, explore activewear that balances design with practicality.</p>
+        </div>
+        <a href="#" class="btn-shop-all">
+          See All
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="product-carousel">
+        <div class="product-carousel__tabs">
+          <button class="product-carousel__tab active">Shorts</button>
+          <button class="product-carousel__tab">Leggings</button>
+          <button class="product-carousel__tab">Track Pants</button>
+          <button class="product-carousel__tab">Kids</button>
+        </div>
+        <div class="product-carousel__track">
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/shorts-black.jpg" alt="Active Shorts Black">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Active Shorts</div>
+            <div class="product-card__price">$12.95</div>
+            <div class="product-card__colors">+ 2 Colours</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/shorts-navy.jpg" alt="Active Shorts Navy">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Active Shorts</div>
+            <div class="product-card__price">$12.95</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/shorts-mens-black.jpg" alt="Men's Shorts Black">
+              <span class="product-card__badge product-card__badge--new">New</span>
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Men's Active Shorts</div>
+            <div class="product-card__price">$14.95</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/shorts-kids-black.jpg" alt="Kids Shorts Black">
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Kids Active Shorts</div>
+            <div class="product-card__price">$10.95</div>
+          </div>
+          <div class="product-card">
+            <div class="product-card__image-wrap">
+              <img src="images/products/leggings-long-black.jpg" alt="Full Length Leggings">
+              <span class="product-card__badge product-card__badge--sale">Sale</span>
+              <button class="product-card__quick-add">Quick Add</button>
+            </div>
+            <div class="product-card__name">Full Length Leggings</div>
+            <div class="product-card__price"><span class="product-card__price--sale">$13.95</span><span class="product-card__price--original">$16.95</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       15. Shop by Use
+       ============================================================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Shop by Use</h2>
+          <p class="section-subtitle">Find the right activewear for every purpose.</p>
+        </div>
+      </div>
+      <div class="shop-by-use__track">
+        <a href="#" class="use-card">
+          <img src="images/talent/jacket-model-3.jpg" alt="Team Uniforms">
+          <span class="use-card__label">Team Uniforms</span>
+        </a>
+        <a href="#" class="use-card">
+          <img src="images/talent/quarter-zip-model-2.jpg" alt="Corporate Wear">
+          <span class="use-card__label">Corporate Wear</span>
+        </a>
+        <a href="#" class="use-card">
+          <img src="images/talent/track-pants-model-women.jpg" alt="Gym & Fitness">
+          <span class="use-card__label">Gym &amp; Fitness</span>
+        </a>
+        <a href="#" class="use-card">
+          <img src="images/talent/activewear-model-women-1.jpg" alt="Resale & Retail">
+          <span class="use-card__label">Resale &amp; Retail</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       16. Full-width Promo Banner
+       ============================================================ -->
+  <section class="full-banner">
+    <div class="full-banner__image" style="background-image: url('images/talent/quarter-zip-model-1.jpg')"></div>
+    <div class="full-banner__overlay"></div>
+    <div class="full-banner__content">
+      <h2 class="full-banner__title">Premium Quality in Every Stitch, Value in Every Order</h2>
+      <a href="#" class="full-banner__cta">Shop Collection</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       17. Our Journal
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Our Journal</h2>
+          <p class="section-subtitle">Explore the latest trends, expert tips, and inspiring stories on wholesale activewear.</p>
+        </div>
+        <a href="#" class="btn-shop-all">
+          Read All
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="journal__grid">
+        <article class="journal-card">
+          <div class="journal-card__image">
+            <img src="images/talent/jacket-model-1.jpg" alt="Choosing the Right Wholesale Supplier">
+            <span class="journal-card__tag">Tips</span>
+          </div>
+          <h3 class="journal-card__title">How to Choose the Right Wholesale Activewear Supplier</h3>
+          <p class="journal-card__meta">WBT Team &middot; March 2026</p>
+        </article>
+        <article class="journal-card">
+          <div class="journal-card__image">
+            <img src="images/talent/group-women-activewear.jpg" alt="Activewear Trends 2026">
+            <span class="journal-card__tag">Trends</span>
+          </div>
+          <h3 class="journal-card__title">Top Activewear Trends for Australian Businesses in 2026</h3>
+          <p class="journal-card__meta">WBT Team &middot; February 2026</p>
+        </article>
+        <article class="journal-card">
+          <div class="journal-card__image">
+            <img src="images/talent/quarter-zip-model-1.jpg" alt="Custom Printing Guide">
+            <span class="journal-card__tag">Guide</span>
+          </div>
+          <h3 class="journal-card__title">The Complete Guide to Custom Printing &amp; Embroidery</h3>
+          <p class="journal-card__meta">WBT Team &middot; January 2026</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       18. FAQ Section
+       ============================================================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Have Any Questions?</h2>
+          <p class="section-subtitle">Find all the information you need, gathered in one convenient spot.</p>
+        </div>
+      </div>
+      <div class="faq__items">
+        <a href="#" class="faq-item">
+          <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div class="faq-item__text">
+            <div class="faq-item__title">FAQs</div>
+            <div class="faq-item__desc">Find answers to your questions.</div>
+          </div>
+          <span class="faq-item__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="#" class="faq-item">
+          <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <div class="faq-item__text">
+            <div class="faq-item__title">Contact Us</div>
+            <div class="faq-item__desc">Get in touch with our team.</div>
+          </div>
+          <span class="faq-item__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="#" class="faq-item">
+          <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div class="faq-item__text">
+            <div class="faq-item__title">Call Us</div>
+            <div class="faq-item__desc">02 8880 3731 for quick assistance.</div>
+          </div>
+          <span class="faq-item__arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       19. Newsletter
+       ============================================================ -->
+  <section class="section newsletter">
+    <div class="container">
+      <h2 class="section-heading">Subscribe to Our Newsletter</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Stay updated with the latest wholesale deals, new arrivals, and industry tips.</p>
+      <form class="newsletter__form" onsubmit="return false;">
+        <input type="email" class="newsletter__input" placeholder="Enter your email">
+        <button class="newsletter__btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       20. Footer
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__column">
+          <div class="footer__logo">WBT</div>
+          <p class="footer__brand-desc">Wholesale Blank T-Shirts Australia. Premium activewear at wholesale prices, serving Australian businesses for over 15 years from Mount Druitt, NSW.</p>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__heading">Shop</h4>
+          <ul class="footer__links">
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Sale</a></li>
+            <li><a href="#">All Products</a></li>
+            <li><a href="#">Best Sellers</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__heading">Categories</h4>
+          <ul class="footer__links">
+            <li><a href="#">T-Shirts</a></li>
+            <li><a href="#">Polo Shirts</a></li>
+            <li><a href="#">Hoodies</a></li>
+            <li><a href="#">Jackets</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__heading">Services</h4>
+          <ul class="footer__links">
+            <li><a href="#">Printing</a></li>
+            <li><a href="#">Embroidery</a></li>
+            <li><a href="#">Wholesale Pricing</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__heading">Contact</h4>
+          <ul class="footer__links">
+            <li><a href="tel:0288803731">02 8880 3731</a></li>
+            <li><a href="#">info@wbt.com.au</a></li>
+            <li><a href="#">Mount Druitt, NSW</a></li>
+            <li><a href="#">Mon&ndash;Fri 8am&ndash;5pm AEST</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-footer">
+      <div class="container">
+        <div class="sub-footer__inner">
+          <div class="sub-footer__social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="currentColor"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.08 2.46 7.58 5.97 9.12-.08-.72-.15-1.84.03-2.63.17-.72 1.07-4.55 1.07-4.55s-.27-.55-.27-1.36c0-1.28.74-2.23 1.66-2.23.78 0 1.16.59 1.16 1.29 0 .79-.5 1.97-.76 3.06-.22.91.46 1.65 1.35 1.65 1.62 0 2.87-1.71 2.87-4.18 0-2.18-1.57-3.71-3.81-3.71-2.59 0-4.12 1.95-4.12 3.96 0 .79.3 1.63.68 2.09.07.09.08.17.06.26-.07.28-.22.91-.25 1.04-.04.17-.14.21-.32.13-1.18-.55-1.92-2.28-1.92-3.67 0-2.98 2.17-5.72 6.25-5.72 3.28 0 5.83 2.34 5.83 5.46 0 3.26-2.05 5.88-4.9 5.88-.96 0-1.86-.5-2.17-1.09l-.59 2.25c-.21.83-.79 1.87-1.17 2.5.88.27 1.81.42 2.78.42 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+          </div>
+          <div class="sub-footer__payments">
+            <span class="sub-footer__payment-icon">VISA</span>
+            <span class="sub-footer__payment-icon">MC</span>
+            <span class="sub-footer__payment-icon">AMEX</span>
+            <span class="sub-footer__payment-icon">PP</span>
+          </div>
+          <div class="sub-footer__copy">&copy; 2026 WBT. <a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       Design Control Bar
+       ============================================================ -->
+  <div class="control-bar">
+    <button class="control-bar__toggle" title="Design Controls">&#9881;</button>
+    <div class="control-bar__panel">
+      <div class="control-bar__group">
+        <label class="control-bar__label" for="font-select">Font Family</label>
+        <select id="font-select" class="control-bar__select">
+          <option value="system">System Default</option>
+          <option value="dm-sans" selected>DM Sans (Default)</option>
+          <option value="inter">Inter</option>
+          <option value="poppins">Poppins</option>
+          <option value="jakarta">Plus Jakarta Sans</option>
+          <option value="outfit">Outfit</option>
+          <option value="playfair">Playfair Display</option>
+        </select>
+      </div>
+      <div class="control-bar__group">
+        <label class="control-bar__label" for="theme-select">Theme</label>
+        <select id="theme-select" class="control-bar__select">
+          <option value="">Default</option>
+          <option value="dark">Dark</option>
+          <option value="warm">Warm</option>
+          <option value="mono">Mono</option>
+          <option value="forest">Forest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

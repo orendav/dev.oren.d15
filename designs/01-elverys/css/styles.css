@@ -1,0 +1,1606 @@
+/* ============================================================
+   Wholesale Blank T-Shirts - Elverys-Inspired Homepage Styles
+   ============================================================ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700&family=Outfit:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+
+:root {
+    --primary: #164196;
+    --primary-dark: #0e2d6b;
+    --secondary: #008673;
+    --accent-red: #e30613;
+    --accent-green: #148a03;
+    --bg: #ffffff;
+    --bg-light: #f5f5f5;
+    --text: #3c3c3b;
+    --text-light: #6c6c6c;
+    --border: #e0e0e0;
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================================
+   Theme Variants
+   ============================================================ */
+
+[data-theme="dark"] {
+    --bg: #1a1a2e;
+    --text: #e0e0e0;
+    --primary: #4a90d9;
+    --secondary: #00b398;
+    --border: #333;
+    --bg-light: #252540;
+    --text-light: #aaaaaa;
+    --primary-dark: #1a1a3e;
+}
+
+[data-theme="warm"] {
+    --bg: #FFF8F0;
+    --text: #3c2415;
+    --primary: #8B4513;
+    --secondary: #D2691E;
+    --border: #e0d0c0;
+    --bg-light: #f5ebe0;
+    --text-light: #7a5c3c;
+    --primary-dark: #6b3410;
+}
+
+[data-theme="mono"] {
+    --bg: #ffffff;
+    --text: #111111;
+    --primary: #111111;
+    --secondary: #444444;
+    --border: #ddd;
+    --bg-light: #f0f0f0;
+    --text-light: #666666;
+    --primary-dark: #000000;
+}
+
+[data-theme="forest"] {
+    --bg: #f5f9f3;
+    --text: #1a2e14;
+    --primary: #2d5016;
+    --secondary: #4a7c28;
+    --border: #c8d8c0;
+    --bg-light: #e8f0e4;
+    --text-light: #4a6b3a;
+    --primary-dark: #1e3a0e;
+}
+
+/* ============================================================
+   Reset / Normalize
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================================
+   1. Announcement Bar
+   ============================================================ */
+
+.announcement-bar {
+    background: var(--secondary);
+    color: white;
+    height: 40px;
+    text-align: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.announcement-bar__text {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.announcement-bar__close {
+    position: absolute;
+    right: 15px;
+    color: white;
+    font-size: 18px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.announcement-bar__close:hover {
+    opacity: 1;
+}
+
+/* ============================================================
+   2. Header
+   ============================================================ */
+
+.header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.header__top {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.header--sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo__subtitle {
+    font-size: 11px;
+    color: var(--text-light);
+    display: block;
+}
+
+/* ============================================================
+   3. Search
+   ============================================================ */
+
+.search {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 30px;
+}
+
+.search__input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search__input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.search__btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 18px;
+}
+
+.search__suggestions {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 500;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search__suggestions.active {
+    display: block;
+}
+
+.search__suggestion,
+.search__suggestions a {
+    display: block;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--bg-light);
+    font-size: 14px;
+    color: var(--text);
+}
+
+.search__suggestion:hover,
+.search__suggestions a:hover {
+    background: var(--bg-light);
+}
+
+.search__suggestion:last-child {
+    border-bottom: none;
+}
+
+/* ============================================================
+   4. Header Icons
+   ============================================================ */
+
+.header__icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__phone {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.header__icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--text);
+    transition: background 0.2s;
+}
+
+.header__icon-btn:hover {
+    background: var(--bg-light);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: var(--accent-red);
+    color: white;
+    font-size: 10px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ============================================================
+   5. Navigation
+   ============================================================ */
+
+.nav {
+    background: var(--primary);
+    color: white;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    background: var(--primary-dark);
+}
+
+.nav__link--sale {
+    background: var(--accent-red);
+    color: white;
+    font-weight: 700;
+}
+
+.nav__link--sale:hover {
+    background: #c00510;
+}
+
+/* Nav Dropdown */
+
+.nav__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: white;
+    color: var(--text);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 8px 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    transition: all 0.2s;
+    z-index: 100;
+}
+
+.nav__item:hover .nav__dropdown,
+.nav__item:focus-within .nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav__dropdown a {
+    display: block;
+    padding: 8px 20px;
+    font-size: 14px;
+    text-transform: none;
+    color: var(--text);
+    transition: all 0.2s;
+}
+
+.nav__dropdown a:hover {
+    background: var(--bg-light);
+    color: var(--primary);
+}
+
+/* ============================================================
+   6. Hero Banner
+   ============================================================ */
+
+.hero {
+    position: relative;
+    height: 70vh;
+    min-height: 400px;
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.hero__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s;
+    background-size: cover;
+    background-position: center top;
+}
+
+.hero__slide--active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.hero__overlay--gradient-left {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.hero__overlay--gradient-bottom {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 60px;
+    max-width: 600px;
+}
+
+.hero__content--center {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.hero__badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--accent-red);
+    color: white;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.hero__title {
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero__subtitle {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+.hero__cta {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.hero__cta--red {
+    background: var(--accent-red);
+    color: white;
+}
+
+.hero__cta--red:hover {
+    background: #c00510;
+}
+
+.hero__cta--white {
+    background: white;
+    color: var(--primary);
+}
+
+.hero__cta--white:hover {
+    background: var(--bg-light);
+}
+
+.hero__cta--teal {
+    background: var(--secondary);
+    color: white;
+}
+
+.hero__cta--teal:hover {
+    filter: brightness(1.1);
+}
+
+/* Hero Dots */
+
+.hero__dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    gap: 10px;
+}
+
+.hero__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hero__dot--active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* ============================================================
+   7. Trust Strip
+   ============================================================ */
+
+.trust-strip {
+    background: var(--bg-light);
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.trust-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.trust-strip__item {
+    text-align: center;
+    padding: 15px;
+}
+
+.trust-strip__icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px;
+    color: var(--secondary);
+}
+
+.trust-strip__title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.trust-strip__text {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* ============================================================
+   8. Section Headers
+   ============================================================ */
+
+.section {
+    padding: 50px 0;
+}
+
+.section__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section__title {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.section__title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--secondary);
+    margin-top: 8px;
+}
+
+.section__link {
+    font-size: 14px;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+}
+
+.section__link:hover {
+    opacity: 0.8;
+}
+
+/* ============================================================
+   9. Category Cards
+   ============================================================ */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    position: relative;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.category-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.category-card:hover .category-card__image {
+    transform: scale(1.05);
+}
+
+.category-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+}
+
+.category-card__name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   10. Product Cards
+   ============================================================ */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--bg-light);
+}
+
+.product-card__image,
+.product-card__image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s;
+}
+
+.product-card:hover .product-card__image,
+.product-card:hover .product-card__image-wrap img {
+    transform: scale(1.08);
+}
+
+.product-card__info {
+    padding: 15px;
+}
+
+.product-card > .product-card__name {
+    padding-top: 15px;
+}
+
+.product-card__name,
+.product-card__color,
+.product-card__price {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.product-card > .product-card__btn {
+    margin: 0 15px 15px;
+    width: calc(100% - 30px);
+}
+
+.product-card__name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.product-card__color {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.product-card__price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.product-card__btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--secondary);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    text-align: center;
+    display: block;
+}
+
+.product-card__btn:hover {
+    filter: brightness(1.1);
+}
+
+/* ============================================================
+   11. Promo Banner
+   ============================================================ */
+
+.promo-banner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 300px;
+}
+
+.promo-banner__content {
+    background: var(--primary-dark);
+    color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.promo-banner__title {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.promo-banner__text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+.promo-banner__cta {
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    align-self: flex-start;
+}
+
+.promo-banner__cta:hover {
+    background: white;
+    color: var(--primary-dark);
+}
+
+.promo-banner__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+}
+
+.promo-banner__images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================================
+   12. Services Banner
+   ============================================================ */
+
+.services-banner {
+    background: var(--secondary);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.services-banner h2,
+.services-banner__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.services-banner p,
+.services-banner__subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-banner__cta {
+    display: inline-block;
+    padding: 14px 35px;
+    background: white;
+    color: var(--secondary);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.services-banner__cta:hover {
+    background: var(--bg-light);
+}
+
+/* ============================================================
+   13. Brand Strip
+   ============================================================ */
+
+.brand-strip {
+    background: var(--bg-light);
+    padding: 40px 0;
+}
+
+.brand-strip__title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: var(--text);
+}
+
+.brand-strip__grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.brand-strip__item {
+    padding: 15px 25px;
+    background: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+}
+
+.brand-strip__item:hover {
+    border-color: var(--primary);
+}
+
+/* ============================================================
+   14. Newsletter
+   ============================================================ */
+
+.newsletter {
+    background: var(--primary-dark);
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.newsletter h2,
+.newsletter__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.newsletter p,
+.newsletter__text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.newsletter__form {
+    display: flex;
+    max-width: 500px;
+    margin: 20px auto 0;
+}
+
+.newsletter__form input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+}
+
+.newsletter__form button {
+    padding: 12px 30px;
+    background: var(--secondary);
+    color: white;
+    border-radius: 0 4px 4px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: filter 0.2s;
+}
+
+.newsletter__form button:hover {
+    filter: brightness(1.1);
+}
+
+/* ============================================================
+   15. Footer
+   ============================================================ */
+
+.footer {
+    background: var(--primary-dark);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 50px 0 20px;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer__column h4,
+.footer__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.footer__column p,
+.footer__text {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer__column ul a,
+.footer__links a {
+    display: block;
+    padding: 4px 0;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer__column ul a:hover,
+.footer__links a:hover {
+    color: white;
+}
+
+.footer__column ul li {
+    font-size: 14px;
+}
+
+.footer__social {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer__social a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s;
+}
+
+.footer__social a:hover {
+    color: white;
+}
+
+.sub-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.payment-icon {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ============================================================
+   16. Design Control Bar
+   ============================================================ */
+
+.control-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.control-bar__toggle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.2s;
+}
+
+.control-bar__toggle:hover {
+    transform: scale(1.05);
+}
+
+.control-bar__panel {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 250px;
+    display: none;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.control-bar__panel.active {
+    display: block;
+}
+
+.control-bar__label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.control-bar__select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 14px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.control-bar__group:last-child .control-bar__select {
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   Hamburger Menu Button
+   ============================================================ */
+
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger__line {
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s;
+}
+
+/* ============================================================
+   Banner Preview Page Styles
+   ============================================================ */
+
+.banner-preview {
+    padding: 30px 0;
+}
+
+.banner-preview__title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.banner-preview__subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.banner-style {
+    margin-bottom: 60px;
+}
+
+.banner-style__label {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+}
+
+.banner-examples {
+    display: grid;
+    gap: 30px;
+}
+
+/* Style A - Full-width hero with gradient overlay */
+.banner-a {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.banner-a__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.banner-a__content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 60px;
+    max-width: 600px;
+    color: white;
+}
+
+.banner-a__title {
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.banner-a__subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+.banner-a__cta {
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    background: var(--accent-red);
+    color: white;
+    transition: all 0.3s;
+}
+
+.banner-a__cta:hover {
+    background: #c00510;
+}
+
+/* Style B - Split banner */
+.banner-b {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.banner-b__content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.banner-b__title {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.banner-b__subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+.banner-b__cta {
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    background: white;
+    color: var(--primary);
+    transition: all 0.3s;
+    align-self: flex-start;
+}
+
+.banner-b__cta:hover {
+    background: var(--bg-light);
+}
+
+.banner-b__image {
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+}
+
+/* Style C - Band overlay banner */
+.banner-c {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.banner-band {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.banner-band__title {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.banner-band__subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.banner-band__cta {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s;
+}
+
+.banner-band__cta:hover {
+    background: white;
+    color: var(--text);
+}
+
+/* Style D - Product showcase banner */
+.banner-d {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    min-height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.banner-d__content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.banner-d__title {
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 10px;
+}
+
+.banner-d__subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+.banner-d__cta {
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    background: white;
+    color: var(--primary);
+    transition: all 0.3s;
+    align-self: flex-start;
+}
+
+.banner-d__cta:hover {
+    background: var(--bg-light);
+}
+
+.banner-d__image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.banner-d__image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================================
+   Responsive - Tablet (max-width: 1024px)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .nav__list {
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero__title {
+        font-size: 36px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================================
+   Responsive - Mobile (max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .header__top {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search {
+        order: 3;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .header__phone {
+        display: none;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav--open {
+        display: block;
+    }
+
+    .nav__list {
+        flex-direction: column;
+    }
+
+    .nav__link {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav__dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: var(--primary-dark);
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .nav__dropdown a {
+        color: white;
+        padding-left: 40px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .hero__title {
+        font-size: 28px;
+    }
+
+    .hero__subtitle {
+        font-size: 16px;
+    }
+
+    .hero__content {
+        padding: 0 20px;
+    }
+
+    .trust-strip__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        height: 200px;
+    }
+
+    .promo-banner {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sub-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .newsletter__form {
+        flex-direction: column;
+    }
+
+    .newsletter__form input,
+    .newsletter__form button {
+        border-radius: 4px;
+    }
+
+    /* Banner preview responsive */
+    .banner-b {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-d {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-a__title,
+    .banner-b__title,
+    .banner-band__title,
+    .banner-d__title {
+        font-size: 28px;
+    }
+
+    .banner-a__content {
+        padding: 30px 20px;
+    }
+}

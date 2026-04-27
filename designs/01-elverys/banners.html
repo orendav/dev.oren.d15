@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banner Style Preview | WBT Design</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Banner-split (Style B) */
+    .banner-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .banner-split__content {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+    }
+
+    .banner-split__image {
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Banner-band (Style C) — wrapper version */
+    .banner-band {
+      position: relative;
+      min-height: 400px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .banner-band__overlay {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* Banner-bold (Style D) */
+    .banner-bold {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      min-height: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+      color: white;
+    }
+
+    .banner-bold__text {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .banner-bold__image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .banner-bold__image img {
+      max-height: 350px;
+      object-fit: contain;
+    }
+
+    /* Example label */
+    .banner-example-label {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* Responsive overrides for new classes */
+    @media (max-width: 768px) {
+      .banner-split {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-split__image {
+        min-height: 250px;
+      }
+
+      .banner-bold {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-bold__image img {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner-preview">
+    <div class="container">
+
+      <h1 class="banner-preview__title">Banner Style Preview</h1>
+      <p class="banner-preview__subtitle">Choose your preferred banner style. Each style is shown with 2 examples.</p>
+
+      <!-- ============================================================
+           Style A — Gradient Overlay
+           ============================================================ -->
+      <div class="banner-style">
+        <h3 class="banner-style__label">Style A — Gradient Overlay</h3>
+        <div class="banner-examples">
+
+          <!-- A1 -->
+          <div>
+            <p class="banner-example-label">Example 1</p>
+            <div class="hero__slide hero__slide--active" style="background-image: url('images/talent/jacket-model-1.jpg'); position: relative; height: 450px;">
+              <div class="hero__overlay hero__overlay--gradient-left"></div>
+              <div class="hero__content">
+                <span class="hero__badge">LIMITED TIME</span>
+                <h2 class="hero__title">Winter Sale</h2>
+                <p class="hero__subtitle">Up to 40% off activewear & jackets</p>
+                <a href="#" class="hero__cta hero__cta--red">Shop Sale</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- A2 -->
+          <div>
+            <p class="banner-example-label">Example 2</p>
+            <div class="hero__slide hero__slide--active" style="background-image: url('images/talent/group-women-activewear.jpg'); position: relative; height: 450px;">
+              <div class="hero__overlay hero__overlay--gradient-left"></div>
+              <div class="hero__content hero__content--center">
+                <span class="hero__badge">JUST LANDED</span>
+                <h2 class="hero__title">New Arrivals</h2>
+                <p class="hero__subtitle">Wholesale activewear ready for your brand</p>
+                <a href="#" class="hero__cta hero__cta--white">Shop New</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           Style B — Split Layout
+           ============================================================ -->
+      <div class="banner-style">
+        <h3 class="banner-style__label">Style B — Split Layout</h3>
+        <div class="banner-examples">
+
+          <!-- B1 -->
+          <div>
+            <p class="banner-example-label">Example 1</p>
+            <div class="banner-split">
+              <div class="banner-split__content" style="background: #164196;">
+                <span class="hero__badge">BEST SELLERS</span>
+                <h2 class="hero__title">Best Selling Quarter-Zips</h2>
+                <p class="hero__subtitle">From $18.95 per unit wholesale</p>
+                <a href="#" class="hero__cta hero__cta--white">View Range</a>
+              </div>
+              <div class="banner-split__image" style="background-image: url('images/talent/quarter-zip-model-1.jpg')" role="img" aria-label="Quarter-zip model"></div>
+            </div>
+          </div>
+
+          <!-- B2 -->
+          <div>
+            <p class="banner-example-label">Example 2</p>
+            <div class="banner-split">
+              <div class="banner-split__content" style="background: #008673;">
+                <span class="hero__badge">NEW SEASON</span>
+                <h2 class="hero__title">Winter Collection 2026</h2>
+                <p class="hero__subtitle">Jackets, softshells & layering essentials</p>
+                <a href="#" class="hero__cta hero__cta--white">Shop Collection</a>
+              </div>
+              <div class="banner-split__image" style="background-image: url('images/talent/track-pants-model-1.jpg')" role="img" aria-label="Track pants model"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           Style C — Minimal Band
+           ============================================================ -->
+      <div class="banner-style">
+        <h3 class="banner-style__label">Style C — Minimal Band</h3>
+        <div class="banner-examples">
+
+          <!-- C1 -->
+          <div>
+            <p class="banner-example-label">Example 1</p>
+            <div class="banner-band" style="background-image: url('images/talent/group-women-activewear.jpg')">
+              <div class="banner-band__overlay">
+                <h2 class="hero__title">Wholesale Activewear</h2>
+                <p class="hero__subtitle">Australia's #1 wholesale supplier — 15+ years in business</p>
+                <a href="#" class="hero__cta hero__cta--teal">Shop Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- C2 -->
+          <div>
+            <p class="banner-example-label">Example 2</p>
+            <div class="banner-band" style="background-image: url('images/talent/jacket-model-2.jpg')">
+              <div class="banner-band__overlay">
+                <h2 class="hero__title">Same Day Dispatch</h2>
+                <p class="hero__subtitle">Order before 2pm AEST for same day shipping Australia-wide</p>
+                <a href="#" class="hero__cta hero__cta--teal">Shop Now</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           Style D — Bold Color Block
+           ============================================================ -->
+      <div class="banner-style">
+        <h3 class="banner-style__label">Style D — Bold Color Block</h3>
+        <div class="banner-examples">
+
+          <!-- D1 -->
+          <div>
+            <p class="banner-example-label">Example 1</p>
+            <div class="banner-bold" style="background: #0e2d6b;">
+              <div class="banner-bold__text">
+                <span class="hero__badge">UP TO 40% OFF</span>
+                <h2 style="font-size: 72px; font-weight: 900; line-height: 1; margin-bottom: 15px; color: white; text-transform: uppercase;">Sale</h2>
+                <p class="hero__subtitle">Wholesale prices on all activewear</p>
+                <a href="#" class="hero__cta hero__cta--red">Shop Sale</a>
+              </div>
+              <div class="banner-bold__image">
+                <img src="images/products/jacket-black-red.jpg" alt="Jacket on sale">
+              </div>
+            </div>
+          </div>
+
+          <!-- D2 -->
+          <div>
+            <p class="banner-example-label">Example 2</p>
+            <div class="banner-bold" style="background: #008673;">
+              <div class="banner-bold__text">
+                <span class="hero__badge">FREE DELIVERY</span>
+                <h2 style="font-size: 72px; font-weight: 900; line-height: 1; margin-bottom: 15px; color: white; text-transform: uppercase;">Free Shipping</h2>
+                <p class="hero__subtitle">On all orders over $299 Australia-wide</p>
+                <a href="#" class="hero__cta hero__cta--white">Shop Now</a>
+              </div>
+              <div class="banner-bold__image">
+                <img src="images/products/shorts-black.jpg" alt="Black shorts">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+  </div><!-- /.banner-preview -->
+
+  <!-- ============================================================
+       Design Control Bar
+       ============================================================ -->
+  <div class="control-bar">
+    <button class="control-bar__toggle" title="Design Controls">&#9881;</button>
+    <div class="control-bar__panel">
+      <div class="control-bar__group">
+        <label class="control-bar__label" for="font-select">Font Family</label>
+        <select id="font-select" class="control-bar__select">
+          <option value="system">System Default</option>
+          <option value="inter">Inter</option>
+          <option value="poppins">Poppins</option>
+          <option value="dm-sans">DM Sans</option>
+          <option value="jakarta">Plus Jakarta Sans</option>
+          <option value="outfit">Outfit</option>
+          <option value="playfair">Playfair Display</option>
+        </select>
+      </div>
+      <div class="control-bar__group">
+        <label class="control-bar__label" for="theme-select">Theme</label>
+        <select id="theme-select" class="control-bar__select">
+          <option value="">Default</option>
+          <option value="dark">Dark</option>
+          <option value="warm">Warm</option>
+          <option value="mono">Mono</option>
+          <option value="forest">Forest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
