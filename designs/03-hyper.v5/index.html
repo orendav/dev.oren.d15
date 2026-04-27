@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WBT | Wholesale Blank T-Shirts Australia</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       0. Purchase Order announcement bar (B2B trust signal)
+       ============================================================ -->
+  <div class="po-bar" id="po-bar">
+    <a href="#" class="po-bar__inner">
+      <span class="po-bar__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+      </span>
+      <span class="po-bar__audience">Schools, councils &amp; government</span>
+      <span class="po-bar__audience po-bar__audience--mobile">Govt &amp; Schools</span>
+      <span class="po-bar__divider" aria-hidden="true">·</span>
+      <span class="po-bar__msg">We accept <strong>Purchase Orders</strong> &mdash; pay later with a customer number.</span>
+      <span class="po-bar__msg po-bar__msg--mobile">Pay later with <strong>Purchase Orders</strong></span>
+      <span class="po-bar__cta">
+        Apply
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+    <button type="button" class="po-bar__close" id="po-bar-close" aria-label="Dismiss notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- ============================================================
+       1. Header (Logo + Search with All Categories + Actions)
+       ============================================================ -->
+  <header class="header">
+    <div class="header__inner">
+      <button class="header__hamburger" id="sidebar-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <a href="#" class="header__logo">WBT</a>
+
+      <div class="header__search">
+        <div class="header__search-category" id="search-category-toggle">
+          <span id="search-category-label">All Categories</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="category-dropdown" id="category-dropdown">
+            <a href="#" class="active" data-cat="All Categories">All Categories</a>
+            <a href="#" data-cat="T-Shirts">T-Shirts</a>
+            <a href="#" data-cat="Polo Shirts">Polo Shirts</a>
+            <a href="#" data-cat="Hoodies">Hoodies</a>
+            <a href="#" data-cat="Activewear">Activewear</a>
+            <a href="#" data-cat="Jackets">Jackets</a>
+            <a href="#" data-cat="Quarter-Zips">Quarter-Zips</a>
+            <a href="#" data-cat="Shorts">Shorts</a>
+            <a href="#" data-cat="Track Pants">Track Pants</a>
+            <a href="#" data-cat="Leggings">Leggings</a>
+            <a href="#" data-cat="Printing">Printing &amp; Embroidery</a>
+          </div>
+        </div>
+        <input type="text" class="header__search-input" placeholder="What are you looking for?">
+        <button class="header__search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+
+      <div class="header__actions">
+        <div class="gst-toggle" role="group" aria-label="Price display toggle">
+          <button type="button" class="gst-toggle__btn active" data-gst="inc">inc. GST</button>
+          <button type="button" class="gst-toggle__btn" data-gst="ex">ex. GST</button>
+        </div>
+        <a href="tel:0288803731" class="header__action header__action--phone">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="header__action-text">02 8880 3731</span>
+        </a>
+        <a href="#" class="header__action header__action--quote">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="header__action-text">Quote Request</span>
+        </a>
+        <a href="#" class="header__action">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="header__action-text">Login</span>
+        </a>
+        <a href="#" class="header__action header__cart">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="header__cart-badge">3</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile-only search row (visible only on narrow screens) -->
+    <div class="header__mobile-search">
+      <div class="header__mobile-search-inner">
+        <button class="header__mobile-search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <input type="text" class="header__mobile-search-input" placeholder="Search t-shirts, polos, hoodies&hellip;">
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       3. Sub-Navigation with Mega Menus
+       ============================================================ -->
+  <nav class="subnav">
+    <div class="subnav__inner">
+
+      <!-- Shop By Gender (3 image-led tiles, one per gender) -->
+      <div class="subnav__item">
+        <a href="#" class="subnav__link">
+          Shop By Gender
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="mega-menu mega-menu--gender">
+          <div class="mega-menu__inner">
+            <a href="#" class="gender-tile">
+              <div class="gender-tile__image">
+                <img src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Men" loading="lazy">
+                <span class="gender-tile__badge">Shop</span>
+              </div>
+              <div class="gender-tile__body">
+                <h4 class="gender-tile__title">Men</h4>
+                <ul class="gender-tile__links">
+                  <li><span>T-Shirts</span></li>
+                  <li><span>Polo Shirts</span></li>
+                  <li><span>Hoodies &amp; Fleece</span></li>
+                  <li><span>Jackets</span></li>
+                  <li><span>Track Pants &amp; Shorts</span></li>
+                </ul>
+                <span class="gender-tile__cta">View All Men's <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+              </div>
+            </a>
+            <a href="#" class="gender-tile">
+              <div class="gender-tile__image">
+                <img src="images/talent/activewear-model-women-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Women" loading="lazy">
+                <span class="gender-tile__badge">Shop</span>
+              </div>
+              <div class="gender-tile__body">
+                <h4 class="gender-tile__title">Women</h4>
+                <ul class="gender-tile__links">
+                  <li><span>T-Shirts</span></li>
+                  <li><span>Polo Shirts</span></li>
+                  <li><span>Hoodies &amp; Fleece</span></li>
+                  <li><span>Leggings &amp; Tights</span></li>
+                  <li><span>Jackets</span></li>
+                </ul>
+                <span class="gender-tile__cta">View All Women's <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+              </div>
+            </a>
+            <a href="#" class="gender-tile">
+              <div class="gender-tile__image">
+                <img src="images/talent/shorts-model-kids.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Kids" loading="lazy">
+                <span class="gender-tile__badge">Shop</span>
+              </div>
+              <div class="gender-tile__body">
+                <h4 class="gender-tile__title">Kids</h4>
+                <ul class="gender-tile__links">
+                  <li><span>T-Shirts</span></li>
+                  <li><span>Polo Shirts</span></li>
+                  <li><span>Hoodies</span></li>
+                  <li><span>School Sports</span></li>
+                  <li><span>Toddler Range</span></li>
+                </ul>
+                <span class="gender-tile__cta">View All Kids' <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop By Category (Style B — sidebar + image cards) -->
+      <div class="subnav__item">
+        <a href="#" class="subnav__link">
+          Shop By Category
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="mega-menu mega-menu--style-b mega-menu--tabs">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__sidebar">
+              <a href="#" class="mega-menu__sidebar-link active" data-cat="tops">Tops</a>
+              <a href="#" class="mega-menu__sidebar-link" data-cat="bottoms">Bottoms</a>
+              <a href="#" class="mega-menu__sidebar-link" data-cat="outerwear">Outerwear</a>
+              <a href="#" class="mega-menu__sidebar-link" data-cat="accessories">Accessories</a>
+              <a href="#" class="mega-menu__sidebar-link" data-cat="hivis">Hi-Vis &amp; Workwear</a>
+              <a href="#" class="mega-menu__sidebar-link" data-cat="services">Services</a>
+              <a href="#" class="mega-menu__sidebar-link" data-cat="all">View All</a>
+            </div>
+            <div class="mega-menu__panels">
+              <div class="mega-menu__panel mega-menu__content active" data-cat="tops">
+                <div class="mega-menu__content-card">
+                  <img src="images/products/quarter-zip-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="T-Shirts" loading="lazy">
+                  <span>T-Shirts</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/quarter-zip-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Polo Shirts" loading="lazy">
+                  <span>Polo Shirts</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-3.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Hoodies" loading="lazy">
+                  <span>Hoodies</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/quarter-zip-black-red.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Quarter-Zips" loading="lazy">
+                  <span>Quarter-Zips</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/jacket-royal-white.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Singlets" loading="lazy">
+                  <span>Singlets</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/track-jacket-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/J3150/J3150_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Long Sleeves" loading="lazy">
+                  <span>Long Sleeves</span>
+                </div>
+              </div>
+              <div class="mega-menu__panel mega-menu__content" data-cat="bottoms">
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/track-pants-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Talent_Navy_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Talent_Navy_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Track Pants" loading="lazy">
+                  <span>Track Pants</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/shorts-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Shorts" loading="lazy">
+                  <span>Shorts</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/leggings-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Leggings" loading="lazy">
+                  <span>Leggings</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/track-pants-model-women.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP226L/TP226L_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP226L/TP226L_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Women's Pants" loading="lazy">
+                  <span>Women's Pants</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/shorts-model-kids.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Kids Shorts" loading="lazy">
+                  <span>Kids Shorts</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/shorts-mens-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST511M/ST511M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST511M/ST511M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Men's Shorts" loading="lazy">
+                  <span>Men's Shorts</span>
+                </div>
+              </div>
+              <div class="mega-menu__panel mega-menu__content" data-cat="outerwear">
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Jackets" loading="lazy">
+                  <span>Jackets</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/track-jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Track Jackets" loading="lazy">
+                  <span>Track Jackets</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/jacket-black-red.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Windbreakers" loading="lazy">
+                  <span>Windbreakers</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Puffers" loading="lazy">
+                  <span>Puffers</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/jacket-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Fleece" loading="lazy">
+                  <span>Fleece</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-3.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Vests" loading="lazy">
+                  <span>Vests</span>
+                </div>
+              </div>
+              <div class="mega-menu__panel mega-menu__content" data-cat="accessories">
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Caps" loading="lazy">
+                  <span>Caps</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/shorts-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Bags" loading="lazy">
+                  <span>Bags</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/shorts-kids-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Socks" loading="lazy">
+                  <span>Socks</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/group-women-activewear.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Activewear Sets" loading="lazy">
+                  <span>Activewear Sets</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/quarter-zip-model-2.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Belts" loading="lazy">
+                  <span>Belts</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/leggings-short-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LS/L323LS_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L323LS/L323LS_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Sports Gear" loading="lazy">
+                  <span>Sports Gear</span>
+                </div>
+              </div>
+              <div class="mega-menu__panel mega-menu__content" data-cat="hivis">
+                <div class="mega-menu__content-card">
+                  <img src="images/products/track-jacket-black-white.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Hi-Vis Shirts" loading="lazy">
+                  <span>Hi-Vis Shirts</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/jacket-royal-white.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Hi-Vis Jackets" loading="lazy">
+                  <span>Hi-Vis Jackets</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/track-pants-navy.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Work Pants" loading="lazy">
+                  <span>Work Pants</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/track-pants-mens-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Cargo Pants" loading="lazy">
+                  <span>Cargo Pants</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Safety Vests" loading="lazy">
+                  <span>Safety Vests</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/group-women-activewear.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Workwear Bundle" loading="lazy">
+                  <span>Workwear Bundle</span>
+                </div>
+              </div>
+              <div class="mega-menu__panel mega-menu__content" data-cat="services">
+                <div class="mega-menu__content-card">
+                  <img src="images/products/shorts-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Printing" loading="lazy">
+                  <span>Screen Printing</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/quarter-zip-black-red.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Embroidery" loading="lazy">
+                  <span>Embroidery</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/group-women-activewear.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Bulk Orders" loading="lazy">
+                  <span>Bulk Orders</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/activewear-model-women-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Custom Design" loading="lazy">
+                  <span>Custom Design</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/jacket-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="Sample Service" loading="lazy">
+                  <span>Sample Service</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Size Guide" loading="lazy">
+                  <span>Size Guide</span>
+                </div>
+              </div>
+              <div class="mega-menu__panel mega-menu__content" data-cat="all">
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/activewear-model-women-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="New Arrivals" loading="lazy">
+                  <span>New Arrivals</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/quarter-zip-model-2.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Best Sellers" loading="lazy">
+                  <span>Best Sellers</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/shorts-navy.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="On Sale" loading="lazy">
+                  <span>On Sale</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/products/quarter-zip-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x" alt="All Tops" loading="lazy">
+                  <span>All Tops</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/track-pants-model-2.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Talent_Navy_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Talent_Navy_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="All Bottoms" loading="lazy">
+                  <span>All Bottoms</span>
+                </div>
+                <div class="mega-menu__content-card">
+                  <img src="images/talent/jacket-model-3.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="All Outerwear" loading="lazy">
+                  <span>All Outerwear</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop By Industry (B-style visual mega menu) -->
+      <div class="subnav__item">
+        <a href="#" class="subnav__link">
+          Shop By Industry
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="mega-menu mega-menu--style-b">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__sidebar">
+              <a href="#" class="active">Team Uniforms</a>
+              <a href="#">Corporate Wear</a>
+              <a href="#">Trades &amp; Construction</a>
+              <a href="#">Hospitality</a>
+              <a href="#">Schools &amp; Education</a>
+              <a href="#">Gym &amp; Fitness</a>
+              <a href="#">Events &amp; Promo</a>
+              <a href="#">Healthcare</a>
+            </div>
+            <div class="mega-menu__content">
+              <div class="mega-menu__content-card">
+                <img src="images/talent/jacket-model-3.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Royal_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Jackets" loading="lazy">
+                <span>Jackets</span>
+              </div>
+              <div class="mega-menu__content-card">
+                <img src="images/talent/quarter-zip-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Quarter-Zips" loading="lazy">
+                <span>Quarter-Zips</span>
+              </div>
+              <div class="mega-menu__content-card">
+                <img src="images/talent/track-pants-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Talent_Navy_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Talent_Navy_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Track Pants" loading="lazy">
+                <span>Track Pants</span>
+              </div>
+              <div class="mega-menu__content-card">
+                <img src="images/talent/shorts-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Shorts" loading="lazy">
+                <span>Shorts</span>
+              </div>
+              <div class="mega-menu__content-card">
+                <img src="images/talent/activewear-model-women-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Women's" loading="lazy">
+                <span>Women's</span>
+              </div>
+              <div class="mega-menu__content-card">
+                <img src="images/talent/shorts-model-kids.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=200 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=400 2x" alt="Kids" loading="lazy">
+                <span>Kids</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct links -->
+      <div class="subnav__item"><a href="#" class="subnav__link">T-Shirts</a></div>
+      <div class="subnav__item"><a href="#" class="subnav__link">Hoodies</a></div>
+      <div class="subnav__item"><a href="#" class="subnav__link">Polo Shirts</a></div>
+      <div class="subnav__item"><a href="#" class="subnav__link subnav__link--sale">On Sale &#x2736;</a></div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       4. Top Banner (multi-component)
+       ============================================================ -->
+  <section class="banner-grid">
+    <div class="container">
+      <div class="banner-grid__layout">
+        <a href="#" class="banner-card banner-card--main banner-card--video">
+          <video class="banner-card__video" autoplay muted loop playsinline preload="metadata" poster="https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=1024">
+            <source src="images/activwear.mp4" type="video/mp4">
+          </video>
+          <div class="banner-card__content">
+            <span class="banner-card__label">Wholesale Collection</span>
+            <h2 class="banner-card__title">Premium<br>Activewear</h2>
+            <p class="banner-card__desc">Blank tees, polos, hoodies &amp; more &mdash; bulk-ready, print-ready, delivered fast.</p>
+            <span class="banner-card__cta">Shop Collection <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <div class="banner-card banner-card--secondary banner-card--rotator" id="banner-rotator">
+          <a href="#" class="banner-card__slide active">
+            <img class="banner-card__image" src="images/talent/jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=540 540w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=720 720w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=1280 1280w" sizes="(min-width: 992px) 60vw, 100vw" alt="" loading="lazy" decoding="async">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Winter Jackets</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <a href="#" class="banner-card__slide">
+            <img class="banner-card__image" src="images/talent/quarter-zip-model-2.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=540 540w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=720 720w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&w=1280 1280w" sizes="(min-width: 992px) 60vw, 100vw" alt="" loading="lazy" decoding="async">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Quarter-Zips</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <a href="#" class="banner-card__slide">
+            <img class="banner-card__image" src="images/talent/track-jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=360 360w, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=540 540w, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=720 720w, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=1280 1280w" sizes="(min-width: 992px) 60vw, 100vw" alt="" loading="lazy" decoding="async">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Track Jackets</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <a href="#" class="banner-card__slide">
+            <img class="banner-card__image" src="images/talent/activewear-model-women-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=540 540w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=720 720w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=1280 1280w" sizes="(min-width: 992px) 60vw, 100vw" alt="" loading="lazy" decoding="async">
+            <div class="banner-card__content">
+              <span class="banner-card__label">New Arrivals</span>
+              <h3 class="banner-card__title">Women's Activewear</h3>
+              <span class="banner-card__cta banner-card__cta--sm">Shop Now <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          <div class="banner-card__dots" aria-hidden="true">
+            <span class="active"></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <a href="#" class="banner-card banner-card--tertiary">
+          <img class="banner-card__image" src="images/talent/shorts-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w" sizes="(min-width: 992px) 30vw, 100vw" alt="" loading="lazy" decoding="async">
+          <div class="banner-card__content">
+            <span class="banner-card__label banner-card__label--accent">Save 15%</span>
+            <h4 class="banner-card__title">Bulk Orders</h4>
+            <span class="banner-card__cta banner-card__cta--sm">Shop</span>
+          </div>
+        </a>
+        <a href="#" class="banner-card banner-card--quaternary">
+          <img class="banner-card__image" src="images/talent/quarter-zip-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w" sizes="(min-width: 992px) 30vw, 100vw" alt="" loading="lazy" decoding="async">
+          <div class="banner-card__content">
+            <span class="banner-card__label">From $5</span>
+            <h4 class="banner-card__title">Tees &amp; Basics</h4>
+            <span class="banner-card__cta banner-card__cta--sm">Shop</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5b. Shop by Category — 3-col lifestyle grid (Elverys-style)
+       ============================================================ -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Shop by Category</h2>
+          <p class="section-subtitle">Australia's favourite wholesale apparel &mdash; pick your range and start customising.</p>
+        </div>
+      </div>
+      <div class="shop-cat-grid">
+        <a href="#" class="shop-cat-card">
+          <img src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w" sizes="(min-width: 992px) 33vw, 100vw" alt="Men's range" loading="lazy">
+          <div class="shop-cat-card__overlay"></div>
+          <div class="shop-cat-card__body">
+            <span class="shop-cat-card__label">For Him</span>
+            <h3 class="shop-cat-card__title">Men's Range</h3>
+            <span class="shop-cat-card__cta">Shop Men <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="#" class="shop-cat-card">
+          <img src="images/talent/activewear-model-women-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w, https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w" sizes="(min-width: 992px) 33vw, 100vw" alt="Women's range" loading="lazy">
+          <div class="shop-cat-card__overlay"></div>
+          <div class="shop-cat-card__body">
+            <span class="shop-cat-card__label">For Her</span>
+            <h3 class="shop-cat-card__title">Women's Range</h3>
+            <span class="shop-cat-card__cta">Shop Women <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="#" class="shop-cat-card">
+          <img src="images/talent/shorts-model-kids.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w, https://wbt01.imgix.net/test01/09%20Activewear/ST511K/ST511K_Talent_Black_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w" sizes="(min-width: 992px) 33vw, 100vw" alt="Kids' range" loading="lazy">
+          <div class="shop-cat-card__overlay"></div>
+          <div class="shop-cat-card__body">
+            <span class="shop-cat-card__label">For the Kids</span>
+            <h3 class="shop-cat-card__title">Kids' Range</h3>
+            <span class="shop-cat-card__cta">Shop Kids <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. Best Sellers Product Grid
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Best Sellers</h2>
+          <p class="section-subtitle">Our most popular wholesale activewear, trusted by businesses across Australia.</p>
+        </div>
+        <a href="#" class="btn-view-all">View All <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/jacket-black-red.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Activewear Jacket" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <span class="product-card__badge product-card__badge--sale">Sale</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Activewear Jacket</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$14.95</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/jacket-black-red.jpg" aria-label="Black/Red"></span>
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/jacket-navy-white.jpg" aria-label="Navy"></span>
+              <span class="product-card__color-dot" style="background:#cc0000" data-image="images/products/jacket-black-red.jpg" aria-label="Red"></span>
+              <span class="product-card__color-dot" style="background:#ffffff;border-color:#ccc" data-image="images/products/jacket-royal-white.jpg" aria-label="White/Royal"></span>
+              <span class="product-card__color-dot" style="background:#4a4a4a" data-image="images/products/jacket-black-red.jpg" aria-label="Charcoal"></span>
+            </div>
+            <div class="product-card__price">
+              <span class="product-card__price--sale">$19.95</span>
+              <span class="product-card__price--original">$24.95</span>
+              <span class="product-card__price-note">inc. GST</span>
+            </div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$19.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$17.50</td><td class="product-card__bulk-savings">-12%</td></tr>
+                <tr><td>20+</td><td>$14.95</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+2 more bulk tiers &mdash; see full product &rsaquo;</a></td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/jacket-royal-white.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Activewear Jacket Royal" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <span class="product-card__badge product-card__badge--new">New</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Activewear Jacket</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$18.75</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/jacket-navy-white.jpg" aria-label="Navy"></span>
+              <span class="product-card__color-dot" style="background:#ffffff;border-color:#ccc" data-image="images/products/jacket-royal-white.jpg" aria-label="White/Royal"></span>
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/jacket-black-red.jpg" aria-label="Black"></span>
+              <span class="product-card__color-dot" style="background:#c8102e" data-image="images/products/jacket-black-red.jpg" aria-label="Red"></span>
+            </div>
+            <div class="product-card__price">$24.95 <span class="product-card__price-note">inc. GST</span></div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$24.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$21.70</td><td class="product-card__bulk-savings">-13%</td></tr>
+                <tr><td>20+</td><td>$18.75</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/quarter-zip-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Quarter-Zip" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Quarter-Zip Pullover</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$14.20</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/quarter-zip-navy-white.jpg" aria-label="Navy/White"></span>
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/quarter-zip-black-red.jpg" aria-label="Black/Red"></span>
+              <span class="product-card__color-dot" style="background:#555" data-image="images/products/quarter-zip-black-red.jpg" aria-label="Charcoal"></span>
+              <span class="product-card__color-dot" style="background:#8b0000" data-image="images/products/quarter-zip-black-red.jpg" aria-label="Wine"></span>
+              <span class="product-card__color-dot" style="background:#006633" data-image="images/products/quarter-zip-navy-white.jpg" aria-label="Forest"></span>
+              <span class="product-card__color-dot" style="background:#ffffff;border-color:#ccc" data-image="images/products/quarter-zip-navy-white.jpg" aria-label="White"></span>
+            </div>
+            <div class="product-card__price">$18.95 <span class="product-card__price-note">inc. GST</span></div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$18.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$16.25</td><td class="product-card__bulk-savings">-14%</td></tr>
+                <tr><td>20+</td><td>$14.20</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+1 more bulk tier &mdash; see full product &rsaquo;</a></td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/shorts-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Active Shorts" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <span class="product-card__badge product-card__badge--sale">Sale</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Active Shorts</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$7.45</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/shorts-black.jpg" aria-label="Black"></span>
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/shorts-navy.jpg" aria-label="Navy"></span>
+              <span class="product-card__color-dot" style="background:#555" data-image="images/products/shorts-mens-black.jpg" aria-label="Charcoal"></span>
+              <span class="product-card__color-dot" style="background:#8b0000" data-image="images/products/shorts-black.jpg" aria-label="Wine"></span>
+            </div>
+            <div class="product-card__price">
+              <span class="product-card__price--sale">$9.95</span>
+              <span class="product-card__price--original">$12.95</span>
+              <span class="product-card__price-note">inc. GST</span>
+            </div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$9.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$8.60</td><td class="product-card__bulk-savings">-14%</td></tr>
+                <tr><td>20+</td><td>$7.45</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6b. Product + Print Value Packs (essentialworkwear-inspired)
+       ============================================================ -->
+  <section class="section section--bundles">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow section-eyebrow--bundle">UNIFORM BUNDLES</span>
+          <h2 class="section-heading">Product + Print Value Packs</h2>
+          <p class="section-subtitle">Multi-piece kits with <strong>print or embroidery included</strong>. Perfect for teams, trades and corporate fit-outs &mdash; one price, branded and ready.</p>
+        </div>
+        <a href="#" class="btn-view-all">Shop All Bundles <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="bundle-grid">
+        <a href="#" class="bundle-card" data-hover-images="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480">
+          <div class="bundle-card__image-wrap">
+            <span class="bundle-card__badge">SAVE $89</span>
+            <span class="qty-badge" aria-label="3 pieces">&times;3</span>
+            <img src="images/bundles/ai-bundle-print-polo-fb.png" srcset="https://wbt01.imgix.net/test01/bundles/ai-bundle-print-polo-fb.png?auto=format,compress&w=320 320w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-polo-fb.png?auto=format,compress&w=480 480w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-polo-fb.png?auto=format,compress&w=640 640w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-polo-fb.png?auto=format,compress&w=800 800w" sizes="(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw" alt="Corporate Team Bundle &mdash; front and back embroidered preview" class="card-img" loading="lazy">
+          </div>
+          <div class="bundle-card__body">
+            <span class="bundle-card__kicker">Corporate Team Pack</span>
+            <h3 class="bundle-card__name">Quarter-Zip + Track Pants + Soft-Shell Jacket</h3>
+            <span class="print-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> Embroidered &mdash; Front Logo</span>
+            <ul class="bundle-card__contents">
+              <li>1&times; Quarter-Zip Pullover &mdash; embroidered chest</li>
+              <li>1&times; Branded Track Pants</li>
+              <li>1&times; Soft-Shell Jacket &mdash; embroidered logo</li>
+            </ul>
+            <div class="bundle-card__price">
+              <span class="bundle-card__price-now">$148.85</span>
+              <span class="bundle-card__price-was">$237.85</span>
+              <span class="bundle-card__price-each">per person</span>
+            </div>
+            <span class="bundle-card__cta">Build pack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a href="#" class="bundle-card" data-hover-images="https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480">
+          <div class="bundle-card__image-wrap">
+            <span class="bundle-card__badge">SAVE $124</span>
+            <span class="qty-badge" aria-label="4 pieces">&times;4</span>
+            <img src="images/bundles/ai-bundle-print-hoodie-fb.png" srcset="https://wbt01.imgix.net/test01/bundles/ai-bundle-print-hoodie-fb.png?auto=format,compress&w=320 320w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-hoodie-fb.png?auto=format,compress&w=480 480w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-hoodie-fb.png?auto=format,compress&w=640 640w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-hoodie-fb.png?auto=format,compress&w=800 800w" sizes="(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw" alt="Club Uniform Bundle &mdash; front and back DTF print preview" class="card-img" loading="lazy">
+          </div>
+          <div class="bundle-card__body">
+            <span class="bundle-card__kicker">Club &amp; Sports Pack</span>
+            <h3 class="bundle-card__name">Full Team Kit &mdash; Top, Pants, Shorts &amp; Mid Layer</h3>
+            <span class="print-pill print-pill--dtf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> DTF Full Colour &mdash; Front + Back</span>
+            <ul class="bundle-card__contents">
+              <li>1&times; Track Jacket &mdash; printed front + back</li>
+              <li>1&times; Active Shorts &mdash; printed leg</li>
+              <li>1&times; Track Pants</li>
+              <li>1&times; Quarter-Zip &mdash; printed chest</li>
+            </ul>
+            <div class="bundle-card__price">
+              <span class="bundle-card__price-now">$165.40</span>
+              <span class="bundle-card__price-was">$289.40</span>
+              <span class="bundle-card__price-each">per person</span>
+            </div>
+            <span class="bundle-card__cta">Build pack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a href="#" class="bundle-card" data-hover-images="https://wbt01.imgix.net/test01/J408M/J408M_Product_Royal_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480">
+          <div class="bundle-card__image-wrap">
+            <span class="bundle-card__badge">SAVE $74</span>
+            <span class="qty-badge" aria-label="3 pieces">&times;3</span>
+            <img src="images/bundles/ai-bundle-print-tee-fb.png" srcset="https://wbt01.imgix.net/test01/bundles/ai-bundle-print-tee-fb.png?auto=format,compress&w=320 320w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-tee-fb.png?auto=format,compress&w=480 480w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-tee-fb.png?auto=format,compress&w=640 640w, https://wbt01.imgix.net/test01/bundles/ai-bundle-print-tee-fb.png?auto=format,compress&w=800 800w" sizes="(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw" alt="Hospitality Bundle &mdash; embroidered name preview" class="card-img" loading="lazy">
+          </div>
+          <div class="bundle-card__body">
+            <span class="bundle-card__kicker">Hospitality &amp; Events Pack</span>
+            <h3 class="bundle-card__name">Front-of-House Uniform &mdash; Jacket + Bottoms</h3>
+            <span class="print-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> Embroidered Name &mdash; Chest</span>
+            <ul class="bundle-card__contents">
+              <li>1&times; Light Jacket &mdash; embroidered with first name</li>
+              <li>1&times; Branded Active Shorts</li>
+              <li>1&times; Full-Length Leggings</li>
+            </ul>
+            <div class="bundle-card__price">
+              <span class="bundle-card__price-now">$118.50</span>
+              <span class="bundle-card__price-was">$192.50</span>
+              <span class="bundle-card__price-each">per person</span>
+            </div>
+            <span class="bundle-card__cta">Build pack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="bundle-strip">
+        <span class="bundle-strip__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <div class="bundle-strip__lines">
+          <strong>Print &amp; embroidery included &mdash; no setup fees, no minimums.</strong>
+          <span>Upload artwork at checkout. Our team scales and proofs it before production.</span>
+        </div>
+        <a href="#" class="bundle-strip__cta">How it works &rsaquo;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6c. Product-Only Value Packs (workwearhub-inspired)
+       ============================================================ -->
+  <section class="section section--packs">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow section-eyebrow--pack">VALUE PACKS</span>
+          <h2 class="section-heading">Multi-buy &amp; Twin Packs</h2>
+          <p class="section-subtitle">Same item, multiple sizes or colours, one bundled price &mdash; the cheapest way to stock up. <strong>No printing.</strong></p>
+        </div>
+        <a href="#" class="btn-view-all">Shop All Packs <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="pack-grid">
+        <a href="#" class="pack-card" data-hover-images="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save">SAVE $19.35</span>
+            <img src="images/bundles/ai-pack-shorts-twin.png" srcset="https://wbt01.imgix.net/test01/bundles/ai-pack-shorts-twin.png?auto=format,compress&w=320 320w, https://wbt01.imgix.net/test01/bundles/ai-pack-shorts-twin.png?auto=format,compress&w=480 480w, https://wbt01.imgix.net/test01/bundles/ai-pack-shorts-twin.png?auto=format,compress&w=640 640w, https://wbt01.imgix.net/test01/bundles/ai-pack-shorts-twin.png?auto=format,compress&w=800 800w" sizes="(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw" alt="Cargo Shorts Twin Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="2 pack">&times;2</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Cargo Shorts Twin Value Pack &mdash; Khaki</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">128 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$15.95</span>
+              <span class="pack-card__price-was">$25.90</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
+
+        <a href="#" class="pack-card" data-hover-images="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save">SAVE $32.85</span>
+            <img src="images/bundles/ai-pack-hivis-3.png" srcset="https://wbt01.imgix.net/test01/bundles/ai-pack-hivis-3.png?auto=format,compress&w=320 320w, https://wbt01.imgix.net/test01/bundles/ai-pack-hivis-3.png?auto=format,compress&w=480 480w, https://wbt01.imgix.net/test01/bundles/ai-pack-hivis-3.png?auto=format,compress&w=640 640w, https://wbt01.imgix.net/test01/bundles/ai-pack-hivis-3.png?auto=format,compress&w=800 800w" sizes="(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw" alt="Hi-Vis 3 Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="3 pack">&times;3</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Hi-Vis Long-Sleeve 3 Pack &mdash; Orange / Navy</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">87 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$45.00</span>
+              <span class="pack-card__price-was">$77.85</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
+
+        <a href="#" class="pack-card" data-hover-images="https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/09%20Activewear/TP226L/TP226L_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save pack-card__save--big">SAVE $54.40</span>
+            <span class="pack-card__online-only">ONLINE ONLY</span>
+            <img src="images/bundles/ai-pack-trackpants-4.png" srcset="https://wbt01.imgix.net/test01/bundles/ai-pack-trackpants-4.png?auto=format,compress&w=320 320w, https://wbt01.imgix.net/test01/bundles/ai-pack-trackpants-4.png?auto=format,compress&w=480 480w, https://wbt01.imgix.net/test01/bundles/ai-pack-trackpants-4.png?auto=format,compress&w=640 640w, https://wbt01.imgix.net/test01/bundles/ai-pack-trackpants-4.png?auto=format,compress&w=800 800w" sizes="(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw" alt="Track Pants 4 Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="4 pack">&times;4</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Unisex Track Pants 4 Value Pack &mdash; Navy / Black</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">340 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$59.40</span>
+              <span class="pack-card__price-was">$113.80</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
+
+        <a href="#" class="pack-card" data-hover-images="https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 | https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480">
+          <div class="pack-card__image-wrap">
+            <span class="pack-card__tag">VALUE PACK</span>
+            <span class="pack-card__save">SAVE $24.95</span>
+            <img src="images/bundles/ai-pack-jackets-twin.png" srcset="https://wbt01.imgix.net/test01/bundles/ai-pack-jackets-twin.png?auto=format,compress&w=320 320w, https://wbt01.imgix.net/test01/bundles/ai-pack-jackets-twin.png?auto=format,compress&w=480 480w, https://wbt01.imgix.net/test01/bundles/ai-pack-jackets-twin.png?auto=format,compress&w=640 640w, https://wbt01.imgix.net/test01/bundles/ai-pack-jackets-twin.png?auto=format,compress&w=800 800w" sizes="(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw" alt="Activewear Jacket Twin Pack" class="card-img" loading="lazy">
+            <span class="qty-badge" aria-label="2 pack">&times;2</span>
+          </div>
+          <div class="pack-card__body">
+            <h3 class="pack-card__name">Activewear Jacket Twin Pack &mdash; Black/Red + Navy</h3>
+            <div class="pack-card__rating"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pack-card__reviews">52 reviews</span></div>
+            <div class="pack-card__price">
+              <span class="pack-card__price-now">$24.95</span>
+              <span class="pack-card__price-was">$49.90</span>
+            </div>
+            <span class="pack-card__hint">Pick sizes at checkout</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. Featured Collection Banner
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="featured-banner">
+        <div class="featured-banner__content">
+          <span class="featured-banner__label">Featured Collection</span>
+          <h2 class="featured-banner__title">Winter Activewear Collection</h2>
+          <p class="featured-banner__desc">Jackets, softshells, and layering essentials at wholesale prices. Perfect for teams, uniforms, and branded apparel.</p>
+          <a href="#" class="featured-banner__cta">Shop Collection</a>
+        </div>
+        <div class="featured-banner__image">
+          <img src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=720 720w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=1280 1280w" sizes="(min-width: 768px) 50vw, 100vw" alt="" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. Clearance — limited-stock end-of-line products
+       ============================================================ -->
+  <section class="section section--offers section--clearance">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow section-eyebrow--clearance">CLEARANCE</span>
+          <h2 class="section-heading">End-of-line &amp; Run-out</h2>
+          <p class="section-subtitle">Final stock, deep discounts &mdash; <strong>limited stock still available</strong>. Once it's gone, it's gone.</p>
+        </div>
+        <a href="#" class="btn-view-all">Shop All Clearance <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="offers-grid">
+        <div class="offer-card"
+             data-name="Track Jacket"
+             data-category="Track Jackets"
+             data-vendor="Biz Collection"
+             data-image="images/products/track-jacket-navy-white.jpg"
+             data-image-alt="https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640"
+             data-price="18.95"
+             data-original="22.95"
+             data-stock="42"
+             data-colors='[{"name":"Navy/White","hex":"#1a3a8a"},{"name":"Black/Red","hex":"#111"},{"name":"Royal","hex":"#1e46c9"}]'
+             data-sizes='["S","M","L","XL","2XL","3XL"]'
+             data-desc="Breathable polyester track jacket — perfect for team uniforms, gyms and schools. Print- and embroidery-ready.">
+          <div class="offer-card__image">
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 42 left</span>
+            <img class="offer-card__img offer-card__img--main" src="images/products/track-jacket-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J3150/J3150_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J3150/J3150_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J3150/J3150_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Track Jacket" loading="lazy">
+            <img class="offer-card__img offer-card__img--alt" src="images/talent/track-jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Track Jacket on model" loading="lazy">
+          </div>
+          <div class="offer-card__meta">Track Jackets</div>
+          <h3 class="offer-card__name">Track Jacket</h3>
+          <div class="offer-card__price"><span class="offer-card__price-sale">$18.95</span> <span class="offer-card__price-original">$22.95</span> <span class="offer-card__price-pct">&minus;17%</span></div>
+          <ul class="offer-card__swatches" aria-hidden="true">
+            <li style="background:#1a3a8a"></li>
+            <li style="background:#111"></li>
+            <li style="background:#1e46c9"></li>
+          </ul>
+        </div>
+
+        <div class="offer-card"
+             data-name="Track Jacket"
+             data-category="Track Jackets"
+             data-vendor="JB's Wear"
+             data-image="images/products/track-jacket-black-white.jpg"
+             data-image-alt="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640"
+             data-price="18.95"
+             data-original="22.95"
+             data-stock="18"
+             data-colors='[{"name":"Black/White","hex":"#111"},{"name":"Navy/White","hex":"#1a3a8a"}]'
+             data-sizes='["S","M","L","XL","2XL"]'
+             data-desc="Contrast panel track jacket with zip pockets and elasticated cuffs. A wholesale staple for clubs and corporates.">
+          <div class="offer-card__image">
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 18 left</span>
+            <img class="offer-card__img offer-card__img--main" src="images/products/track-jacket-black-white.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Track Jacket Black" loading="lazy">
+            <img class="offer-card__img offer-card__img--alt" src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Track Jacket alternate" loading="lazy">
+          </div>
+          <div class="offer-card__meta">Track Jackets</div>
+          <h3 class="offer-card__name">Track Jacket</h3>
+          <div class="offer-card__price"><span class="offer-card__price-sale">$18.95</span> <span class="offer-card__price-original">$22.95</span> <span class="offer-card__price-pct">&minus;17%</span></div>
+          <ul class="offer-card__swatches" aria-hidden="true">
+            <li style="background:#111"></li>
+            <li style="background:#1a3a8a"></li>
+          </ul>
+        </div>
+
+        <div class="offer-card"
+             data-name="Full Length Leggings"
+             data-category="Leggings"
+             data-vendor="AS Colour"
+             data-image="images/products/leggings-long-black.jpg"
+             data-image-alt="https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640"
+             data-price="13.95"
+             data-original="16.95"
+             data-stock="64"
+             data-colors='[{"name":"Black","hex":"#111"},{"name":"Charcoal","hex":"#333"}]'
+             data-sizes='["XS","S","M","L","XL"]'
+             data-desc="High-waisted compression leggings with flatlock seams. Four-way stretch, ideal for training, yoga and team fit-outs.">
+          <div class="offer-card__image">
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 24 left</span>
+            <img class="offer-card__img offer-card__img--main" src="images/products/leggings-long-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Leggings" loading="lazy">
+            <img class="offer-card__img offer-card__img--alt" src="images/talent/leggings-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Leggings on model" loading="lazy">
+          </div>
+          <div class="offer-card__meta">Leggings</div>
+          <h3 class="offer-card__name">Full Length Leggings</h3>
+          <div class="offer-card__price"><span class="offer-card__price-sale">$13.95</span> <span class="offer-card__price-original">$16.95</span> <span class="offer-card__price-pct">&minus;18%</span></div>
+          <ul class="offer-card__swatches" aria-hidden="true">
+            <li style="background:#111"></li>
+            <li style="background:#333"></li>
+          </ul>
+        </div>
+
+        <div class="offer-card"
+             data-name="Active Shorts"
+             data-category="Shorts"
+             data-vendor="Biz Collection"
+             data-image="images/products/shorts-navy.jpg"
+             data-image-alt="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640"
+             data-price="9.95"
+             data-original="12.95"
+             data-stock="120"
+             data-colors='[{"name":"Navy","hex":"#1a3a8a"},{"name":"Black","hex":"#111"}]'
+             data-sizes='["S","M","L","XL","2XL","3XL"]'
+             data-desc="Lightweight 5-inch active short with drawcord waist and mesh pocket lining. Great for gym, footy and run-out uniforms.">
+          <div class="offer-card__image">
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 36 left</span>
+            <img class="offer-card__img offer-card__img--main" src="images/products/shorts-navy.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Shorts Navy" loading="lazy">
+            <img class="offer-card__img offer-card__img--alt" src="images/talent/shorts-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Shorts on model" loading="lazy">
+          </div>
+          <div class="offer-card__meta">Shorts</div>
+          <h3 class="offer-card__name">Active Shorts</h3>
+          <div class="offer-card__price"><span class="offer-card__price-sale">$9.95</span> <span class="offer-card__price-original">$12.95</span> <span class="offer-card__price-pct">&minus;23%</span></div>
+          <ul class="offer-card__swatches" aria-hidden="true">
+            <li style="background:#1a3a8a"></li>
+            <li style="background:#111"></li>
+          </ul>
+        </div>
+
+        <div class="offer-card"
+             data-name="Quarter-Zip Pullover"
+             data-category="Quarter-Zips"
+             data-vendor="Winning Spirit"
+             data-image="images/products/quarter-zip-black-red.jpg"
+             data-image-alt="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640"
+             data-price="15.95"
+             data-original="18.95"
+             data-stock="28"
+             data-colors='[{"name":"Black/Red","hex":"#111"},{"name":"Navy/White","hex":"#1a3a8a"},{"name":"Royal","hex":"#1e46c9"}]'
+             data-sizes='["S","M","L","XL","2XL"]'
+             data-desc="Mid-weight poly/cotton quarter-zip with contrast panels. Decoration-ready and rated for heavy laundry cycles.">
+          <div class="offer-card__image">
+            <span class="offer-card__badge offer-card__badge--clearance">Clearance</span>
+            <span class="offer-card__tag offer-card__tag--low">Only 28 left</span>
+            <img class="offer-card__img offer-card__img--main" src="images/products/quarter-zip-black-red.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Quarter-Zip" loading="lazy">
+            <img class="offer-card__img offer-card__img--alt" src="images/talent/quarter-zip-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Quarter-Zip on model" loading="lazy">
+          </div>
+          <div class="offer-card__meta">Quarter-Zips</div>
+          <h3 class="offer-card__name">Quarter-Zip Pullover</h3>
+          <div class="offer-card__price"><span class="offer-card__price-sale">$15.95</span> <span class="offer-card__price-original">$18.95</span> <span class="offer-card__price-pct">&minus;16%</span></div>
+          <ul class="offer-card__swatches" aria-hidden="true">
+            <li style="background:#111"></li>
+            <li style="background:#1a3a8a"></li>
+            <li style="background:#1e46c9"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8b. Quick View Modal (populated from offer-card data-*)
+       ============================================================ -->
+  <div class="quickview" id="quickview" aria-hidden="true">
+    <div class="quickview__backdrop" data-qv-close></div>
+    <div class="quickview__dialog" role="dialog" aria-modal="true" aria-labelledby="qv-name">
+      <button class="quickview__close" data-qv-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="quickview__layout">
+        <div class="quickview__gallery">
+          <div class="quickview__thumbs" id="qv-thumbs"></div>
+          <div class="quickview__main"><img id="qv-main-img" src="" alt=""></div>
+        </div>
+        <div class="quickview__info">
+          <span class="quickview__badge">Sale</span>
+          <h3 class="quickview__name" id="qv-name"></h3>
+          <p class="quickview__vendor">Vendor: <a href="#" id="qv-vendor"></a> &middot; Type: <a href="#" id="qv-type"></a></p>
+          <div class="quickview__price">
+            <span id="qv-price"></span>
+            <span class="quickview__price-original" id="qv-original"></span>
+          </div>
+          <ul class="quickview__features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Wholesale pricing</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Print &amp; embroidery ready</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Australian stock</li>
+          </ul>
+          <div class="quickview__stock" id="qv-stock-text">Hurry up, only <strong>42</strong> items left in stock!</div>
+          <div class="quickview__stock-bar"><span id="qv-stock-bar"></span></div>
+          <p class="quickview__desc" id="qv-desc"></p>
+          <div class="quickview__option">
+            <div class="quickview__option-label">Colour: <strong id="qv-color-name"></strong></div>
+            <div class="quickview__colors" id="qv-colors"></div>
+          </div>
+          <div class="quickview__option">
+            <div class="quickview__option-label">Size: <strong id="qv-size-name">M</strong></div>
+            <div class="quickview__sizes" id="qv-sizes"></div>
+          </div>
+          <div class="quickview__cta-row">
+            <div class="quickview__qty">
+              <button type="button" data-qv-qty="-1">&minus;</button>
+              <span id="qv-qty">1</span>
+              <button type="button" data-qv-qty="1">+</button>
+            </div>
+            <button class="quickview__atc" type="button">Add to Cart <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></button>
+          </div>
+          <a href="#" class="quickview__viewfull">View full details &rsaquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       9. Meet the Brand
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="brand-section">
+        <div class="brand-section__image">
+          <img src="images/talent/group-women-activewear.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=720 720w, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=960 960w, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=1280 1280w" sizes="(min-width: 768px) 50vw, 100vw" alt="WBT Team" loading="lazy">
+        </div>
+        <div>
+          <div class="brand-section__badge">
+            <div class="brand-section__badge-icon">&#9733;</div>
+            <div>
+              <div class="brand-section__badge-text">15+ Years</div>
+              <div class="brand-section__badge-text">Serving Australia</div>
+            </div>
+          </div>
+          <h2 class="brand-section__title">The team behind your wholesale activewear</h2>
+          <p class="brand-section__desc">Based in Mount Druitt, NSW, we've been supplying Australian businesses with premium blank activewear for over 15 years. From t-shirts to jackets, printing to embroidery &mdash; we're your one-stop wholesale partner.</p>
+          <a href="#" class="brand-section__cta">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. Customise Your Apparel — Product + Visual Editor + Logo Upload
+       ============================================================ -->
+  <section class="section section--alt" id="customise">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Customise</span>
+          <h2 class="section-heading">Customise Your Apparel</h2>
+          <p class="section-subtitle">Add your colours &amp; sizes, drop a logo on the visual editor, or upload artwork and we'll mock it up for you.</p>
+        </div>
+      </div>
+
+      <div class="featured-product__layout">
+        <div class="featured-product__gallery">
+          <div class="featured-product__thumbs">
+            <div class="featured-product__thumb active"><img src="images/products/jacket-black-red.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Thumb 1" loading="lazy"></div>
+            <div class="featured-product__thumb"><img src="images/talent/jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Thumb 2" loading="lazy"></div>
+            <div class="featured-product__thumb"><img src="images/talent/jacket-model-2.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Talent_Black_Red_02_R.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Thumb 3" loading="lazy"></div>
+          </div>
+          <div class="featured-product__main-image">
+            <img src="images/products/jacket-black-red.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Activewear Jacket" id="featured-main-img">
+          </div>
+        </div>
+
+        <div class="featured-product__info">
+          <span class="featured-product__badge">New</span>
+          <h3 class="featured-product__name">Activewear Jacket</h3>
+          <p class="featured-product__meta">Vendor: <a href="#">Biz Collection</a> &middot; Type: <a href="#">Jackets</a></p>
+          <div class="featured-product__price">$24.95</div>
+
+          <div class="featured-product__tags">
+            <span class="featured-product__tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Wholesale</span>
+            <span class="featured-product__tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Print-Ready</span>
+            <span class="featured-product__tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Australian Stock</span>
+          </div>
+
+          <div class="featured-product__stock">
+            Hurry up, only 50 items left in stock!
+            <div class="featured-product__stock-bar"><span></span></div>
+          </div>
+
+          <!-- Customizer -->
+          <div class="customizer">
+            <div class="customizer__tabs">
+              <div class="customizer__tab active" data-tab="product">
+                <span class="customizer__tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                <span class="customizer__tab-title">Product</span>
+                <span class="customizer__tab-desc">Colours, sizes &amp; qty</span>
+              </div>
+              <div class="customizer__tab" data-tab="textart">
+                <span class="customizer__tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span>
+                <span class="customizer__tab-title">Text &amp; Art</span>
+                <span class="customizer__tab-desc">Upload your design</span>
+              </div>
+              <div class="customizer__tab" data-tab="easywizard">
+                <span class="customizer__tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+                <span class="customizer__tab-title">Easy Design</span>
+                <span class="customizer__tab-desc">We mockup for you</span>
+              </div>
+            </div>
+
+            <div class="customizer__panel active" id="panel-product">
+              <div class="customizer__option">
+                <div class="customizer__option-left">
+                  <span class="customizer__option-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+                  <div><div class="customizer__option-label">Colour</div><div class="customizer__option-value">Black/Red</div></div>
+                </div>
+                <span class="customizer__option-right">+3 &rsaquo;</span>
+              </div>
+              <div class="customizer__option">
+                <div class="customizer__option-left">
+                  <span class="customizer__option-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/></svg></span>
+                  <div><div class="customizer__option-label">Size</div><div class="customizer__option-value">S &ndash; 5XL</div></div>
+                </div>
+                <span class="customizer__option-right">&rsaquo;</span>
+              </div>
+              <div class="customizer__cart-row">
+                <div class="customizer__qty">
+                  <button id="qty-minus">&minus;</button>
+                  <span id="qty-value">1</span>
+                  <button id="qty-plus">+</button>
+                </div>
+                <button class="customizer__add-to-cart">Add to Cart <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></button>
+              </div>
+            </div>
+
+            <div class="customizer__panel" id="panel-textart">
+              <div class="wizard">
+                <div class="wizard__workspace">
+                  <img src="images/products/jacket-black-red.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Design workspace" loading="lazy">
+                  <div class="wizard__workspace-overlays">
+                    <button class="wizard__workspace-btn">Text</button>
+                    <button class="wizard__workspace-btn">Art</button>
+                  </div>
+                </div>
+                <div class="wizard__sidebar">
+                  <div class="wizard__tools">
+                    <div class="wizard__tool">
+                      <span class="wizard__tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 7V4h16v3"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/></svg></span>
+                      <div class="wizard__tool-text"><div class="wizard__tool-title">Add text</div><div class="wizard__tool-desc">Text-based design</div></div>
+                    </div>
+                    <div class="wizard__tool">
+                      <span class="wizard__tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
+                      <div class="wizard__tool-text"><div class="wizard__tool-title">Add art</div><div class="wizard__tool-desc">Image-based design</div></div>
+                    </div>
+                    <div class="wizard__tool wizard__tool--disabled">
+                      <span class="wizard__tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                      <div class="wizard__tool-text"><div class="wizard__tool-title">Stock Artwork</div><div class="wizard__tool-desc">Effects &amp; more</div></div>
+                      <span class="wizard__tool-badge">Soon</span>
+                    </div>
+                  </div>
+                  <div class="wizard__layers">
+                    <div class="wizard__layers-title">Layers</div>
+                    <div class="wizard__layers-empty">
+                      <p>No layers yet</p>
+                      <p>Add text or artwork to start building your design.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="customizer__panel" id="panel-easywizard">
+              <div class="easy-wizard">
+                <div class="easy-wizard__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+                <h3 class="easy-wizard__title">Upload Your Design Idea</h3>
+                <p class="easy-wizard__desc">Upload a rough file or idea and we'll create a professional mockup before printing.</p>
+                <button class="easy-wizard__upload"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload File</button>
+                <p class="easy-wizard__note">We'll provide a PDF mockup for approval before printing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10b. Bulk Order Grid — dense utility grid (SafetyMart-style)
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Bulk &amp; Teams</span>
+          <h2 class="section-heading">Easy Bulk Order</h2>
+          <p class="section-subtitle">Set quantities across sizes and add the whole line to your cart in one go. Volume pricing applies automatically at checkout.</p>
+        </div>
+        <a href="#" class="btn-view-all">Full Wholesale List <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="bulk-grid">
+        <div class="bulk-grid__head">
+          <div>Product</div>
+          <div>Colour</div>
+          <div class="bulk-grid__head-sizes" aria-hidden="true">
+            <span>S</span><span>M</span><span>L</span><span>XL</span><span>2XL</span>
+          </div>
+          <div class="bulk-grid__head-cell--right">Unit</div>
+          <div class="bulk-grid__head-cell--right">Action</div>
+        </div>
+
+        <div class="bulk-row" data-color-images='{"Black / Red":"images/products/jacket-black-red.jpg","Navy / White":"images/products/jacket-navy-white.jpg","Royal / White":"images/products/jacket-royal-white.jpg","Charcoal":"images/products/jacket-black-red.jpg"}'>
+          <div class="bulk-row__product">
+            <img src="images/products/jacket-black-red.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=80 1x, https://wbt01.imgix.net/test01/J408M/J408M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=160 2x" alt="Activewear Jacket" loading="lazy">
+            <div>
+              <div class="bulk-row__name">Activewear Jacket</div>
+              <div class="bulk-row__meta">SKU WBT-JK-01</div>
+            </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black / Red</option>
+              <option>Navy / White</option>
+              <option>Royal / White</option>
+              <option>Charcoal</option>
+            </select>
+          </div>
+          <div class="bulk-row__sizes">
+            <input type="number" min="0" value="0" aria-label="S">
+            <input type="number" min="0" value="0" aria-label="M">
+            <input type="number" min="0" value="10" aria-label="L">
+            <input type="number" min="0" value="0" aria-label="XL">
+            <input type="number" min="0" value="0" aria-label="2XL">
+          </div>
+          <div class="bulk-row__price">$24.95<span>ea</span></div>
+          <button class="bulk-row__add">Add</button>
+        </div>
+
+        <div class="bulk-row" data-color-images='{"Navy / White":"images/products/quarter-zip-navy-white.jpg","Black / Red":"images/products/quarter-zip-black-red.jpg","Charcoal":"images/products/quarter-zip-navy-white.jpg","Forest":"images/products/quarter-zip-navy-white.jpg","Wine":"images/products/quarter-zip-black-red.jpg"}'>
+          <div class="bulk-row__product">
+            <img src="images/products/quarter-zip-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=80 1x, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=160 2x" alt="Quarter-Zip Pullover" loading="lazy">
+            <div>
+              <div class="bulk-row__name">Quarter-Zip Pullover</div>
+              <div class="bulk-row__meta">SKU WBT-QZ-07</div>
+            </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Navy / White</option>
+              <option>Black / Red</option>
+              <option>Charcoal</option>
+              <option>Forest</option>
+              <option>Wine</option>
+            </select>
+          </div>
+          <div class="bulk-row__sizes">
+            <input type="number" min="0" value="0" aria-label="S">
+            <input type="number" min="0" value="5" aria-label="M">
+            <input type="number" min="0" value="0" aria-label="L">
+            <input type="number" min="0" value="0" aria-label="XL">
+            <input type="number" min="0" value="0" aria-label="2XL">
+          </div>
+          <div class="bulk-row__price">$18.95<span>ea</span></div>
+          <button class="bulk-row__add">Add</button>
+        </div>
+
+        <div class="bulk-row" data-color-images='{"Navy":"images/products/track-pants-navy.jpg","Black":"images/products/track-pants-mens-black.jpg","Charcoal":"images/products/track-pants-mens-black.jpg"}'>
+          <div class="bulk-row__product">
+            <img src="images/products/track-pants-navy.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=80 1x, https://wbt01.imgix.net/test01/09%20Activewear/TP3160/TP3160_Product_Navy_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=160 2x" alt="Unisex Track Pants" loading="lazy">
+            <div>
+              <div class="bulk-row__name">Unisex Track Pants</div>
+              <div class="bulk-row__meta">SKU WBT-TP-03</div>
+            </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Navy</option>
+              <option>Black</option>
+              <option>Charcoal</option>
+            </select>
+          </div>
+          <div class="bulk-row__sizes">
+            <input type="number" min="0" value="0" aria-label="S">
+            <input type="number" min="0" value="0" aria-label="M">
+            <input type="number" min="0" value="0" aria-label="L">
+            <input type="number" min="0" value="0" aria-label="XL">
+            <input type="number" min="0" value="0" aria-label="2XL">
+          </div>
+          <div class="bulk-row__price">$19.95<span>ea</span></div>
+          <button class="bulk-row__add">Add</button>
+        </div>
+
+        <div class="bulk-row" data-color-images='{"Black":"images/products/shorts-black.jpg","Navy":"images/products/shorts-navy.jpg","Charcoal":"images/products/shorts-black.jpg","Wine":"images/products/shorts-black.jpg"}'>
+          <div class="bulk-row__product">
+            <img src="images/products/shorts-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=80 1x, https://wbt01.imgix.net/test01/09%20Activewear/ST2020/ST2020_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=160 2x" alt="Active Shorts" loading="lazy">
+            <div>
+              <div class="bulk-row__name">Active Shorts</div>
+              <div class="bulk-row__meta">SKU WBT-SH-12</div>
+            </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black</option>
+              <option>Navy</option>
+              <option>Charcoal</option>
+              <option>Wine</option>
+            </select>
+          </div>
+          <div class="bulk-row__sizes">
+            <input type="number" min="0" value="0" aria-label="S">
+            <input type="number" min="0" value="0" aria-label="M">
+            <input type="number" min="0" value="20" aria-label="L">
+            <input type="number" min="0" value="0" aria-label="XL">
+            <input type="number" min="0" value="0" aria-label="2XL">
+          </div>
+          <div class="bulk-row__price bulk-row__price--sale">$9.95<span>ea</span></div>
+          <button class="bulk-row__add">Add</button>
+        </div>
+
+        <div class="bulk-row" data-color-images='{"Black":"images/products/leggings-long-black.jpg","Charcoal":"images/products/leggings-long-black.jpg","Navy":"images/products/leggings-short-black.jpg"}'>
+          <div class="bulk-row__product">
+            <img src="images/products/leggings-long-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=80 1x, https://wbt01.imgix.net/test01/09%20Activewear/L514LL/L514LL_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=160 2x" alt="Full Length Leggings" loading="lazy">
+            <div>
+              <div class="bulk-row__name">Full Length Leggings</div>
+              <div class="bulk-row__meta">SKU WBT-LG-04</div>
+            </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black</option>
+              <option>Charcoal</option>
+              <option>Navy</option>
+            </select>
+          </div>
+          <div class="bulk-row__sizes">
+            <input type="number" min="0" value="0" aria-label="S">
+            <input type="number" min="0" value="0" aria-label="M">
+            <input type="number" min="0" value="0" aria-label="L">
+            <input type="number" min="0" value="0" aria-label="XL">
+            <input type="number" min="0" value="0" aria-label="2XL">
+          </div>
+          <div class="bulk-row__price">$13.95<span>ea</span></div>
+          <button class="bulk-row__add">Add</button>
+        </div>
+
+        <div class="bulk-row" data-color-images='{"Black / White":"images/products/track-jacket-black-white.jpg","Navy / White":"images/products/track-jacket-navy-white.jpg","Royal / White":"images/products/jacket-royal-white.jpg"}'>
+          <div class="bulk-row__product">
+            <img src="images/products/track-jacket-black-white.jpg" srcset="https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=80 1x, https://wbt01.imgix.net/test01/J3150/J3150_Product_Black_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=160 2x" alt="Track Jacket" loading="lazy">
+            <div>
+              <div class="bulk-row__name">Track Jacket</div>
+              <div class="bulk-row__meta">SKU WBT-TJ-09</div>
+            </div>
+          </div>
+          <div class="bulk-row__colour">
+            <select aria-label="Colour">
+              <option>Black / White</option>
+              <option>Navy / White</option>
+              <option>Royal / White</option>
+            </select>
+          </div>
+          <div class="bulk-row__sizes">
+            <input type="number" min="0" value="0" aria-label="S">
+            <input type="number" min="0" value="0" aria-label="M">
+            <input type="number" min="0" value="0" aria-label="L">
+            <input type="number" min="0" value="0" aria-label="XL">
+            <input type="number" min="0" value="0" aria-label="2XL">
+          </div>
+          <div class="bulk-row__price bulk-row__price--sale">$18.95<span>ea</span></div>
+          <button class="bulk-row__add">Add</button>
+        </div>
+
+        <div class="bulk-grid__foot">
+          <div class="bulk-grid__summary">
+            <strong>35 units</strong> selected &middot; Est. subtotal <strong>$744.25</strong>
+          </div>
+          <button class="bulk-grid__checkout">Add All to Cart <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. New Arrivals Product Grid
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">New Arrivals</h2>
+          <p class="section-subtitle">Fresh wholesale activewear, just landed and ready for your business.</p>
+        </div>
+        <a href="#" class="btn-view-all">View All <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/jacket-navy-white.jpg" srcset="https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/J408M/J408M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Jacket Navy" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <span class="product-card__badge product-card__badge--new">New</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Activewear Jacket</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$18.75</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/jacket-navy-white.jpg" aria-label="Navy"></span>
+              <span class="product-card__color-dot" style="background:#ffffff;border-color:#ccc" data-image="images/products/jacket-royal-white.jpg" aria-label="White/Royal"></span>
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/jacket-black-red.jpg" aria-label="Black"></span>
+              <span class="product-card__color-dot" style="background:#555" data-image="images/products/jacket-navy-white.jpg" aria-label="Charcoal"></span>
+            </div>
+            <div class="product-card__price">$24.95 <span class="product-card__price-note">inc. GST</span></div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$24.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$21.70</td><td class="product-card__bulk-savings">-13%</td></tr>
+                <tr><td>20+</td><td>$18.75</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/track-pants-mens-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/TP226M/TP226M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Track Pants" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <span class="product-card__badge product-card__badge--new">New</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Men's Track Pants</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$14.95</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/track-pants-mens-black.jpg" aria-label="Black"></span>
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/track-pants-navy.jpg" aria-label="Navy"></span>
+              <span class="product-card__color-dot" style="background:#555" data-image="images/products/track-pants-womens-black.jpg" aria-label="Charcoal"></span>
+            </div>
+            <div class="product-card__price">$19.95 <span class="product-card__price-note">inc. GST</span></div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$19.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$17.35</td><td class="product-card__bulk-savings">-13%</td></tr>
+                <tr><td>20+</td><td>$14.95</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+2 more bulk tiers &mdash; see full product &rsaquo;</a></td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/leggings-short-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L323LS/L323LS_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/L323LS/L323LS_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/L323LS/L323LS_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/L323LS/L323LS_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Short Leggings" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <span class="product-card__badge product-card__badge--new">New</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Short Leggings</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$11.20</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/leggings-short-black.jpg" aria-label="Black Short"></span>
+              <span class="product-card__color-dot" style="background:#555" data-image="images/products/leggings-long-black.jpg" aria-label="Charcoal"></span>
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/leggings-long-black.jpg" aria-label="Navy"></span>
+            </div>
+            <div class="product-card__price">$14.95 <span class="product-card__price-note">inc. GST</span></div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$14.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$12.90</td><td class="product-card__bulk-savings">-14%</td></tr>
+                <tr><td>20+</td><td>$11.20</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more"><td colspan="3"><a href="#">+1 more bulk tier &mdash; see full product &rsaquo;</a></td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card__image-wrap">
+            <img src="images/products/shorts-mens-black.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/ST511M/ST511M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=240 240w, https://wbt01.imgix.net/test01/09%20Activewear/ST511M/ST511M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=360 360w, https://wbt01.imgix.net/test01/09%20Activewear/ST511M/ST511M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/ST511M/ST511M_Product_Black_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=640 640w" sizes="(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw" alt="Men's Shorts" loading="lazy">
+            <span class="product-card__brand">WBT</span>
+            <span class="product-card__badge product-card__badge--new">New</span>
+            <div class="product-card__actions">
+              <button class="product-card__choose-btn">Choose Options</button>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__rating"><span class="product-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>(0)</span></div>
+            <h3 class="product-card__name">Men's Active Shorts</h3>
+            <div class="product-card__bulk-note">Bulk prices from <strong>$11.20</strong></div>
+            <div class="product-card__colors">
+              <span class="product-card__color-dot" style="background:#1a1a1a" data-image="images/products/shorts-mens-black.jpg" aria-label="Black"></span>
+              <span class="product-card__color-dot" style="background:#1a3a8a" data-image="images/products/shorts-navy.jpg" aria-label="Navy"></span>
+              <span class="product-card__color-dot" style="background:#555" data-image="images/products/shorts-black.jpg" aria-label="Charcoal"></span>
+              <span class="product-card__color-dot" style="background:#8b0000" data-image="images/products/shorts-mens-black.jpg" aria-label="Wine"></span>
+            </div>
+            <div class="product-card__price">$14.95 <span class="product-card__price-note">inc. GST</span></div>
+            <table class="product-card__bulk">
+              <thead><tr><th>Quantity</th><th>Price</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1-9</td><td>$14.95</td><td></td></tr>
+                <tr><td>10-19</td><td>$12.90</td><td class="product-card__bulk-savings">-14%</td></tr>
+                <tr><td>20+</td><td>$11.20</td><td class="product-card__bulk-savings">-25%</td></tr>
+                <tr class="product-card__bulk-more product-card__bulk-more--placeholder"><td colspan="3">&mdash;</td></tr>
+              </tbody>
+            </table>
+            <button class="product-card__add-cart">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11b. Collection Tag Cloud — depth of catalog (Leo Shield style)
+       ============================================================ -->
+  <section class="section section--tight section--alt">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <div>
+          <span class="section-eyebrow">Full Catalog</span>
+          <h2 class="section-heading">Browse Every Collection</h2>
+          <p class="section-subtitle">Over 40 specialised collections, organised for fast team and industry buying.</p>
+        </div>
+      </div>
+      <div class="collection-tags">
+        <a href="#" class="collection-tag">Men's T-Shirts <span>248</span></a>
+        <a href="#" class="collection-tag">Women's T-Shirts <span>182</span></a>
+        <a href="#" class="collection-tag">Kids' T-Shirts <span>96</span></a>
+        <a href="#" class="collection-tag">Polo Shirts <span>214</span></a>
+        <a href="#" class="collection-tag">Hoodies &amp; Fleece <span>167</span></a>
+        <a href="#" class="collection-tag">Quarter-Zips <span>48</span></a>
+        <a href="#" class="collection-tag">Singlets &amp; Tanks <span>73</span></a>
+        <a href="#" class="collection-tag">Long Sleeve Tees <span>62</span></a>
+        <a href="#" class="collection-tag">Jackets &amp; Softshells <span>121</span></a>
+        <a href="#" class="collection-tag">Track Jackets <span>54</span></a>
+        <a href="#" class="collection-tag">Puffer Vests <span>38</span></a>
+        <a href="#" class="collection-tag">Track Pants <span>88</span></a>
+        <a href="#" class="collection-tag">Shorts <span>104</span></a>
+        <a href="#" class="collection-tag">Leggings <span>42</span></a>
+        <a href="#" class="collection-tag">Hi-Vis Workwear <span>156</span></a>
+        <a href="#" class="collection-tag">Chef &amp; Hospitality <span>72</span></a>
+        <a href="#" class="collection-tag">Corporate Shirts <span>138</span></a>
+        <a href="#" class="collection-tag">Caps &amp; Headwear <span>96</span></a>
+        <a href="#" class="collection-tag">Beanies <span>34</span></a>
+        <a href="#" class="collection-tag">Bags &amp; Backpacks <span>58</span></a>
+        <a href="#" class="collection-tag">Aprons <span>29</span></a>
+        <a href="#" class="collection-tag">Towels <span>22</span></a>
+        <a href="#" class="collection-tag">Sports Uniforms <span>76</span></a>
+        <a href="#" class="collection-tag">School Sports <span>64</span></a>
+        <a href="#" class="collection-tag">Gym &amp; Fitness <span>119</span></a>
+        <a href="#" class="collection-tag">Promo &amp; Events <span>51</span></a>
+        <a href="#" class="collection-tag">Organic &amp; Eco <span>37</span></a>
+        <a href="#" class="collection-tag">Heavyweight Tees <span>28</span></a>
+        <a href="#" class="collection-tag collection-tag--sale">Sale Items <span>142</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11c. Brand Showcase — 60+ trusted suppliers
+       ============================================================ -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <div>
+          <span class="section-eyebrow">Trusted Suppliers</span>
+          <h2 class="section-heading">60+ Brands We Stock</h2>
+          <p class="section-subtitle">We supply every major Australian blank apparel label &mdash; all warehoused locally at Mount Druitt.</p>
+        </div>
+      </div>
+      <!-- Shared SVG symbol library: 8 greyscale placeholder marks, cycled across all brands -->
+      <svg class="brand-marks" aria-hidden="true" width="0" height="0" style="position:absolute">
+        <symbol id="mk-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="currentColor"/></symbol>
+        <symbol id="mk-square" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="8" y="8" width="8" height="8" fill="currentColor"/></symbol>
+        <symbol id="mk-chev" viewBox="0 0 24 24"><path d="M2 20 L12 4 L22 20 Z" fill="currentColor"/><path d="M8 20 L12 14 L16 20 Z" fill="#fafafa"/></symbol>
+        <symbol id="mk-star" viewBox="0 0 24 24"><polygon fill="currentColor" points="12,2 14.6,8.8 22,9.3 16.3,14 18.1,21.1 12,17 5.9,21.1 7.7,14 2,9.3 9.4,8.8"/></symbol>
+        <symbol id="mk-shield" viewBox="0 0 24 24"><path d="M12 2 L21 6 V13 C21 18 17 22 12 22 C7 22 3 18 3 13 V6 Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10 H16 M8 14 H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="mk-hex" viewBox="0 0 24 24"><polygon points="12,2 21,7 21,17 12,22 3,17 3,7" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></symbol>
+        <symbol id="mk-rings" viewBox="0 0 24 24"><circle cx="9" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="15" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+        <symbol id="mk-diamond" viewBox="0 0 24 24"><polygon points="12,2 22,12 12,22 2,12" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="12,7 17,12 12,17 7,12" fill="currentColor"/></symbol>
+      </svg>
+
+      <div class="brand-strip">
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">AS Colour</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">Biz Collection</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">JB's Wear</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Winning Spirit</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">Stencil</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Aussie Pacific</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-rings"/></svg><span class="brand-logo__name">Ramo</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-diamond"/></svg><span class="brand-logo__name">Gildan</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">Bisley</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">King Gee</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">Hard Yakka</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Syzmik</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">Unit</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Ballistic</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-rings"/></svg><span class="brand-logo__name">Headwear Pro</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-diamond"/></svg><span class="brand-logo__name">Legend Life</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">Trends</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">Biz Care</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">Blue Whale</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Bocini</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">C-Force</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Chef Works</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-rings"/></svg><span class="brand-logo__name">City Collection</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-diamond"/></svg><span class="brand-logo__name">Corporate Reflections</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">Craghoppers</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">DNC Workwear</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">Fairtrade</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Globe</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">Gloweave</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Grace Collection</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-rings"/></svg><span class="brand-logo__name">Hanes</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-diamond"/></svg><span class="brand-logo__name">Hi-Tec</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">House of Uniforms</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">Identitee</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">Jaded</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Kustom Kit</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">Lemon Tree</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Mascot</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-rings"/></svg><span class="brand-logo__name">Midford</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-diamond"/></svg><span class="brand-logo__name">NYC Polo</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">Pinnacle</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">Podium</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">Portwest</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Prime Mover</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">Reflective Apparel</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Result</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-rings"/></svg><span class="brand-logo__name">Russell Athletic</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-diamond"/></svg><span class="brand-logo__name">Sols</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">Sporte Leisure</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">Sports Jewel</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">Stanley</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Streetworx</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">Surf Life Saving</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Team Wear</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-rings"/></svg><span class="brand-logo__name">Tradie</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-diamond"/></svg><span class="brand-logo__name">Under Armour</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-circle"/></svg><span class="brand-logo__name">Visitec</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-square"/></svg><span class="brand-logo__name">Workcraft</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-chev"/></svg><span class="brand-logo__name">Workzone</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-star"/></svg><span class="brand-logo__name">Yakka</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-shield"/></svg><span class="brand-logo__name">Zephyr</span></div>
+        <div class="brand-logo"><svg class="brand-logo__mark"><use href="#mk-hex"/></svg><span class="brand-logo__name">Zorrel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. Our Journal
+       ============================================================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Our Journal</h2>
+          <p class="section-subtitle">Expert tips, trends, and stories on wholesale activewear.</p>
+        </div>
+        <a href="#" class="btn-view-all">Read All <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="journal-grid">
+        <article class="journal-card">
+          <div class="journal-card__image">
+            <img src="images/talent/jacket-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w" sizes="(min-width: 992px) 33vw, 100vw" alt="Wholesale Guide" loading="lazy">
+            <span class="journal-card__tag">Tips</span>
+          </div>
+          <h3 class="journal-card__title">How to Choose the Right Wholesale Activewear Supplier</h3>
+          <p class="journal-card__meta">WBT Team &middot; March 2026</p>
+        </article>
+        <article class="journal-card">
+          <div class="journal-card__image">
+            <img src="images/talent/group-women-activewear.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w" sizes="(min-width: 992px) 33vw, 100vw" alt="Trends 2026" loading="lazy">
+            <span class="journal-card__tag">Trends</span>
+          </div>
+          <h3 class="journal-card__title">Top Activewear Trends for Australian Businesses in 2026</h3>
+          <p class="journal-card__meta">WBT Team &middot; February 2026</p>
+        </article>
+        <article class="journal-card">
+          <div class="journal-card__image">
+            <img src="images/talent/quarter-zip-model-1.jpg" srcset="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=320 320w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=480 480w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=640 640w, https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&w=800 800w" sizes="(min-width: 992px) 33vw, 100vw" alt="Printing Guide" loading="lazy">
+            <span class="journal-card__tag">Guide</span>
+          </div>
+          <h3 class="journal-card__title">The Complete Guide to Custom Printing &amp; Embroidery</h3>
+          <p class="journal-card__meta">WBT Team &middot; January 2026</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13. Newsletter
+       ============================================================ -->
+  <section class="newsletter-banner">
+    <h2 class="newsletter-banner__title">Join Our Wholesale List</h2>
+    <p class="newsletter-banner__desc">Get exclusive deals, new arrivals, and industry tips delivered to your inbox.</p>
+    <form class="newsletter-banner__form" onsubmit="return false;">
+      <input type="email" class="newsletter-banner__input" placeholder="Enter your email">
+      <button class="newsletter-banner__btn" type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- ============================================================
+       14. Footer
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+
+      <!-- Top band: contact strip -->
+      <div class="footer-contact">
+        <div class="footer-contact__item">
+          <svg class="footer-contact__icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div class="footer-contact__text">
+            <div class="footer-contact__title">Customer Service</div>
+            <div class="footer-contact__value">Mon&ndash;Fri, 8am&ndash;5pm AEST</div>
+          </div>
+        </div>
+        <div class="footer-contact__item">
+          <svg class="footer-contact__icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="footer-contact__text">
+            <div class="footer-contact__title">Call Us</div>
+            <a class="footer-contact__value" href="tel:0288803731">02 8880 3731</a>
+          </div>
+        </div>
+        <div class="footer-contact__item">
+          <svg class="footer-contact__icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <div class="footer-contact__text">
+            <div class="footer-contact__title">Get in Touch</div>
+            <a class="footer-contact__value" href="mailto:info@wbt.com.au">info@wbt.com.au</a>
+          </div>
+        </div>
+        <div class="footer-contact__item">
+          <svg class="footer-contact__icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="footer-contact__text">
+            <div class="footer-contact__title">Address</div>
+            <div class="footer-contact__value">Mount Druitt, NSW 2770</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom band: main columns -->
+      <div class="footer__main">
+        <div class="footer__brand">
+          <div class="footer__logo">WBT</div>
+          <p class="footer__desc">Wholesale Blank T-Shirts Australia. Premium activewear at wholesale prices, serving businesses for 15+ years from Mount Druitt, NSW.</p>
+          <div class="footer__country">
+            <span>&#127462;&#127482;</span> Australia (AUD $)
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="footer__payments">
+            <span class="footer__payment-icon">VISA</span>
+            <span class="footer__payment-icon">MC</span>
+            <span class="footer__payment-icon">AMEX</span>
+            <span class="footer__payment-icon">PP</span>
+          </div>
+        </div>
+        <div class="footer__columns">
+          <div>
+            <h4 class="footer__heading">Shop</h4>
+            <ul class="footer__links">
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Sale</a></li>
+              <li><a href="#">Best Sellers</a></li>
+              <li><a href="#">All Products</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer__heading">Categories</h4>
+            <ul class="footer__links">
+              <li><a href="#">T-Shirts</a></li>
+              <li><a href="#">Polo Shirts</a></li>
+              <li><a href="#">Hoodies</a></li>
+              <li><a href="#">Jackets</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer__heading">Services</h4>
+            <ul class="footer__links">
+              <li><a href="#">Printing</a></li>
+              <li><a href="#">Embroidery</a></li>
+              <li><a href="#">Wholesale Pricing</a></li>
+              <li><a href="#">Size Guide</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="sub-footer">
+      <div class="container">
+        <div class="sub-footer__inner">
+          <div class="sub-footer__copy">&copy; 2026 WBT. All rights reserved.</div>
+          <div class="sub-footer__legal">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Shipping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       Sidebar (Mobile Menu)
+       ============================================================ -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar__header">
+      <span class="sidebar__logo">WBT</span>
+      <button class="sidebar__close" id="sidebar-close">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Search inside drawer (extra fallback on small screens) -->
+    <div class="sidebar__search">
+      <input type="text" class="sidebar__search-input" placeholder="Search products&hellip;">
+      <button class="sidebar__search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar__nav">
+      <!-- Shop By Gender (accordion mirroring mega menu) -->
+      <div class="sidebar__group">
+        <button type="button" class="sidebar__group-toggle" aria-expanded="false">
+          <span>Shop By Gender</span>
+          <svg class="sidebar__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sidebar__group-panel">
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Men</span>
+            <a href="#" class="sidebar__sub-link">T-Shirts</a>
+            <a href="#" class="sidebar__sub-link">Polo Shirts</a>
+            <a href="#" class="sidebar__sub-link">Hoodies &amp; Fleece</a>
+            <a href="#" class="sidebar__sub-link">Jackets</a>
+            <a href="#" class="sidebar__sub-link">Track Pants &amp; Shorts</a>
+            <a href="#" class="sidebar__sub-link sidebar__sub-link--all">View All Men's &rsaquo;</a>
+          </div>
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Women</span>
+            <a href="#" class="sidebar__sub-link">T-Shirts</a>
+            <a href="#" class="sidebar__sub-link">Polo Shirts</a>
+            <a href="#" class="sidebar__sub-link">Hoodies &amp; Fleece</a>
+            <a href="#" class="sidebar__sub-link">Leggings &amp; Tights</a>
+            <a href="#" class="sidebar__sub-link">Jackets</a>
+            <a href="#" class="sidebar__sub-link sidebar__sub-link--all">View All Women's &rsaquo;</a>
+          </div>
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Kids</span>
+            <a href="#" class="sidebar__sub-link">T-Shirts</a>
+            <a href="#" class="sidebar__sub-link">Polo Shirts</a>
+            <a href="#" class="sidebar__sub-link">Hoodies</a>
+            <a href="#" class="sidebar__sub-link">School Sports</a>
+            <a href="#" class="sidebar__sub-link">Toddler Range</a>
+            <a href="#" class="sidebar__sub-link sidebar__sub-link--all">View All Kids' &rsaquo;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop By Category (accordion) -->
+      <div class="sidebar__group">
+        <button type="button" class="sidebar__group-toggle" aria-expanded="false">
+          <span>Shop By Category</span>
+          <svg class="sidebar__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sidebar__group-panel">
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Tops</span>
+            <a href="#" class="sidebar__sub-link">T-Shirts</a>
+            <a href="#" class="sidebar__sub-link">Polo Shirts</a>
+            <a href="#" class="sidebar__sub-link">Hoodies</a>
+            <a href="#" class="sidebar__sub-link">Quarter-Zips</a>
+            <a href="#" class="sidebar__sub-link">Singlets</a>
+            <a href="#" class="sidebar__sub-link">Long Sleeves</a>
+          </div>
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Bottoms</span>
+            <a href="#" class="sidebar__sub-link">Track Pants</a>
+            <a href="#" class="sidebar__sub-link">Shorts</a>
+            <a href="#" class="sidebar__sub-link">Leggings</a>
+          </div>
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Outerwear</span>
+            <a href="#" class="sidebar__sub-link">Jackets</a>
+            <a href="#" class="sidebar__sub-link">Track Jackets</a>
+            <a href="#" class="sidebar__sub-link">Windbreakers</a>
+            <a href="#" class="sidebar__sub-link">Puffers</a>
+            <a href="#" class="sidebar__sub-link">Fleece</a>
+            <a href="#" class="sidebar__sub-link">Vests</a>
+          </div>
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Accessories</span>
+            <a href="#" class="sidebar__sub-link">Caps</a>
+            <a href="#" class="sidebar__sub-link">Bags</a>
+            <a href="#" class="sidebar__sub-link">Socks</a>
+            <a href="#" class="sidebar__sub-link">Activewear Sets</a>
+          </div>
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Hi-Vis &amp; Workwear</span>
+            <a href="#" class="sidebar__sub-link">Hi-Vis Shirts</a>
+            <a href="#" class="sidebar__sub-link">Hi-Vis Jackets</a>
+            <a href="#" class="sidebar__sub-link">Work Pants</a>
+            <a href="#" class="sidebar__sub-link">Cargo Pants</a>
+            <a href="#" class="sidebar__sub-link">Safety Vests</a>
+          </div>
+          <div class="sidebar__sub-group">
+            <span class="sidebar__sub-heading">Services</span>
+            <a href="#" class="sidebar__sub-link">Screen Printing</a>
+            <a href="#" class="sidebar__sub-link">Embroidery</a>
+            <a href="#" class="sidebar__sub-link">Bulk Orders</a>
+            <a href="#" class="sidebar__sub-link">Custom Design</a>
+            <a href="#" class="sidebar__sub-link">Sample Service</a>
+            <a href="#" class="sidebar__sub-link">Size Guide</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop By Industry (accordion) -->
+      <div class="sidebar__group">
+        <button type="button" class="sidebar__group-toggle" aria-expanded="false">
+          <span>Shop By Industry</span>
+          <svg class="sidebar__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sidebar__group-panel">
+          <a href="#" class="sidebar__sub-link">Team Uniforms</a>
+          <a href="#" class="sidebar__sub-link">Corporate Wear</a>
+          <a href="#" class="sidebar__sub-link">Trades &amp; Construction</a>
+          <a href="#" class="sidebar__sub-link">Hospitality</a>
+          <a href="#" class="sidebar__sub-link">Schools &amp; Education</a>
+          <a href="#" class="sidebar__sub-link">Gym &amp; Fitness</a>
+          <a href="#" class="sidebar__sub-link">Events &amp; Promo</a>
+          <a href="#" class="sidebar__sub-link">Healthcare</a>
+        </div>
+      </div>
+
+      <div class="sidebar__divider"></div>
+
+      <!-- Quick links (mirrors subnav direct links) -->
+      <a href="#" class="sidebar__link">T-Shirts</a>
+      <a href="#" class="sidebar__link">Hoodies</a>
+      <a href="#" class="sidebar__link">Polo Shirts</a>
+      <a href="#" class="sidebar__link sidebar__link--sale">On Sale &#x2736;</a>
+
+      <div class="sidebar__divider"></div>
+
+      <!-- Quote Request CTA -->
+      <a href="#" class="sidebar__quote">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Request a Quote
+      </a>
+
+      <div class="sidebar__divider"></div>
+
+      <!-- Account / utility -->
+      <a href="#" class="sidebar__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Login / Register
+      </a>
+      <a href="tel:0288803731" class="sidebar__link sidebar__link--phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0 1 22 16.92z"/></svg>
+        02 8880 3731
+      </a>
+      <a href="#" class="sidebar__link">Help Centre</a>
+      <a href="#" class="sidebar__link">Find a Store</a>
+      <a href="#" class="sidebar__link">Contact</a>
+
+      <!-- GST toggle inside drawer -->
+      <div class="sidebar__gst">
+        <span class="sidebar__gst-label">Show prices:</span>
+        <div class="gst-toggle gst-toggle--sidebar" role="group" aria-label="Price display toggle">
+          <button type="button" class="gst-toggle__btn active" data-gst="inc">inc. GST</button>
+          <button type="button" class="gst-toggle__btn" data-gst="ex">ex. GST</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       Design Control Bar
+       ============================================================ -->
+  <div class="control-bar">
+    <button class="control-bar__toggle" title="Design Controls">&#9881;</button>
+    <div class="control-bar__panel">
+      <div class="control-bar__group">
+        <label class="control-bar__label" for="font-select">Font Family</label>
+        <select id="font-select" class="control-bar__select">
+          <option value="system">System Default</option>
+          <option value="dm-sans" selected>DM Sans (Default)</option>
+          <option value="inter">Inter</option>
+          <option value="poppins">Poppins</option>
+          <option value="jakarta">Plus Jakarta Sans</option>
+          <option value="outfit">Outfit</option>
+          <option value="playfair">Playfair Display</option>
+        </select>
+      </div>
+      <div class="control-bar__group">
+        <label class="control-bar__label" for="theme-select">Theme</label>
+        <select id="theme-select" class="control-bar__select">
+          <option value="">Default</option>
+          <option value="dark">Dark</option>
+          <option value="warm">Warm</option>
+          <option value="mono">Mono</option>
+          <option value="forest">Forest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
