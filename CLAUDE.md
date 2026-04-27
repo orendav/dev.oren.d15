@@ -19,11 +19,13 @@ designs/
   01-elverys/                     # reference: Elverys-style homepage
   02-harmonia/                    # reference: Harmonia theme
   03-hyper/                       # base Hyper-theme inspired homepage
-  03-hyper.v1/  03-hyper.v2/  03-hyper.v3/   # iterations
+  03-hyper.v1/  03-hyper.v2/  03-hyper.v3/  03-hyper.v4/  03-hyper.v5/   # iterations
   hyper-ref-*.png                 # reference screenshots from Hyper theme demo
   harmonia-ref-*.png              # reference screenshots from Harmonia
   safetymart-*.png                # reference screenshots from Safetymart
 ```
+
+**Current head:** `03-hyper.v5` — full imgix migration of every homepage image, plus rebuilt Industry mega-menu (sidebar tabs).
 
 Each design folder contains:
 - `index.html` — single-page homepage
@@ -190,6 +192,91 @@ Append a `(filename, prompt_fragment)` tuple to the `PROMPTS` list at the bottom
 - A `playwright-cli click "Some Text"` on a `<button>` won't match by visible text alone — use `click "getByRole('button', { name: '...' })"` instead.
 - `playwright-cli click 'css#selector'` works, but `eval` followed by `screenshot` in the same `&&` chain can silently drop the screenshot if the eval call kills the named browser session — keep multi-step Playwright flows as separate Bash invocations or expect to reopen.
 - Run the static server with `py -m http.server`, not `python -m http.server`. `python` isn't on PATH on this machine; `py` is.
+- Synthetic `dispatchEvent(new MouseEvent('mouseenter'))` does **not** trigger CSS `:hover` selectors — Playwright sees the JS event but the rendering engine doesn't enter the `:hover` state. To verify hover-driven swaps (clearance card → talent image, etc.) use `page.locator(...).hover()` (real mouse-position simulation) instead.
+- Browser cache is sticky. After CSS edits, a `location.reload()` may still serve old styles. If a measurement looks wrong (`getComputedStyle` shows pre-edit values), close the playwright session entirely and reopen with a cache-busting query string: `open --browser=chrome "http://127.0.0.1:8755/index.html?bust=$RANDOM"`.
+
+## Imgix-served responsive images (v5+)
+
+Every homepage image is served via `https://wbt01.imgix.net/` (Cloudflare R2 bucket `wbt`, mapped as the imgix source). No build step — URL strings are static inline in `<img src/srcset>`, `<video poster>`, `data-hover-images`, and `data-image-alt`. The migration script that does the bulk rewrite is `designs/03-hyper.v5/scripts/imgix_migrate.py`. The dev-facing reference is `designs/03-hyper.v5/imgix-explainer.html` (also served via Pages).
+
+### Three R2 prefixes
+
+```
+test01/09 Activewear/{SKU}/{filename}.jpg     ← original Biz Collection / 09 Activewear upload (most SKUs)
+test01/{SKU}/{filename}.jpg                   ← flat — only J3150 + J408M live here (uploaded later)
+test01/bundles/{filename}.{png,jpg}           ← project-generated bundle/pack composites (AI gpt-image + PIL)
+```
+
+Spaces must be URL-encoded as `%20`. The dual prefix is a real, persistent quirk — the migration script `ASSETS` table hardcodes the right prefix per file. Don't assume new SKUs go under `09 Activewear/`.
+
+### URL parameter rules
+
+| Param | Use it for |
+|---|---|
+| `auto=format,compress` | **Mandatory on every URL.** Imgix sniffs `Accept` header → AVIF / WebP / JPEG. Single biggest perf win. |
+| `w=N` | Output width in px. Always paired with srcset variants. |
+| `fit=crop&crop=faces&ar=W:H` | **Talent shots (people).** Imgix face-aware-crops to the container's exact aspect; browser `object-fit: cover` becomes a no-op. |
+| `fit=fill&fill=solid&fill-color=fff&ar=W:H` | **Product photos and bundle composites.** Pads with white to the container aspect instead of cropping — full garment collar-to-hem stays visible. White matches the studio backdrop. |
+| `crop=entropy` | Legacy. Was used for products in v5 but produced bad crops on long garments (chest-only). Replaced by `fit=fill`. |
+
+### `ar=` is not optional for non-square containers
+
+Without `ar=`, imgix returns the source's native aspect (most lifestyle shots are 2:3 portrait). The browser then runs `object-fit: cover` to fill the container — slicing through the wrong axis and clipping faces or product extremities. **Always pass `ar=W:H` matching the rendered container's aspect ratio.** Browser cover-crop becomes a no-op.
+
+Per-section ar values used in v5:
+
+| Section | Container aspect | `ar=` |
+|---|---|---|
+| Hero `<video poster>` | ~525×560 | `1:1` |
+| Banner rotator slides (4) | ~723×272 | `8:3` |
+| Tertiary + Quaternary banner cards | ~361×272 desktop, ~480×160 mobile | `2:1` (compromise) |
+| Featured banner image | ~600×400 | `3:2` |
+| Mega-menu Gender tiles (3) | ~397×200 | `2:1` |
+| Mega-menu Category + Industry sidebar-tab thumbs | ~321×140 (set by `grid-auto-rows: 140px`) | `2:1` |
+| Shop-by-Category homepage tiles | aspect-ratio 4/5 desktop, 16/10 mobile | `4:5` |
+| Product cards everywhere (Best Sellers, Clearance, etc.) | 1:1 (`aspect-ratio: 1/1` on `.offer-card__image`, etc.) | `1:1` |
+| Bundle/pack thumbnail cards | varies | `1:1` (default for products) |
+
+### srcset patterns by size class
+
+Three patterns; pick by whether rendered px scales with viewport:
+
+- **Width-described srcset** (banners, product cards, hero): `srcset="…&w=320 320w, …&w=480 480w, …"` + `sizes="(min-width: 992px) 33vw, 100vw"`. Browser picks based on viewport × DPR × `sizes`.
+- **DPR srcset** (fixed-size tiles — mega-menu thumbs, bulk-grid swatches, gender tiles): `srcset="…&w=200 1x, …&w=400 2x"`. No `sizes`. Used when CSS px don't change with viewport.
+- **Single URL** (`<video poster>`, `data-hover-images`, `data-image-alt`): no srcset.
+
+### Gotchas (lessons learned in v5 — do not repeat)
+
+- **`data-hover-images` separator must be `|`, not `,`.** Imgix URLs contain `auto=format,compress` so JS `split(',')` shreds the URL list. v5 uses `|` and `js/main.js:578` splits on it.
+- **Synthetic `mouseenter` doesn't trigger CSS `:hover`.** When verifying hover-swap (clearance card, color dot, etc.), use Playwright's real `page.locator().hover()`. See playwright gotcha note above.
+- **`fit=fill` requires `ar=` (or both `w` and `h`).** Without a target aspect, imgix can't compute padding — falls back to source-aspect resize, then browser cover-crops anyway. v5 had 88 mega-menu product URLs that shipped without `ar=` and showed only chest-down because of this.
+- **`crop=faces` only positions inside the imgix output; it does NOT help once the browser cover-crops.** If the imgix-returned aspect ≠ container aspect, the browser still slices the wrong axis. The fix is always `ar=` matching the container, not better crop modes.
+- **The migration script's section policy gave `crop=entropy` to talent images sitting in product/clearance/bundle sections** (offer-card alt-image, hover-rotation lists, featured-product gallery). Then a global `entropy → fit=fill` pass left those talent URLs without face-aware cropping. Whenever a talent image lives in a product container, double-check it has `crop=faces&ar=1:1`, not `fit=fill`.
+- **CSS `aspect-ratio`-set containers determine the right `ar=`.** Read `css/styles.css` for the container's CSS aspect-ratio (or inferred via `grid-auto-rows`) before picking `ar=`. Don't guess from screenshots.
+- **Imgix billing is per-unique-URL origin pull**, then cached at edge indefinitely. v5 has ~600 unique variants total (URL × srcset stops). Free tier 1000 origin/month, 100 GB bandwidth — well clear.
+
+### Adding a new image
+
+1. Hash the local file with `md5sum` against the source library (`Biz Collection/...`) to find the source path. CLAUDE.md "Source asset library" note explains why hash, not filename.
+2. Upload to R2 under the right prefix (most SKUs go under `test01/09 Activewear/{SKU}/`; J3150 + J408M go under flat `test01/{SKU}/`; bundle composites go under `test01/bundles/`).
+3. Probe the imgix URL with `curl -I` to verify it's reachable. Test a transform: `?w=400&auto=format,compress`.
+4. In `index.html`, write `<img src="local/fallback.jpg" srcset="<imgix urls>" sizes="..." alt="..." loading="lazy" decoding="async">`. Match the section's existing pattern (DPR vs width-described, ar value, faces vs fit=fill).
+
+## GitHub Pages deployment
+
+The `master` branch auto-publishes to `https://orendav.github.io/dev.oren.d15/` via GitHub Pages (legacy build, `master:/`, repo is public). Each design folder is browseable directly:
+
+```
+https://orendav.github.io/dev.oren.d15/designs/03-hyper.v5/
+https://orendav.github.io/dev.oren.d15/designs/03-hyper.v5/imgix-explainer.html
+```
+
+Deploy = `git push origin master`. Pages rebuilds in ~60–90s. Wait for the build with:
+```bash
+until [ "$(gh api repos/orendav/dev.oren.d15/pages/builds/latest --jq '.commit[:7]')" = "<sha>" -a "$(gh api repos/orendav/dev.oren.d15/pages/builds/latest --jq '.status')" = "built" ]; do sleep 5; done
+```
+
+The repo was made public on 2026-04-26 specifically to enable Pages on the free plan (private repo Pages requires Pro/Team/Enterprise). All commits and brand imagery are publicly visible.
 
 ## Iteration log
 
@@ -230,3 +317,18 @@ Replaced the PIL composite bundle/pack thumbnails with AI-generated ones, and ad
 - Added a reusable `.qty-badge` circular badge (×2/×3/×4) in the top-right corner of every card image. Replaces the old `bundle-card__pieces` pill.
 - Added a `.print-pill` (gradient orange) inside bundle-card body listing the print method (e.g. "DTF Full Colour — Front + Back", "Embroidered Name — Chest"). Replaces the old `__incl` overlay tags that used to sit on the image.
 - Hover rotation: every bundle/pack card has a `data-hover-images="path1,path2,…"` attribute listing individual product photos. JS in `js/main.js` swaps the card image to one of those photos as the mouse moves across the image-wrap (mouse-X position → image index). Mouse-leave restores the composite.
+
+### `03-hyper.v4` (2026-04-26)
+
+Single change: replace the static "Premium Activewear" hero JPEG with an autoplay muted looping `<video>`. `images/activwear.mp4` is the source. New `.banner-card__image` / `.banner-card__video` classes layer behind the gradient overlay (z-index 0; gradient at 1; content at 2). Same pattern is reused in v5 for `<img>`-backed banners after the background-image conversion.
+
+### `03-hyper.v5` (2026-04-27)
+
+Full migration of every homepage image (~158 references) to imgix. See "Imgix-served responsive images" section above for the full convention; iteration-specific notes:
+
+- **Background-image → `<img>` conversion** for the 4 rotator slides + tertiary + quaternary banners (used to be inline `style="background-image: url(...)"`). New `.banner-card__image` rule layers `<img>` at z-index 0 below the gradient, identical to `.banner-card__video`. CSS dropped `background-size`/`background-position` from `.banner-card__slide` and `.featured-banner__image`.
+- **Migration script:** `designs/03-hyper.v5/scripts/imgix_migrate.py` — section-aware preprocessor with `ASSETS` mapping (local filename → R2 key, including the dual `test01/{SKU}/` vs `test01/09 Activewear/{SKU}/` prefix split). Idempotent for `<img>` tags via a `srcset=` skip check; **not** idempotent for `data-hover-images`/`data-image-alt` so don't re-run blindly.
+- **Industry mega-menu rebuild** to match Category's sidebar-tab pattern: `.mega-menu--tabs`, sidebar links with `data-cat="<slug>"`, 8 panels with content cards swappable on hover. Tabs are wired by the existing `js/main.js:110` handler — adding `mega-menu--tabs` class is all that's needed JS-side.
+- **WBT vendor pill → Syzmik brand pill.** `.product-card__brand` now contains an SVG mark (reuses `#mk-star` from the brand showcase symbol library) + brand name, with a `:hover` overlay showing "See more Syzmik ›". When extending to other brands, swap the `<use href="#mk-star">` reference and the name.
+- **Imgix explainer** at `designs/03-hyper.v5/imgix-explainer.html` — single-page reference for the dev team. Update when new sections or `ar=` values are introduced.
+- **Public Pages deployment** — see "GitHub Pages deployment" section above. Repo went public on 2026-04-26.
