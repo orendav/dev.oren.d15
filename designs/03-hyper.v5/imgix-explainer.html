@@ -191,10 +191,10 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
      alt="" loading="lazy" decoding="async"&gt;</pre>
 
 <h3>Pattern B — DPR srcset (1x / 2x) <span class="tag dpr">fixed</span></h3>
-<p>Used for tiles whose CSS pixel size is constant — mega-menu thumbnails (~80px), bulk-order grid swatches, gender tiles. <code>sizes</code> attribute is omitted.</p>
+<p>Used for tiles whose CSS pixel size is constant — mega-menu thumbnails (~321&times;140), bulk-order grid swatches, gender tiles. <code>sizes</code> attribute is omitted. Pick base width = container CSS width; 2x = double that.</p>
 <pre>&lt;img src="images/products/quarter-zip-navy-white.jpg"
-     srcset="https://wbt01.imgix.net/.../SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x,
-             https://wbt01.imgix.net/.../SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x"
+     srcset="https://wbt01.imgix.net/.../SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=fill&fill=solid&fill-color=fff&ar=2:1&w=320 1x,
+             https://wbt01.imgix.net/.../SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=fill&fill=solid&fill-color=fff&ar=2:1&w=640 2x"
      alt="" loading="lazy"&gt;</pre>
 
 <h3>Pattern C — Single URL <span class="tag dpr">fixed</span></h3>
@@ -331,7 +331,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <div class="kv">
   <div>Component</div><div>Gender tiles + Category sidebar tabs + Industry sidebar tabs at <code>index.html:108–437</code></div>
   <div>Pattern</div><div>DPR srcset (1x/2x)</div>
-  <div>Width ladder</div><div><code>200 1x, 400 2x</code></div>
+  <div>Width ladder</div><div><code>320 1x, 640 2x</code> (matches the ~321&times;140 rendered tile)</div>
   <div>Crop</div><div><span class="tag faces">faces</span> for talent, <span class="tag entropy">entropy</span> for product photos</div>
   <div>sizes</div><div>none (fixed-size tiles)</div>
   <div>Tab-swap markup</div><div>Wrap with <code>mega-menu mega-menu--style-b mega-menu--tabs</code>; sidebar links carry <code>data-cat="slug"</code>; one <code>mega-menu__panel mega-menu__content</code> per slug, with <code>active</code> class on the default-shown panel.</div>
@@ -408,13 +408,64 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 <h3>When face detection misses</h3>
 <p>Imgix's face detector occasionally misses on group shots, profile shots, or low-contrast lighting. Symptom: face is off-screen even with <code>crop=faces&amp;ar=…</code>. Fix: switch that one URL to <code>crop=focalpoint&amp;fp-x=0.5&amp;fp-y=0.3</code> (upper-third). Currently no images need this, but reserve the pattern.</p>
 
+<h3>Audit greps — run before every release</h3>
+<p>Six one-liners that catch the most common imgix-URL hygiene bugs. Each should return <code>0</code> against a healthy <code>index.html</code>. These caught 95+ regressions during v5 polish.</p>
+<pre>cd designs/03-hyper.v5
+
+# Talent images must use crop=faces — entropy is wrong for people
+grep -oE 'imgix\.net/[^"|]*Talent_[^"|]*' index.html | grep 'crop=entropy' | wc -l   # expect 0
+
+# Product images must use fit=fill — faces is wrong for flat photos
+grep -oE 'imgix\.net/[^"|]*Product_[^"|]*' index.html | grep 'crop=faces' | wc -l   # expect 0
+
+# Talent images use fit=crop (face-aware), not fit=fill
+grep -oE 'imgix\.net/[^"|]*Talent_[^"|]*' index.html | grep 'fit=fill' | wc -l   # expect 0
+
+# fit=fill needs ar= or both w+h, otherwise the browser cover-crops anyway
+grep -oE 'imgix\.net/[^"|]+' index.html | grep 'fit=fill' | grep -v 'ar=' | wc -l   # expect 0
+
+# Every imgix URL must have auto=format,compress
+grep -oE 'imgix\.net/[^"|]+' index.html | grep -v 'auto=format' | wc -l   # expect 0</pre>
+
+<h3>Recurring bug patterns (lessons from v5)</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>What to look for</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Container-aspect mismatch</strong></td>
+      <td>Any container with <code>aspect-ratio:</code> CSS or fixed <code>grid-auto-rows: Npx</code> needs an <code>ar=W:H</code> on its imgix URLs. Without it, the browser <code>object-fit: cover</code> slices through the wrong axis and clips faces or product extremities.</td>
+    </tr>
+    <tr>
+      <td><strong>Mobile/desktop aspect divergence</strong></td>
+      <td>If a <code>@media</code> rule flips <code>aspect-ratio</code> between portrait and landscape (e.g. shop-cat goes 4/5 → 16/10), a single <code>ar=</code> can't satisfy both. Fix with <code>&lt;picture&gt;</code> + media-query <code>&lt;source&gt;</code>s, or anchor with <code>object-position: center top</code> so the face stays in frame.</td>
+    </tr>
+    <tr>
+      <td><strong>DPR srcset undersized for retina</strong></td>
+      <td>A 321-px-wide tile needs <code>w=642</code> for 2x DPR. <code>w=400 2x</code> is too small — measurable softness on a non-4K screen. Always: <code>2x base = container CSS width &times; 2</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Section-policy script bugs at boundaries</strong></td>
+      <td>The migration script applies "section X gets <code>crop=entropy</code>", which silently mis-tags any talent image inside that section. After bulk migration, grep all <code>Talent_</code> URLs to confirm they have <code>crop=faces</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Hardcoded line ranges in regex scripts</strong></td>
+      <td>Rebuilding a section can shift line numbers by hundreds. Prefer marker-comment slicing (<code>re.search(r'&lt;!-- Foo --&gt;.*?&lt;!-- Bar --&gt;', re.DOTALL)</code>) over <code>range(start_line, end_line)</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>CSS Grid + content-driven overflow</strong></td>
+      <td>Not strictly imgix, but adjacent. A <code>grid-template-columns: repeat(N, 1fr)</code> with image-card children expands columns to the children's <em>min-content</em> width by default — pushing the page wider than the viewport on mobile. Fix with <code>repeat(N, minmax(0, 1fr))</code> + <code>min-width: 0</code> on the children. Add <code>body { overflow-x: hidden }</code> as a global safety net.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3>v5 file inventory</h3>
 <div class="kv">
   <div>Markup</div><div><code>designs/03-hyper.v5/index.html</code></div>
-  <div>Styles</div><div><code>designs/03-hyper.v5/css/styles.css</code> — <code>.banner-card__image</code>, <code>.featured-banner__image img</code></div>
-  <div>JS</div><div><code>designs/03-hyper.v5/js/main.js</code> — line 578 split on <code>|</code></div>
+  <div>Styles</div><div><code>designs/03-hyper.v5/css/styles.css</code> — <code>.banner-card__image</code>, <code>.featured-banner__image img</code>, <code>.product-card__brand</code> (Syzmik pill + hover overlay), table-layout fix, <code>minmax(0, 1fr)</code> grid fixes, <code>body { overflow-x: hidden }</code> safety net</div>
+  <div>JS</div><div><code>designs/03-hyper.v5/js/main.js</code> — line 578 splits <code>data-hover-images</code> on <code>|</code></div>
   <div>Migrator</div><div><code>designs/03-hyper.v5/scripts/imgix_migrate.py</code></div>
-  <div>Live URL</div><div><a href="https://orendav.github.io/dev.oren.d15/designs/03-hyper.v5/">orendav.github.io/dev.oren.d15/designs/03-hyper.v5/</a></div>
+  <div>This page</div><div><a href="https://orendav.github.io/dev.oren.d15/designs/03-hyper.v5/imgix-explainer.html">orendav.github.io/dev.oren.d15/designs/03-hyper.v5/imgix-explainer.html</a></div>
+  <div>Live site</div><div><a href="https://orendav.github.io/dev.oren.d15/designs/03-hyper.v5/">orendav.github.io/dev.oren.d15/designs/03-hyper.v5/</a></div>
 </div>
 
 <hr>
