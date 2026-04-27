@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WBT — Imgix Usage Explainer</title>
+<style>
+:root {
+  --fg: #1a1a1a;
+  --muted: #666;
+  --bg: #fff;
+  --card: #f7f7f8;
+  --line: #e3e3e6;
+  --accent: #0a3d8f;
+  --accent-2: #f58220;
+  --code-bg: #f0eee9;
+  --good: #1f7a3a;
+  --warn: #b75a00;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding: 32px 22px 80px; }
+.eyebrow { color: var(--accent-2); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+h1 { font-size: 32px; line-height: 1.15; margin: 0 0 12px; }
+h2 { font-size: 22px; margin: 48px 0 14px; padding-top: 20px; border-top: 1px solid var(--line); }
+h2:first-of-type { border-top: none; padding-top: 0; }
+h3 { font-size: 17px; margin: 28px 0 8px; }
+p { margin: 0 0 12px; }
+.lede { font-size: 17px; color: var(--muted); margin-bottom: 28px; }
+code, .url, pre { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; }
+code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; }
+pre {
+  background: var(--code-bg);
+  padding: 12px 14px;
+  border-radius: 6px;
+  overflow-x: auto;
+  border-left: 3px solid var(--accent-2);
+  margin: 10px 0;
+}
+.url { word-break: break-all; color: var(--accent); }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+.kv { display: grid; grid-template-columns: 200px 1fr; gap: 6px 16px; margin: 10px 0; font-size: 14px; }
+.kv > div:nth-child(odd) { color: var(--muted); }
+.callout { background: var(--card); padding: 14px 18px; border-radius: 6px; margin: 14px 0; font-size: 14px; }
+.callout.warn { border-left: 3px solid var(--warn); }
+.callout.good { border-left: 3px solid var(--good); }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.compare figure { margin: 0; }
+.compare img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid var(--line); background: #f0f0f0; }
+.compare figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; padding: 0 2px; }
+.compare figcaption strong { color: var(--fg); }
+.tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-right: 4px; }
+.tag.faces { background: #d6e8d6; color: var(--good); }
+.tag.entropy { background: #f7e0c0; color: var(--warn); }
+.tag.dpr { background: #d6dde8; color: var(--accent); }
+.tag.fluid { background: #e9d6e8; color: #6a3a8a; }
+.tag.ar { background: #f8d6d6; color: #a02020; }
+.savings { color: var(--good); font-weight: 700; }
+.toc { background: var(--card); padding: 16px 22px; border-radius: 8px; margin: 22px 0 32px; }
+.toc h3 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 600; }
+.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 24px; }
+.toc li { margin: 3px 0; font-size: 14px; break-inside: avoid; }
+.toc a { color: var(--fg); text-decoration: none; }
+.toc a:hover { color: var(--accent); }
+.thumb-strip { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+.thumb-strip img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid var(--line); }
+hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+.dim { color: var(--muted); font-size: 13px; }
+@media (max-width: 700px) {
+  .compare { grid-template-columns: 1fr; }
+  .toc ol { columns: 1; }
+  h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="eyebrow">Internal — for the dev team</div>
+<h1>Imgix usage — wholesale-blank-tshirts.com.au</h1>
+<p class="lede">How responsive image delivery is wired up across the v5 homepage, what URL parameters do what, and which patterns to follow when adding new images.</p>
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#url-shape">URL shape</a></li>
+    <li><a href="#srcset">srcset / sizes / DPR — three patterns</a></li>
+    <li><a href="#crop">Crop modes — faces vs entropy</a></li>
+    <li><a href="#ar">ar= aspect ratio (gotcha)</a></li>
+    <li><a href="#section-hero">Section: Hero (video poster)</a></li>
+    <li><a href="#section-rotator">Section: Banner rotator</a></li>
+    <li><a href="#section-tert">Section: Tertiary / Quaternary cards</a></li>
+    <li><a href="#section-featured">Section: Featured banner</a></li>
+    <li><a href="#section-shopcat">Section: Shop-by-Gender tiles</a></li>
+    <li><a href="#section-megamenu">Section: Mega-menu</a></li>
+    <li><a href="#section-products">Section: Product cards</a></li>
+    <li><a href="#section-bundles">Section: Bundle / pack cards</a></li>
+    <li><a href="#section-hover">Section: Hover-rotation (data-hover-images)</a></li>
+    <li><a href="#bandwidth">Bandwidth wins (measured)</a></li>
+    <li><a href="#operational">Operational notes</a></li>
+  </ol>
+</div>
+
+<h2 id="overview">1. Overview</h2>
+<p>Every homepage image (~158 references) is served via <strong>Imgix</strong> from a Cloudflare R2 bucket. The R2 bucket is <code>wbt</code>; Imgix host is <code>https://wbt01.imgix.net/</code>. There's no build step — URLs are static strings inline in HTML <code>src</code>/<code>srcset</code> attributes. The first request to a given URL pulls from R2; every request after that is served from Imgix's CDN edge.</p>
+
+<div class="kv">
+  <div>Imgix host</div><div><code>https://wbt01.imgix.net/</code></div>
+  <div>R2 bucket</div><div><code>wbt</code> (mapped as Imgix source root)</div>
+  <div>Total imgix URLs in v5</div><div>~114 unique base URLs × 4–5 srcset variants = ~600 cached variants</div>
+  <div>Default response format</div><div>AVIF (Chrome/Edge) → WebP (Firefox/older Safari) → JPEG (fallback)</div>
+</div>
+
+<h2 id="url-shape">2. URL shape</h2>
+<p>Three R2 prefixes are in use — pick the right one for the asset:</p>
+
+<table>
+  <thead><tr><th>Prefix</th><th>What's there</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>test01/09 Activewear/&lt;SKU&gt;/</code></td>
+      <td>Source-library Biz Collection talent + product photos for most SKUs</td>
+      <td><span class="url">test01/09 Activewear/SW225M/SW225M_Talent_Navy_White_01_R.jpg</span></td>
+    </tr>
+    <tr>
+      <td><code>test01/&lt;SKU&gt;/</code> <span class="tag warn">flat</span></td>
+      <td>Two SKUs uploaded later (J3150, J408M) live flat under <code>test01/</code> instead of nested under <code>09 Activewear</code>. Historical accident — keep aware when adding URLs for those two SKUs.</td>
+      <td><span class="url">test01/J408M/J408M_Talent_Black_Red_02_R.jpg</span></td>
+    </tr>
+    <tr>
+      <td><code>test01/bundles/</code></td>
+      <td>Project-generated bundle / pack composites (AI gpt-image PNGs + PIL composites). Not in source library — uploaded explicitly.</td>
+      <td><span class="url">test01/bundles/ai-bundle-print-tee-fb.png</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Spaces in the path must be URL-encoded as <code>%20</code>. The full URL pattern:</p>
+<pre>https://wbt01.imgix.net/test01/09%20Activewear/{SKU}/{filename}.jpg?{params}</pre>
+
+<h3>Mandatory params on every URL</h3>
+<table>
+  <thead><tr><th>Param</th><th>Value</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><code>auto</code></td><td><code>format,compress</code></td><td>Imgix sniffs the request's <code>Accept</code> header and serves AVIF / WebP / JPEG accordingly, plus applies smart quality reduction. Single biggest win.</td></tr>
+    <tr><td><code>w</code></td><td>integer px</td><td>Output width. Always paired with srcset variants — see §3.</td></tr>
+  </tbody>
+</table>
+
+<h3>Conditional params</h3>
+<table>
+  <thead><tr><th>Param</th><th>Value</th><th>Used when</th></tr></thead>
+  <tbody>
+    <tr><td><code>fit</code></td><td><code>crop</code></td><td>Required whenever <code>ar</code> or both <code>w</code>+<code>h</code> are passed. Tells imgix to crop to the requested shape.</td></tr>
+    <tr><td><code>crop</code></td><td><code>faces</code> / <code>entropy</code> / <code>focalpoint</code></td><td>How to choose what to keep when cropping. See §4.</td></tr>
+    <tr><td><code>ar</code></td><td><code>8:3</code>, <code>4:3</code>, etc.</td><td>Force output aspect ratio. Combined with <code>fit=crop&amp;crop=faces</code> this is what makes wide banners not clip people's heads. See §5.</td></tr>
+    <tr><td><code>fp-x</code>, <code>fp-y</code></td><td>0–1 floats</td><td>Manual focal point. Only used as a fallback when face detection misses (none currently in use).</td></tr>
+  </tbody>
+</table>
+
+<h2 id="srcset">3. srcset / sizes / DPR — three patterns</h2>
+<p>The browser picks the right variant from <code>srcset</code> based on viewport, CSS sizing, and device pixel ratio. We use one of three patterns depending on whether the image's rendered size is fluid or fixed.</p>
+
+<h3>Pattern A — Width-described srcset + sizes <span class="tag fluid">fluid</span></h3>
+<p>Used for any image whose CSS width changes with viewport (banners, product cards, hero, featured banner, journal cards). The browser reads <code>sizes</code> to learn how wide the image will render, then picks the smallest <code>srcset</code> variant ≥ that width × DPR.</p>
+<pre>&lt;img src="images/talent/jacket-model-1.jpg"
+     srcset="https://wbt01.imgix.net/.../TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=360 360w,
+             https://wbt01.imgix.net/.../TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=540 540w,
+             https://wbt01.imgix.net/.../TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=720 720w,
+             https://wbt01.imgix.net/.../TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=960 960w,
+             https://wbt01.imgix.net/.../TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=1280 1280w"
+     sizes="(min-width: 992px) 60vw, 100vw"
+     alt="" loading="lazy" decoding="async"&gt;</pre>
+
+<h3>Pattern B — DPR srcset (1x / 2x) <span class="tag dpr">fixed</span></h3>
+<p>Used for tiles whose CSS pixel size is constant — mega-menu thumbnails (~80px), bulk-order grid swatches, gender tiles. <code>sizes</code> attribute is omitted.</p>
+<pre>&lt;img src="images/products/quarter-zip-navy-white.jpg"
+     srcset="https://wbt01.imgix.net/.../SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=200 1x,
+             https://wbt01.imgix.net/.../SW225M_Product_Navy_White_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400 2x"
+     alt="" loading="lazy"&gt;</pre>
+
+<h3>Pattern C — Single URL <span class="tag dpr">fixed</span></h3>
+<p>Used where srcset can't go: <code>&lt;video poster=...&gt;</code>, <code>data-hover-images</code> (loaded once on hover), <code>data-image-alt</code> on clearance cards (variant preview swap).</p>
+<pre>&lt;video poster="https://wbt01.imgix.net/.../Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=1:1&w=1024" ...&gt;</pre>
+
+<h2 id="crop">4. Crop modes</h2>
+<table>
+  <thead><tr><th>Crop</th><th>When to use</th><th>Setup</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><span class="tag faces">faces</span></td>
+      <td>Any image with people. Imgix's face detector finds faces and biases the crop to keep them in frame. Works on single models, group shots, off-centre subjects.</td>
+      <td>Auto. Just pass <code>crop=faces</code>.</td>
+    </tr>
+    <tr>
+      <td><span class="tag entropy">entropy</span></td>
+      <td>Flat product photos (no people), bundle/pack composites, anything on a plain studio background. Picks the high-contrast region — the garment.</td>
+      <td>Auto. Pass <code>crop=entropy</code>.</td>
+    </tr>
+    <tr>
+      <td><span class="tag warn">focalpoint</span></td>
+      <td>Manual override when faces / entropy both miss. Pass coordinates as 0..1 floats. Not currently used; reserve as a fallback.</td>
+      <td><code>crop=focalpoint&amp;fp-x=0.5&amp;fp-y=0.3</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="compare">
+  <figure>
+    <img src="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=720" alt="">
+    <figcaption><strong>crop=faces</strong> — both faces preserved when cropping a portrait to 8:3 wide.</figcaption>
+  </figure>
+  <figure>
+    <img src="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Product_Black_Red_01.jpg?auto=format,compress&fit=crop&crop=entropy&w=400" alt="">
+    <figcaption><strong>crop=entropy</strong> — flat product photo, garment stays centered.</figcaption>
+  </figure>
+</div>
+
+<h2 id="ar">5. <code>ar=</code> aspect ratio — the gotcha that almost shipped</h2>
+<div class="callout warn">
+  <strong>If you only specify <code>w=</code>:</strong> Imgix returns the image at the source aspect (most lifestyle shots are 2:3 portrait). The browser then does <code>object-fit: cover</code> centred-vertical to fit a wide banner — clipping the model's head off. Face detection only positions <em>inside</em> imgix's output; it doesn't help once <code>object-fit</code> takes over.
+</div>
+<div class="callout good">
+  <strong>The fix:</strong> Pass <code>ar=W:H</code> matching the rendered banner's aspect. Imgix returns the image already cropped to that aspect, with <code>crop=faces</code> keeping faces in the visible band. Browser <code>object-fit: cover</code> becomes a no-op.
+</div>
+
+<table>
+  <thead><tr><th>Section</th><th>Container aspect</th><th><code>ar=</code></th></tr></thead>
+  <tbody>
+    <tr><td>Hero video poster</td><td>~525×560 desktop (square-ish)</td><td><code>1:1</code></td></tr>
+    <tr><td>Banner rotator slides</td><td>~723×272 desktop (very wide)</td><td><code>8:3</code></td></tr>
+    <tr><td>Tertiary / Quaternary cards</td><td>~361×272 desktop</td><td><code>4:3</code></td></tr>
+    <tr><td>Featured banner image</td><td>50% × min-height 400</td><td><code>3:2</code></td></tr>
+    <tr><td>Shop-by-Gender tiles</td><td>4:5 desktop (portrait)</td><td>none — source aspect already close enough</td></tr>
+    <tr><td>Mega-menu thumbs</td><td>~80px square</td><td>none — small enough that <code>object-fit: cover</code> is fine</td></tr>
+    <tr><td>Product cards</td><td>1:1 (square)</td><td>none — product photos already fill the frame</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="section-hero">6. Hero — video with poster</h2>
+<div class="kv">
+  <div>Component</div><div><code>.banner-card--main</code> &gt; <code>&lt;video poster=&gt;</code> at <code>index.html:445</code></div>
+  <div>Source asset</div><div><code>L513LT/Talent_Group_Flex_01_R.jpg</code></div>
+  <div>Pattern</div><div>Single URL — <code>&lt;video poster=&gt;</code> doesn't accept srcset</div>
+  <div>Crop</div><div><span class="tag faces">faces</span> — group of women, multiple faces</div>
+  <div>Aspect</div><div><span class="tag ar">ar=1:1</span></div>
+</div>
+<pre>&lt;video class="banner-card__video" autoplay muted loop playsinline preload="metadata"
+       poster="https://wbt01.imgix.net/test01/09%20Activewear/L513LT/Talent_Group_Flex_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=1:1&w=1024"&gt;
+  &lt;source src="images/activwear.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</pre>
+
+<h2 id="section-rotator">7. Banner rotator (4 slides)</h2>
+<div class="kv">
+  <div>Component</div><div><code>.banner-card--rotator</code> &gt; <code>.banner-card__slide</code> ×4 at <code>index.html:456,464,472,480</code></div>
+  <div>Pattern</div><div>Width-described srcset</div>
+  <div>Width ladder</div><div><code>360 / 540 / 720 / 960 / 1280</code></div>
+  <div>sizes</div><div><code>(min-width: 992px) 60vw, 100vw</code></div>
+  <div>Crop</div><div><span class="tag faces">faces</span> + <span class="tag ar">ar=8:3</span></div>
+</div>
+<div class="thumb-strip">
+  <img src="https://wbt01.imgix.net/test01/09%20Activewear/TP409M/TP409M_Talent_Black_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
+  <img src="https://wbt01.imgix.net/test01/09%20Activewear/SW225M/SW225M_Talent_Navy_White_03_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
+  <img src="https://wbt01.imgix.net/test01/J3150/J3150_Talent_Navy_White_01_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
+  <img src="https://wbt01.imgix.net/test01/09%20Activewear/L323LT/L323LT_Talent_Black_02_R.jpg?auto=format,compress&fit=crop&crop=faces&ar=8:3&w=160" alt="" style="width:160px">
+</div>
+<p class="dim">Each rotator slide pulls from a different SKU's talent shot. <code>ar=8:3</code> keeps wide framing, <code>crop=faces</code> keeps the model's face on screen.</p>
+
+<h2 id="section-tert">8. Tertiary / Quaternary corner cards</h2>
+<div class="kv">
+  <div>Component</div><div><code>.banner-card--tertiary</code> at <code>:492</code>, <code>.banner-card--quaternary</code> at <code>:500</code></div>
+  <div>Pattern</div><div>Width-described srcset</div>
+  <div>Width ladder</div><div><code>320 / 480 / 640 / 800</code></div>
+  <div>sizes</div><div><code>(min-width: 992px) 30vw, 100vw</code></div>
+  <div>Crop</div><div><span class="tag faces">faces</span> + <span class="tag ar">ar=4:3</span></div>
+</div>
+
+<h2 id="section-featured">9. Featured collection banner</h2>
+<div class="kv">
+  <div>Component</div><div><code>.featured-banner__image</code> &gt; <code>&lt;img&gt;</code> at <code>:927</code></div>
+  <div>Pattern</div><div>Width-described srcset</div>
+  <div>Width ladder</div><div><code>480 / 720 / 960 / 1280</code></div>
+  <div>sizes</div><div><code>(min-width: 768px) 50vw, 100vw</code></div>
+  <div>Crop</div><div><span class="tag faces">faces</span> + <span class="tag ar">ar=3:2</span></div>
+</div>
+
+<h2 id="section-shopcat">10. Shop-by-Gender tiles (homepage 3-col)</h2>
+<div class="kv">
+  <div>Component</div><div><code>.shop-cat-card</code> ×3 at <code>:519, :528, :537</code></div>
+  <div>Container aspect</div><div>4:5 desktop, 16:10 mobile</div>
+  <div>Pattern</div><div>Width-described srcset</div>
+  <div>Width ladder</div><div><code>320 / 480 / 640 / 800 / 960</code></div>
+  <div>sizes</div><div><code>(min-width: 992px) 33vw, 100vw</code></div>
+  <div>Crop</div><div><span class="tag faces">faces</span> — no <code>ar=</code> needed (source already roughly portrait, browser <code>object-fit</code> handles the small mismatch on mobile)</div>
+</div>
+
+<h2 id="section-megamenu">11. Mega-menu navigation tiles</h2>
+<div class="kv">
+  <div>Component</div><div>Gender tiles (3) + Category-tab thumbs (~40) at <code>index.html:108–437</code></div>
+  <div>Pattern</div><div>DPR srcset (1x/2x)</div>
+  <div>Width ladder</div><div><code>200 1x, 400 2x</code></div>
+  <div>Crop</div><div><span class="tag faces">faces</span> for talent, <span class="tag entropy">entropy</span> for product photos</div>
+  <div>sizes</div><div>none (fixed-size tiles)</div>
+</div>
+<p class="dim">Mega-menu thumbs are tiny (~80px square in CSS), so we serve <code>w=200</code> for 1x displays and <code>w=400</code> for 2x. Each thumb downloads in 4–10 KB.</p>
+
+<h2 id="section-products">12. Product cards</h2>
+<div class="kv">
+  <div>Component</div><div><code>.product-card__image-wrap img</code> across "Best Sellers", "New Arrivals", "Customise", "Quickview", "Clearance" sections</div>
+  <div>Pattern</div><div>Width-described srcset</div>
+  <div>Width ladder</div><div><code>240 / 360 / 480 / 640</code></div>
+  <div>sizes</div><div><code>(min-width: 1024px) 25vw, (min-width: 600px) 33vw, 50vw</code></div>
+  <div>Crop</div><div><span class="tag entropy">entropy</span> — flat product photos, garment in centre</div>
+</div>
+<p class="dim">Product cards render at ~25% viewport on desktop (4 per row), 33% on tablet (3 per row), 50% on mobile (2 per row). The <code>sizes</code> attribute tells the browser exactly that.</p>
+
+<h2 id="section-bundles">13. Bundle / pack cards</h2>
+<div class="kv">
+  <div>Component</div><div><code>.bundle-card</code>, <code>.pack-card</code> at <code>:716–908</code></div>
+  <div>Pattern</div><div>Width-described srcset</div>
+  <div>Width ladder</div><div><code>320 / 480 / 640 / 800</code></div>
+  <div>sizes</div><div><code>(min-width: 992px) 33vw, (min-width: 600px) 50vw, 100vw</code></div>
+  <div>Crop</div><div><span class="tag entropy">entropy</span> — composites with no faces; orange disc background already centred</div>
+  <div>Note</div><div>Source assets are 1.5–1.9 MB AI-generated PNGs. <code>auto=format,compress</code> brings them down to ~30–50 KB AVIF — biggest single win on the page.</div>
+</div>
+<div class="thumb-strip">
+  <img src="https://wbt01.imgix.net/test01/bundles/ai-bundle-print-tee-fb.png?auto=format,compress&fit=crop&crop=entropy&w=200" alt="">
+  <img src="https://wbt01.imgix.net/test01/bundles/ai-bundle-print-hoodie-fb.png?auto=format,compress&fit=crop&crop=entropy&w=200" alt="">
+  <img src="https://wbt01.imgix.net/test01/bundles/ai-bundle-print-polo-fb.png?auto=format,compress&fit=crop&crop=entropy&w=200" alt="">
+  <img src="https://wbt01.imgix.net/test01/bundles/ai-pack-hivis-3.png?auto=format,compress&fit=crop&crop=entropy&w=200" alt="">
+  <img src="https://wbt01.imgix.net/test01/bundles/ai-pack-shorts-twin.png?auto=format,compress&fit=crop&crop=entropy&w=200" alt="">
+</div>
+
+<h2 id="section-hover">14. Hover-rotation (data-hover-images)</h2>
+<p>Bundle and pack cards swap their composite image for individual product photos as the mouse moves across the card. The list of swap-target URLs lives in a <code>data-hover-images</code> attribute. <strong>Important:</strong> the separator is <code>|</code>, not <code>,</code> — because imgix URLs themselves contain <code>auto=format,compress</code>, splitting on comma would fragment URLs.</p>
+<pre>&lt;a class="bundle-card"
+   data-hover-images="https://wbt01.imgix.net/.../A.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 |
+                      https://wbt01.imgix.net/.../B.jpg?auto=format,compress&fit=crop&crop=entropy&w=480 |
+                      https://wbt01.imgix.net/.../C.jpg?auto=format,compress&fit=crop&crop=entropy&w=480"&gt;</pre>
+<p>The split is in <code>js/main.js</code>:</p>
+<pre>const hoverList = card.dataset.hoverImages.split('|').map(s =&gt; s.trim()).filter(Boolean);</pre>
+
+<h2 id="bandwidth">15. Bandwidth wins (measured on Chrome desktop @ 1440×900)</h2>
+<table>
+  <thead><tr><th>Asset</th><th>v4 size (local JPEG/PNG)</th><th>v5 size (imgix AVIF)</th><th>Saving</th></tr></thead>
+  <tbody>
+    <tr><td>Hero video poster</td><td>~300 KB</td><td>23 KB</td><td><span class="savings">−92%</span></td></tr>
+    <tr><td>Rotator slide @ 960w</td><td>~600–1200 KB</td><td>32–124 KB</td><td><span class="savings">−85 to −95%</span></td></tr>
+    <tr><td>Tertiary banner @ 480w</td><td>~300–500 KB</td><td>8–29 KB</td><td><span class="savings">−94 to −97%</span></td></tr>
+    <tr><td>Mega-menu thumb @ 200w/400w</td><td>~50–200 KB</td><td>4–10 KB</td><td><span class="savings">−92 to −95%</span></td></tr>
+    <tr><td>Bundle composite @ 480w</td><td>1.5–1.9 MB</td><td>31–49 KB</td><td><span class="savings">−97 to −98%</span></td></tr>
+    <tr><td>Product card @ 480w</td><td>~150–400 KB</td><td>~10–40 KB</td><td><span class="savings">−85 to −93%</span></td></tr>
+  </tbody>
+</table>
+
+<h2 id="operational">16. Operational notes</h2>
+
+<h3>Adding a new image</h3>
+<ol>
+  <li>Upload the source file to R2 under one of the three prefixes (§2). Test with <code>curl -I https://wbt01.imgix.net/{key}?w=200</code> — should return <code>200</code>.</li>
+  <li>Pick the right pattern (§3) based on whether the rendered size is fluid or fixed.</li>
+  <li>Pick the right crop (§4) — <code>faces</code> for people, <code>entropy</code> for products.</li>
+  <li>Pick <code>ar=</code> (§5) only if the rendered container has a wide-or-tall aspect that doesn't match the source.</li>
+  <li>Always include <code>auto=format,compress</code>.</li>
+  <li>Keep the local file as <code>src=</code> fallback.</li>
+</ol>
+
+<h3>The migration script</h3>
+<p><code>designs/03-hyper.v5/scripts/imgix_migrate.py</code> is the re-runnable preprocessor that does the bulk of the rewriting. It detects the section by line range and applies the right pattern. Idempotent for <code>&lt;img&gt;</code> tags (skips ones with <code>srcset</code> already).</p>
+
+<h3>Imgix billing model</h3>
+<p>Each unique URL is one origin pull (then cached at the CDN edge indefinitely). Width-ladder + section count = ~600 unique variants for v5. After first hit each is served from edge cache. Free tier is 1000 origin images / 100GB bandwidth per month — we're nowhere near that.</p>
+
+<h3>When face detection misses</h3>
+<p>Imgix's face detector occasionally misses on group shots, profile shots, or low-contrast lighting. Symptom: face is off-screen even with <code>crop=faces&amp;ar=…</code>. Fix: switch that one URL to <code>crop=focalpoint&amp;fp-x=0.5&amp;fp-y=0.3</code> (upper-third). Currently no images need this, but reserve the pattern.</p>
+
+<h3>v5 file inventory</h3>
+<div class="kv">
+  <div>Markup</div><div><code>designs/03-hyper.v5/index.html</code></div>
+  <div>Styles</div><div><code>designs/03-hyper.v5/css/styles.css</code> — <code>.banner-card__image</code>, <code>.featured-banner__image img</code></div>
+  <div>JS</div><div><code>designs/03-hyper.v5/js/main.js</code> — line 578 split on <code>|</code></div>
+  <div>Migrator</div><div><code>designs/03-hyper.v5/scripts/imgix_migrate.py</code></div>
+  <div>Live URL</div><div><a href="https://orendav.github.io/dev.oren.d15/designs/03-hyper.v5/">orendav.github.io/dev.oren.d15/designs/03-hyper.v5/</a></div>
+</div>
+
+<hr>
+<p class="dim">Last updated 2026-04-27. Contact Oren for questions or to add brands beyond Biz Collection.</p>
+
+</div>
+</body>
+</html>
