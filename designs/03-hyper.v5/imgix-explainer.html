@@ -235,17 +235,19 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 </div>
 
 <table>
-  <thead><tr><th>Section</th><th>Container aspect</th><th><code>ar=</code></th></tr></thead>
+  <thead><tr><th>Section</th><th>Container aspect (rendered)</th><th><code>ar=</code></th></tr></thead>
   <tbody>
     <tr><td>Hero video poster</td><td>~525×560 desktop (square-ish)</td><td><code>1:1</code></td></tr>
     <tr><td>Banner rotator slides</td><td>~723×272 desktop (very wide)</td><td><code>8:3</code></td></tr>
     <tr><td>Tertiary / Quaternary cards</td><td>~361×272 desktop</td><td><code>4:3</code></td></tr>
     <tr><td>Featured banner image</td><td>50% × min-height 400</td><td><code>3:2</code></td></tr>
-    <tr><td>Shop-by-Gender tiles</td><td>4:5 desktop (portrait)</td><td>none — source aspect already close enough</td></tr>
-    <tr><td>Mega-menu thumbs</td><td>~80px square</td><td>none — small enough that <code>object-fit: cover</code> is fine</td></tr>
-    <tr><td>Product cards</td><td>1:1 (square)</td><td>none — product photos already fill the frame</td></tr>
+    <tr><td>Mega-menu Gender tiles</td><td>~397×200 (about 2:1)</td><td><code>2:1</code></td></tr>
+    <tr><td>Mega-menu Category / Industry thumbs</td><td>roughly square</td><td><code>1:1</code></td></tr>
+    <tr><td>Shop-by-Category homepage tiles</td><td>4:5 desktop, 16:10 mobile</td><td><code>4:5</code></td></tr>
+    <tr><td>Product cards</td><td>1:1 (square)</td><td>none — product photos already fill the frame, <code>crop=entropy</code> handles centring</td></tr>
   </tbody>
 </table>
+<p class="dim">Rule of thumb: any container that's a different aspect from the source's 2:3 portrait needs an <code>ar=</code> matching the container — otherwise the browser's <code>object-fit: cover</code> trims through the wrong axis and clips heads.</p>
 
 <hr>
 
@@ -307,14 +309,21 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 </div>
 
 <h2 id="section-megamenu">11. Mega-menu navigation tiles</h2>
+<p>Three sub-types in this section, all driven by the same <code>.mega-menu--tabs</code> JS hover handler in <code>js/main.js:110</code>:</p>
+<ul>
+  <li><strong>Shop By Gender</strong> — 3 large tiles (Men/Women/Kids), aspect ~2:1, <code>ar=2:1</code>.</li>
+  <li><strong>Shop By Category</strong> — sidebar tabs (Tops/Bottoms/Outerwear/Accessories/Hi-Vis/Services/All) swap content panels of ~6 small tiles each, <code>ar=1:1</code>.</li>
+  <li><strong>Shop By Industry</strong> — same sidebar-tabs pattern as Category. 8 industries × 6 sub-categories. <code>ar=1:1</code>.</li>
+</ul>
 <div class="kv">
-  <div>Component</div><div>Gender tiles (3) + Category-tab thumbs (~40) at <code>index.html:108–437</code></div>
+  <div>Component</div><div>Gender tiles + Category sidebar tabs + Industry sidebar tabs at <code>index.html:108–437</code></div>
   <div>Pattern</div><div>DPR srcset (1x/2x)</div>
   <div>Width ladder</div><div><code>200 1x, 400 2x</code></div>
   <div>Crop</div><div><span class="tag faces">faces</span> for talent, <span class="tag entropy">entropy</span> for product photos</div>
   <div>sizes</div><div>none (fixed-size tiles)</div>
+  <div>Tab-swap markup</div><div>Wrap with <code>mega-menu mega-menu--style-b mega-menu--tabs</code>; sidebar links carry <code>data-cat="slug"</code>; one <code>mega-menu__panel mega-menu__content</code> per slug, with <code>active</code> class on the default-shown panel.</div>
 </div>
-<p class="dim">Mega-menu thumbs are tiny (~80px square in CSS), so we serve <code>w=200</code> for 1x displays and <code>w=400</code> for 2x. Each thumb downloads in 4–10 KB.</p>
+<p class="dim">Each thumb downloads in 4–10 KB.</p>
 
 <h2 id="section-products">12. Product cards</h2>
 <div class="kv">
